@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>pc客户界面—询盘管理</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../plugins/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../plugins/font-awesome/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../admin/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="../../plugins/alert/css/alert.css" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/fenye.css"/>
+
+		<style type="text/css">
+			.pageul>li {
+				width: 30px;
+				height: 30px;
+				border: 1px solid #CCCCCC;
+				text-align: center;
+				line-height: 27px;
+				cursor: pointer;
+				float: left;
+				border-right-width: 0;
+			}
+			
+			.pageul>li:last-child {
+				border-right-width: 1px;
+			}
+			
+			.pagecolor {
+				background-color: #337ab7;
+				color: white;
+			}
+			
+			.not-click {
+				cursor: not-allowed !important;
+				background-color: indianred;
+				color: white;
+			}
+			
+			tr.zhuangtaicolor,
+			tr.zhuangtaicolor+tr {
+				background-color: #6a6a79 !important;
+				color: white;
+			}
+			
+			.chawei {
+				color: red;
+				cursor: pointer;
+			}
+			
+			.chawei:hover {
+				text-decoration: underline;
+			}
+			
+			.ulg {
+				top: 32px;
+				margin: 0;
+				padding: 0;
+				position: absolute;
+				width: 97%;
+				min-width: 200px;
+				border-radius: 5px;
+				/*background-color: #d4d9dc;*/
+				display: none;
+				border: 1px solid #CCCCCC;
+				z-index: 100;
+			}
+			
+			.ulg>li:nth-child(2n+1) {
+				background-color: whitesmoke;
+			}
+			
+			.ulg>li:nth-child(2n) {
+				background-color: gainsboro;
+			}
+			
+			.ulg>li {
+				padding: 5px 5px;
+				cursor: pointer;
+			}
+			
+			.ulg>li:hover {
+				background-color: skyblue;
+			}
+			
+			.ulshow {
+				display: block;
+			}
+			
+			.litai {
+				background-color: skyblue !important;
+			}
+			/*模糊查询*/
+			
+			.licode {
+				margin-right: 8px;
+			}
+			
+			
+			.liang{
+				margin-right: 40px;
+			}
+			.jia20gp,.jia40gp,.jia40hq,.jia45hc{
+				margin-right: 20px;
+				display: inline-block;
+				width: 60px;
+				text-align: center;
+			}
+			span.bao20gp,span.bao40gp,span.bao40hq,span.bao45hc{
+				width: 60px;
+				margin-right: 50px;
+				text-align: center;
+			}
+			
+			.myform-group  .form-group{
+				margin-left: 0 !important;
+				margin-right: 0 !important;
+			}
+			
+			.myform-group  .form-group label{
+				padding: 0 !important;
+			}
+			th[rowspan='2']>span {
+			    margin-top: -58px;
+			    display: block;
+			}
+			@media only screen and (max-width:1440px ) {
+					th[rowspan='2']>span {
+				    margin-top: -80px;
+				    display: block;
+				}
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="myquxiao">
+			
+		</div>
+		<div class="qxqd">
+			<div class="qxqdson">Are you sure to cancel?<br>确定取消吗？</div>
+			<div class="text-center">
+				<button class="btn btn-sm btn-primary qxbtn" style="margin-right: 40px;">YES(确定)</button>
+				<button class="btn btn-sm btn-info myqx">NO(取消)</button>
+			</div>
+			
+		</div>
+		
+		
+		
+		<div class="swap">
+
+		</div>
+		<div class="notice success">
+			<img src="../../plugins/alert/img/success.png">
+			<h3></h3>
+			<a class="succesque"><span>OK</span></a>
+		</div>
+		<div class="notice error">
+			<img src="../../plugins/alert/img/error.png">
+			<h3></h3>
+			<p></p>
+			<a class="errorque"><span>确定</span></a>
+		</div>
+
+		<div class='header'>
+			<div class='logo'></div>
+			<nav class='navbar navheader'>
+				<div class="pull-left clickbtn"> <button class="btn btn-primary "> <i class="fa fa-bars"></i> </button> </div>
+				<div class="pull-left clickuse dropdown">
+					<span  class="dropdown-toggle" data-toggle="dropdown" style="display: block;width: 100%;height: 100%;">
+						<i class="fa fa-user"></i> <span class="username"></span>
+					</span>
+					<ul class="dropdown-menu" id="usexin">
+						<li class="text-center" style="line-height: 35px;background-color: #309067;color: white;">
+							用户信息
+						</li>
+	                     <li>
+	                     	<ul class="geuse clearfix">
+	                     		<li class="useleft">用户名:</li>
+	                     		<li class="useright usname"></li>
+	                     	</ul >
+	                     </li>
+	                    <li>
+	                    	<ul class="geuse clearfix">
+	                     		<li class="useleft">公司名:</li>
+	                     		<li class="useright uscompany"></li>
+	                     	</ul>
+	                    </li>
+	                    <li>
+	                    	<ul class="geuse clearfix">
+	                     		<li class="useleft">邮箱:</li>
+	                     		<li class="useright usemail"></li>
+	                     	</ul>
+	                    </li>
+	                    <li>
+	                    	<ul class="geuse clearfix">
+	                     		<li class="useleft">电话号码:</li>
+	                     		<li class="useright usmob"></li>
+	                     	</ul>
+	                    </li>
+	                    
+	                </ul>
+				</div>
+				<div class="pull-left  clickupdate" data-toggle="modal" data-target="#myModalxm">
+					<i class="fa fa-unlock-alt"></i> <span>修改密码</span>
+				</div>
+				<ul class="nav navbar-nav navbar-left clickul" >
+					<li>
+						<a  class="tuideng" style="cursor: pointer;">
+							<i class="fa fa-sign-out"></i> <span style="">退出登录</span>
+						</a>
+						
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class='conspage'>
+			<div class='conspageson'>
+				<ol class="breadcrumb">
+					<li>
+						<a href="#">询盘管理</a>
+					</li>
+					<li class="active">询盘管理</li>
+				</ol>
+			</div>
+		</div>
+		<div class='seider-after'>
+			<div class="scroll">
+				<aside class='seider'>
+
+					<div class="panel-group" id="accordion">
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+								<a href="pc_customer.html">
+									<span class='tu'><i class="fa fa-random"></i></span> &nbsp;&nbsp;
+									<span class='zi'>运价查询</span>
+								</a>
+
+							</div>
+						</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo" class="active">
+									<span class='tu'><i class="fa fa-files-o"></i></span> &nbsp;&nbsp;
+									<span class='zi'>询盘管理</span>
+
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapseTwo" class="panel-collapse collapse in">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="pc_zjxunjia.html">直接询价</a>
+										</li>
+										<li>
+											<a href="pc_xunpan.html">询盘管理</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapseThree" >
+									<span class='tu'><i class="fa fa-book"></i></span> &nbsp;&nbsp;
+									<span class='zi'>物流可视化</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapseThree" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="pc_wuliu.html">全程物流跟踪</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						
+
+					</div>
+				</aside>
+			</div>
+		</div>
+
+		<div class='content'>
+
+			<div style="padding: 15px;">
+				<div class='contzong'>
+					<div class="contson1 clearfix">
+
+						<form class="form-horizontal myform-group" role="form" >
+							<div class="container-fluid ">
+								<div class="form-group form-group-sm col-sm-3" >
+									<label class="col-sm-4 control-label" >起运港:<br>Port Of Loading:</label>
+									<div class="col-sm-8">
+										<!--<input type="text" class="form-control" name="qyg" value="CNNGB">
+								<ul class="ulg">
+
+								</ul>-->
+										<select class="form-control" name="qyg">
+											<option>NINGBO</option>
+											<option>LAEM CHABANG</option>
+											<option>BANGKOK</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group form-group-sm col-sm-4" >
+									<label class="col-sm-4 control-label" >报价状态:<br>Quotation status:</label>
+									<div class="col-sm-8">
+										<select class="form-control" name="baotai">
+											<option>全部 All</option>
+											<option>已报价 Has been quoted</option>
+											<option>未报价 Not quoted</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group form-group-sm col-sm-4" >
+									<label class="col-sm-4 control-label">开始时间:<br>start time:</label>
+									<div class="col-sm-8">
+										<input type="date" class="form-control" name='strattime'>
+									</div>
+								</div>
+
+								<div class="form-group form-group-sm col-sm-1 " >
+
+									<button type="submit" class="btn btn-primary btn-sm sousuo" style="width: 70px;">Search</button>
+
+								</div>
+							</div>
+
+							<div class="container-fluid">
+								<div class="form-group form-group-sm col-sm-3">
+									<label class="col-sm-4 control-label">目的港:<br>Final Destinatton:</label>
+									<div class="col-sm-8 btn-group">
+										<span class="caret mycreat"></span><input type="text" class="form-control dropdown-toggle" data-toggle="dropdown" name="mdg"  readonly >
+										<div class="dropdown-menu mydrop" role="menu" style="width: 300px;margin-left: 13px;">
+									
+											<input class="form-control souinput" placeholder="search..."/>
+											<ul class="ulgang">
+												
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="form-group form-group-sm col-sm-4">
+									<label class="col-sm-4 control-label ">询价状态:<br>Enquiry status:</label>
+									<div class="col-sm-8">
+										<select class="form-control" name='xuntai'>
+									
+											<option>当前询盘 Current inquiry</option>
+											<option>已确认方案 Confirmed plan</option>
+											<option>已取消 Cancelled</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group form-group-sm col-sm-4">
+									<label class="col-sm-4 control-label" style="padding-left: 0;padding-right: 0;">结束时间:<br>End time:</label>
+									<div class="col-sm-8">
+										<input type="date" class="form-control" name="endtime">
+									</div>
+								</div>
+
+								<div class="form-group form-group-sm col-sm-1 " >
+
+									<button type="reset" class="btn btn-primary btn-sm" style="width: 70px;">Reset</button>
+
+								</div>
+							</div>
+
+						</form>
+
+					</div>
+					<div class="contson2">
+						<a href="">共有 <span class="zongpan"></span> 个询盘</a>
+					</div>
+					<div class="contson3">
+						<table class="table table-bordered tablecenter tablestrd tablexunpan">
+							<thead>
+								<tr>
+									<th rowspan="2" ><span>序号<br>Serial number</span></th>
+									<th class="text-center">起运港<br>Port Of Loading</th>
+									<th class="text-center">目的港<br>Final Destinatton</th>
+									<th colspan="4" class="text-center">箱型箱量<br> Box quantity</th>
+									<th class="text-center">报价状态<br>Quotation status</th>
+									<th class="text-center">询价时间<br>Inquiry time</th>
+									<th rowspan="2">
+										<span>操作<br>operation</span>
+									</th>
+								</tr>
+								<tr>
+									<th class="text-center">船公司<br>Suipping Line</th>
+									<th class="text-center">预计出货时间<br>Estimated time of shipment</th>
+									<th class="text-center">20GP</th>
+									<th class="text-center">40GP</th>
+									<th class="text-center">40HQ</th>
+									<th class="text-center">45HC</th>
+									<th class="text-center">询价状态<br>Enquiry status</th>
+									<th class="text-center">备注<br>Remarks</th>
+								</tr>
+							</thead>
+							<tbody>
+								
+							</tbody>
+						</table>
+						<div class='biaofooter clearfix'>
+							<div class=" pull-left footerulleft">
+								<div class="form-inline" role="form">
+									<div class="form-group form-group-sm">
+										每页显示:
+										<select class="form-control pagetiao" name="yeshu">
+											<option>5</option>
+											<option>10</option>
+											<option>25</option>
+											<option>50</option>
+
+										</select>
+										条，总共 <span class="pagezong"></span> 页
+									</div>
+
+								</div>
+
+							</div>
+							<div class="tcdPageCode pull-right" style="margin-top: -10px;"></div>
+							
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- 查看页面 未订舱 -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header" style="background-color: #337ab7;color: white;">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title text-center">Logistics solutions(Unconfirmed program)<br>物流方案（未确认方案）</h4>
+					</div>
+					<div class="modal-body">
+						<div id="myTabContent" class="tab-content">
+							<div class="tab-pane fade in active" id="home">
+								<div class="mylable">
+									<br />
+									<label>Inquiry number(询价编号)：</label> <span class="xunbian"></span>
+									<br />
+									<br />
+									<label>Logistics program number(物流方案编号)：</label> <span class="wubian"></span>
+									<br />
+									<br />
+									<label>Reply to people(回复人)：</label> <span class="huiren"></span>
+									<label style="margin-left: 50px;">Reply to the phone(回复电话)：</label> <span class="huidian"></span>
+									<!--<br />
+									<br />
+									<label>Reply to business(回复企业)：</label> <span class="whfqy"></span>-->
+									<br />
+									<br />
+									<label>Response Time(回复时间)：</label> <span class="huitime"></span>
+									<br />
+									<br />
+									<div style="border: 1px solid #CCCCCC;padding: 10px 15px;border-radius: 10px;background-color: whitesmoke;">
+										<div>
+											<div style="float: left;width: 50%;">
+												<label>Port Of Loading(起运港)：</label> <span class="qiyun"></span>
+											</div>
+											<div style="float: left;width: 50%;">
+												<label>Final Destinatton(目的港)：</label> <span class="mudigang"></span>
+											</div>
+										</div>
+										<br />
+										<br />
+										<div>
+											<div style="float: left;width: 50%;">
+												<label>Suipping Line(船公司)：</label> <span class="chuansi"></span>
+											</div>
+											<div style="float: left;width: 50%;">
+												<label>Transit port(中转港)：</label> <span class="zzgang"></span>
+											</div>
+										</div>
+										<br />
+										<br />
+										<div>
+											<div style="float: left;width: 50%;">
+												<label>sail(开船) ：</label> <span class="kcri"></span>
+											</div>
+											<div style="float: left;width: 50%;">
+												<label>deadline(截关)：</label>  <span class="jieguan"></span>
+											</div>
+										</div>
+										<br />
+										<br />
+										<div >
+											<label>voyage(航程)：</label> <span class="hangcheng"></span>
+											
+										</div>
+									</div>	
+										<br />
+										
+										
+										
+										<div style="border: 1px solid #CCCCCC;padding: 10px 15px;border-radius: 10px;background-color: whitesmoke;">
+											<div >
+												<label>Box quantity(箱型箱量)：</label><span class="myxl"></span>
+											</div>
+											<br />
+											<div class="haiyunfei">
+												<label style="color: green;">shipping fee(海运费)：</label>
+												<span class="haibj" ></span>
+												
+											</div>
+											<br />
+											<label>Valid period(有效期)：</label> <span class="youxiao"></span>
+											<label style="margin-left: 30px;">To prepaid(到预付)：</label> <span class="daoyufu"></span>
+										</div>
+									<br />
+
+									<div class="feesbiao" style="border: 1px solid #CCCCCC;padding: 10px 15px;border-radius: 10px;background-color: whitesmoke;">
+
+									</div>
+									<br />
+									<div style="height: 2px; width: 100%;background-color: red;"></div>
+									<br />
+									<label>TOTAL:</label>
+									<br/>
+									<br />
+									<div class="mytot"></div>
+									<br />
+									<br id='beforebutton' />
+
+									
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+					<div class="modal-footer" style="text-align: center;">
+						<button id='quefang1' class="btn btn-sm btn-success " >Confirm this program(确认此方案)</button>
+						<button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">shut down(关闭)</button>
+
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+
+		<!-- 方案 -->
+		<div class="modal fade" id="myModalq" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header" style="background-color: #337ab7;color: white;">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title text-center">Logistics solutions (confirmed program)<br>物流方案（已确认方案）</h4>
+					</div>
+					<div class="modal-body">
+						<div class="mylable">
+							<br />
+							<label>Inquiry number(询价编号)：</label> <span class="qxunbian"></span>
+							<br />
+							<br />
+							<label>Logistics program number(物流方案编号)：</label> <span class="qwubian"></span>
+							<br />
+							<br />
+							<label>Reply to people(回复人)：</label> <span class="qhuiren" ></span>
+							<label style="margin-left: 50px;">Reply to the phone(回复电话)：</label> <span class="qhuidian"></span>
+							<!--<br />
+							<br />
+							<label>Reply to business(回复企业)：</label> <span class="yhfqy"></span>-->
+							<br />
+							<br />		
+							<label>Response Time(回复时间)：</label> <span class="qhuitime"></span>
+							<br />
+							<br />
+							<div class="text-center"><label style="font-size: 15px;">Order number(订单编号)：</label> <span style="font-size: 15px;" class="dingbian"></span></div>
+							<br />
+							<div style="border: 1px solid #CCCCCC;padding: 10px 15px;border-radius: 10px;background-color: whitesmoke;">
+
+								<div>
+									<div style="float: left;width: 50%;">
+										<label>Port Of Loading(起运港)：</label> <span class="qqiyun"></span>
+									</div>
+									<div style="float: left;width: 50%;">
+										<label>Final Destinatton(目的港)：</label> <span class="qmudigang"></span>
+									</div>
+								</div>
+								<br />
+								<br />
+								<div>
+									<div style="float: left;width: 50%;">
+										<label>Suipping Line(船公司)：</label> <span class="qchuansi"></span>
+									</div>
+									<div style="float: left;width: 50%;">
+										<label>Transit port(中转港)：</label> <span class="qzzgang"></span>
+									</div>
+								</div>
+								<br />
+								<br />
+								<div>
+									<div style="float: left;width: 50%;">
+										<label>sail(开船)：</label> <span class="qkcri"></span>
+									</div>
+									<div style="float: left;width: 50%;">
+										<label>deadline(截关)：</label>  <span class="qjieguan"></span>
+									</div>
+								</div>
+								<br />
+								<br />
+								<div >
+									<label>voyage(航程)：</label> <span class="qhangcheng"></span>
+									
+								</div>
+							</div>
+								<br />
+								<div style="border: 1px solid #CCCCCC;padding: 10px 15px;border-radius: 10px;background-color: whitesmoke;">
+								
+									<div >
+										<label>Box quantity(箱型箱量)：</label><span class="qmyxl"></span>
+									</div>
+									<br />
+									<div class="qhaiyunfei">
+										<label style="color: green;">shipping fee(海运费)：</label>
+										<span class="qhaibj" ></span>			
+									</div>
+									<br />
+									
+									<label>Valid period(有效期)：</label> <span class="qyouxiao"></span>
+									<label style="margin-left: 30px;">To prepaid(到预付)：</label> <span class="qdaoyufu"></span>
+							</div>
+							<br />
+
+							<div class="qfeesbiao" style="border: 1px solid #CCCCCC;padding: 10px 15px;border-radius: 10px;background-color: whitesmoke;">
+
+							</div>
+							<br />
+							<div style="height: 2px; width: 100%;background-color: red;"></div>
+							<br />
+							<label>TOTAL:</label>
+							<br/>
+							<br />
+							<div class="qmytot"></div>
+
+						</div>
+					</div>
+					<div class="modal-footer" style="text-align: center;">
+						<button type="button" class="btn btn-primary btn-sm " data-dismiss="modal">shut down(关闭)</button>
+
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal -->
+			</div>
+			</div>
+			
+			<!-- 警告 -->
+		<div class="modal fade" id="myModalxm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width: 350px;margin: 150px auto;">
+					
+					<div class="modal-body">
+						<div class="text-center"><i class="fa fa-exclamation-triangle" style="color: darkred;font-size: 35px;"></i></div>
+						<h2 class="text-center" style="color: orange;">确定修改密码吗？</h2>
+						<div class="text-center" style="margin-top: 30px;">
+							<button type="button" style="margin-right: 40px;" class="btn btn-default btn-sm" data-dismiss="modal">关闭</button>
+							<button type="button" class="btn btn-warning btn-sm" id='qxiuma'>确定</button>
+						</div>
+						
+
+					</div>
+					
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+			
+			<script src="../../plugins/jquery-2.1.4/jquery.min.js"></script>
+			<script src='../../plugins/bootstrap/js/bootstrap.min.js'></script>
+			<script type="text/javascript" src="../../plugins/jquery.slimscroll.js"></script>
+			<script src='../../fenye/js/jquery.page.js'></script>
+
+			<script>
+				$('.scroll').slimScroll({
+					height: '90%',
+
+				})
+			</script>
+			<!--用户信息-->
+			<script src="../../assets/js/user.js"></script>
+			<script src='../../admin/js/main.js'></script>
+			<script src="kehulogn.js"></script>
+			<!--退出登录-->
+       		 <script src="../../assets/js/tuichu.js"></script>
+			<script src="../../assets/js/mohucha.js"></script>
+
+			<script>
+			
+			//目的港
+			mohucha($('.souinput'))
+			$('[name="mdg"]').on('click',function(){
+				$('.souinput').val('');
+				$('.ulgang').empty();
+				var mythis=$(this)
+				setTimeout(function(){
+					mythis.next().children('.souinput').focus()
+				},50)
+				
+			})
+			
+			//取消
+			
+			function quxiao(){
+				$('.myquxiao').css('display','block')
+				$('.qxqd').css('display','block')
+			}
+			
+			function noqu(){
+				$('.myquxiao').css('display','none')
+				$('.qxqd').css('display','none')
+			}
+			$('.myqx').on('click',noqu)
+			
+			
+			
+				//分页效果
+				
+					//创建表格
+				function create(a, xuhao) {
+					var zhuang = '';
+					var baotai = '';
+					var xuntai = '';
+					var zhuangang = '';
+					var chuancarry='';//船公司
+					var qux='';
+						chuancarry=a.carryCode;
+						if(!chuancarry){chuancarry=''}
+					if(a.schemeStatus == 0) {
+						zhuang = '<span class="chakan" data-toggle="modal" data-target="#myModal" data-schemecode=' + a.schemeCode + ' data-mystatus=' + a.schemeStatus + ' data-enqurycode=' + a.enquiryCode + '>查看</span>';
+						baotai = '未确认方案 Unconfirmed program'
+						if(a.status != 2){
+							qux='<span class="quxiao" data-enqurycode=' + a.enquiryCode + ' data-mystatus=' + a.schemeStatus + '>取消</span>';
+						}							
+						//未订舱   未确认方案
+							//console.log(a.enquiryCode)
+					}
+					if(a.schemeStatus == 4) {
+
+						zhuang = '<span class="chawei" data-toggle="modal" data-target="#myModalq" data-schemecode=' + a.schemeCode + ' data-mystatus=' + a.schemeStatus + ' data-enqurycode=' + a.enquiryCode + '>查看</span>';
+						baotai = '已确认方案 Approved scheme'
+						
+						//已订舱   已确认方案
+							//console.log(a.enquiryCode)
+					}
+					if(a.schemeStatus == 5) {
+						
+						baotai = '未报价 Not quoted'
+						if(a.status != 2){
+							zhuang = '<span class="quxiao" data-enqurycode=' + a.enquiryCode + ' data-mystatus=' + a.schemeStatus + '>取消</span>';
+						}
+							//console.log(a.enquiryCode)
+					}
+					if(a.enquirybizStatus == 0) {
+						xuntai = '当前询盘 Current enquiry'
+					};
+					if(a.enquirybizStatus == 1) {
+						xuntai = '已询价 Already inquiry'
+					}
+					if(a.status == 2) {
+						xuntai = '已取消 Canceled'
+					}
+
+					var gp20 = null;
+					var gp40 = null;
+					var hq40 = null;
+					var hc45 = null;
+					gp20 = +(a.elements.num20gp);
+					gp40 = +(a.elements.num40gp);
+					hq40 = +(a.elements.num40hq);
+					hc45 = +(a.elements.num45hc);
+					if(!gp20) {
+						gp20 = '--'
+					};
+					if(!gp40) {
+						gp40 = '--'
+					};
+					if(!hq40) {
+						hq40 = '--'
+					};
+					if(!hc45) {
+						hc45 = '--'
+					};
+					var beizhu = null;
+					beizhu = a.elements.remark
+					if(!beizhu) {
+						beizhu = '--'
+					}
+
+					$('.tablexunpan>tbody').append(
+						'<tr><td rowspan="2">' +
+						xuhao +
+						'</td><td>' +
+						a.polName +
+						'</td><td>' +
+						a.podName +
+						'</td><td rowspan="2">' +
+						gp20 +
+						'</td><td rowspan="2">' +
+						gp40 +
+						'</td><td rowspan="2">' +
+						hq40 +
+						'</td><td rowspan="2">' +
+						hc45 +
+						'</td><td class="zhuangtai">' + baotai + '</td><td>' +
+						a.enquiryTime +
+						'</td><td rowspan="2" class="caozuo">' + zhuang +' '+qux+ '</td></tr><tr><td>' +
+						 chuancarry+
+						'</td><td>' +
+						a.expectTime +
+						'</td><td class="xuntai">' +
+						xuntai +
+						'</td><td>' +
+						beizhu +
+						'</td></tr>');
+
+				}
+
+				
+					
+				
+				
+				
+				
+				//获取询盘列表
+				
+				function getxunpan(page,currt){
+					$('.tablexunpan>tbody').empty()
+					var xuntai = $('[name="xuntai"]').val();
+					
+					if(xuntai == '当前询盘 Current inquiry') {
+						xuntai = 0
+					};
+					if(xuntai == '已确认方案 Confirmed plan') {
+						xuntai = 1
+					};
+					if(xuntai == '已取消 Cancelled') {
+						xuntai = 2
+					};
+					console.log(xuntai)
+					var baotai = $('[name="baotai"]').val();
+					if(baotai == '全部 All'){
+						baotai='';
+					}
+					if(baotai == '已报价 Has been quoted') {
+						baotai = '0,4'
+					};
+					if(baotai == '未报价 Not quoted') {
+						baotai = 5
+					};
+					
+					var qiyug=$('[name="qyg"]').val();
+						if(qiyug=='NINGBO'){
+							qiyug='CNNGB'
+						}
+						if(qiyug=='LAEM CHABANG'){
+							qiyug='THLCB'
+						}
+						if(qiyug=='BANGKOK'){
+							qiyug='THBKK'
+						}
+					//console.log(baotai)
+					var o = new Date().getTime();
+					$.ajax({
+						type: "post",
+						url: "http://106.14.251.28:8085/bizCenter/enquiryService/getEnquirys",
+						data: {
+							"accessToken": localStorage.getItem('accessToken'),
+							"msgId": o + '',
+							"isBackward": 1,
+							"enquiryStatus": xuntai,
+							"polCode":qiyug,
+							"podCode": $('[name="mdg"]').attr('data-code'),
+							"schemeStatus":baotai,
+							"enquiryTimeStart": $('[name="strattime"]').val(),
+							"enquiryTimeEnd":$('[name="endtime"]').val(),
+							"currentPage":page,
+							"pageSize":currt
+						},
+						async: true,
+						dataType: 'json',
+						success: function(data) {
+							console.log(data)
+							var num = data.num;
+							$('.pagezong').text(num)
+							if(+num != pagenum) {
+								pagenum = num;
+								$('.pagezong').text(pagenum)
+								creatfenye() //分页函数
+							}
+							$('.zongpan').text(num)
+							$('.tablexunpan>tbody').empty()	
+							var shu = data.enquirys;
+							for(var i = 0; i < shu.length; i++) {
+								create(shu[i], i + 1)
+							}	
+						},
+						error: function() {
+							console.log(2)
+						}
+					})
+					
+				}
+				//getxunpanzong()
+				
+					getxunpan(0,$('[name="yeshu"]').val())
+					
+				
+				
+				
+				//搜索
+					$('.sousuo').on('click', function(e) {
+					e.preventDefault()
+					
+						getxunpan(0,$('[name="yeshu"]').val())
+					})
+				
+				
+					//分页	
+					function dangqian(){
+						var dang=($(this).text()-1)*$('[name="yeshu"]').val();
+						var tiao=$('[name="yeshu"]').val()
+						getxunpan(dang,tiao)
+					}
+					function prevPage(){
+						var dang=($('.current').text()-1)*$('[name="yeshu"]').val()
+						var tiao=$('[name="yeshu"]').val()
+						getxunpan(dang,tiao)
+					}
+					
+					function nextPage(){
+						var dang=($('.current').text()-1)*$('[name="yeshu"]').val()
+						var tiao=$('[name="yeshu"]').val()
+						getxunpan(dang,tiao)
+					}
+					$(document).on('click','.tcdNumber',dangqian)
+					$(document).on('click','.prevPage',prevPage)
+					$(document).on('click','.nextPage',nextPage)
+					
+					$('[name="yeshu"]').on('change',function(){
+						
+								getxunpan(0,$('[name="yeshu"]').val())
+								creatfenye()
+								
+							
+					})
+					
+					var pagenum = 0;
+
+					function creatfenye(pagezong, pagedang) {
+						var yeshu = Math.ceil(pagenum / $('[name="yeshu"]').val())
+						$(".tcdPageCode").createPage({
+							pageCount: yeshu,
+							current: 1,
+							backFn: function(p) {
+								//console.log(p);
+							}
+						});
+					}
+
+				//取消
+
+				$(document).on('click', '.quxiao', function() {
+					quxiao();
+					var thisenqurycode = $(this).data('enqurycode')
+					var trthis = $(this)
+					
+					$('.qxbtn').on('click',function(){
+						var t = new Date().getTime();
+						$.ajax({
+							type: "post",
+							url: "http://106.14.251.28:8085/bizCenter/enquiryService/cancelEnquiry",
+							data: {
+								'accessToken': localStorage.getItem('accessToken'),
+								'msgId': t + '',
+								"enquiryCode": thisenqurycode,
+							},
+							async: true,
+							dataType: 'json',
+							success: function(data) {
+								//console.log(data)
+								if(data.retCode = '0000') {
+									//alert(data.enquiryCode)
+									//trthis.parents('tr').addClass('zhuangtaicolor')
+									noqu()
+									trthis.parents('tr').next().remove()
+									trthis.parents('tr').remove()
+									
+	
+								}
+							}
+	
+						})
+					})
+					
+					
+					
+
+				})
+
+				//查看未确认方案
+				var thisdata = null;
+				var thisenqury = null;
+				$(document).on('click', '.chakan', function() {
+					$('.mytot').empty()
+					var thisenqurycode = $(this).data('enqurycode')
+					var thsichmecode = $(this).data('schemecode')
+						//console.log(thsichmecode)
+						// console.log(thisdata)
+					$('#quefang1').attr('data-fangcode', this.dataset.enqurycode)
+					$('#quefang1').attr('data-schemcode', this.dataset.schemecode)
+					var thisstatus = $(this).data('mystatus')
+					
+					
+							$('.huiren').text('')
+							$('.huidian').text('')
+							$('.huitime').text('') //回复时间
+							$('.xunbian').text(''); //询价编号
+							$('.wubian').text(''); //物流编号
+							$('.wbjqy').text('')//报价企业名称
+							$('.qiyun').text('');
+							$('.mudigang').text('');
+							$('.chuansi').text('');
+							$('.zzgang').text('');
+							$('.hangcheng').text('');
+							$('.kcri').text('');
+							$('.jieguan').text('');
+							$('.youxiao').text(''); //有效期
+							$('.gaichming').text('');
+							$('.gaichi').text('')
+							$('.daoyufu').text('')
+							$('.myxl').empty();
+							$('.haibj').empty()
+							$('.feesbiao').empty();
+					
+					var t = new Date().getTime();
+					$.ajax({
+						type: "post",
+						url: "http://106.14.251.28:8085/bizCenter/schemeService/getSchemeInfo",
+						data: {
+							'accessToken': localStorage.getItem('accessToken'),
+							'msgId': t + '',
+							"schemeCode":thsichmecode ,
+							//"schemeCode": 'schemeUUID2',
+						},
+						async: true,
+						dataType: 'json',
+						success: function(data) {
+							console.log(data)
+
+							var a = data.schemes
+
+							
+
+							
+							var scode = a.schemeCode
+								//alert(scode)
+								//console.log(scode)
+							$('.huiren').text(a.replyName)
+							$('.huidian').text(a.replyMobileNo)
+							$('.huitime').text(a.replyTime) //回复时间
+							$('.xunbian').text(a.enquiryCode); //询价编号
+							$('.wubian').text(a.schemeCode); //物流编号
+							$('.wbjqy').text(a.supplierComanyName)//报价企业名称
+							$('.qiyun').text(a.polName);
+							$('.mudigang').text(a.podName);
+							$('.chuansi').text(a.carryCode);
+							$('.zzgang').text(a.potName);
+							$('.hangcheng').text(a.sailingDay);
+							$('.kcri').text(a.etd);
+							$('.jieguan').text(a.customsClearance);
+							$('.youxiao').text(a.expireDate); //有效期
+							$('.gaichming').text(a.vessel);
+							$('.gaichi').text(a.voyage)
+							
+							var rmbzong = 0;
+							var meizong = 0;
+							
+							
+							
+							if(a.num20gp>0){
+								$('.myxl').append('<span class="liang">20GP * <span class="liang20gp">'+a.num20gp+'</span></span>')
+							}
+							if(a.num40gp>0){
+								$('.myxl').append('<span class="liang">40GP * <span class="liang40gp">'+a.num40gp+'</span></span>')
+							}
+							if(a.num40hq>0){
+								$('.myxl').append('<span class="liang">40HQ * <span class="liang40hq">'+a.num40hq+'</span></span>')
+							}
+							if(a.num45hc>0){
+								$('.myxl').append('<span class="liang">45HC * <span class="liang45hc">'+a.num45hc+'</span></span>')
+							}
+							
+							
+							for(var i = 0; i < a.feesList.length; i++) {
+								var bizhong = null;
+								var c20gp = a.feesList[i].cost20gp;
+								var c40gp = a.feesList[i].cost40gp;
+								if(c20gp == undefined) {
+									c20gp = 0;
+								}
+								if(c40gp == undefined) {
+									c40gp = 0;
+								}
+								var jizong = (c20gp * a.num20gp) + (c40gp * a.num40gp)
+
+								if(a.feesList[i].currency == 0) {
+									bizhong = '￥';
+								};
+								if(a.feesList[i].currency == 1) {
+									bizhong = '$ ';
+								};
+								if(a.feesList[i].currency == 2) {
+									bizhong = 'B'
+								};
+
+								if(a.feesList[i].byOrder == 1) {
+										var dafu=''
+										if(a.feesList[i].prepaid==0){
+											dafu='到付'
+										}
+										if(a.feesList[i].prepaid==1){
+											dafu='预付'
+										}
+									$('.feesbiao').append('<label>' +
+										a.feesList[i].feeTypeEname+' ('+ a.feesList[i].feeTypeCname +')'+
+										': </label> <span>' + bizhong + ' ' + a.feesList[i].orderPrice + '</span><br><label style="margin-right: 10px;">到预付:</label><span>'+dafu+'</span></br><br />')
+								} else if(+a.feesList[i].feeTypeNum == 0) {
+									if(a.feesList[i].prepaid==0){
+											$('.daoyufu').text('到付')
+										}
+										if(a.feesList[i].prepaid==1){
+											$('.daoyufu').text('预付')
+										}
+									
+										$('.haibj').attr('data-currency',a.feesList[i].currency)
+										$('.haibj').attr('data-typenum',a.feesList[i].feeTypeNum)
+										$('.haibj').attr('data-focde',a.feesList[i].feeCode)
+										if(a.num20gp>0){
+											//$('.haicb').append('<span>'+bizhong+'</span> <span class="jia20gp">'+a.primeFeesLists[i].cost20gp+'</span>');
+											$('.haibj').append('<span>'+bizhong+'</span> <span class="bao20gp" >'+a.feesList[i].cost20gp+'</span>')
+										}
+										if(a.num40gp>0){
+											//$('.haicb').append('<span>'+bizhong+'</span> <span class="jia40gp">'+a.primeFeesLists[i].cost40gp+'</span>');
+											$('.haibj').append('<span>'+bizhong+'</span> <span class="bao40gp" >'+a.feesList[i].cost40gp+'</span>')
+										}
+										if(a.num40hq>0){
+											//$('.haicb').append('<span>'+bizhong+'</span> <span class="jia40hq">'+a.primeFeesLists[i].cost40hq+'</span>');
+											$('.haibj').append('<span>'+bizhong+'</span> <span class="bao40hq" >'+a.feesList[i].cost40hq+'</span>')
+										}
+										if(a.num45hc>0){
+											//$('.haicb').append('<span>'+bizhong+'</span> <span class="jia45hc">'+a.primeFeesLists[i].cost45hc+'</span>');
+											$('.haibj').append('<span>'+bizhong+'</span> <span  class="bao45hc">'+a.feesList[i].cost45hc+'</span>')
+										}
+								} else {
+									
+									var dafu=''
+										if(a.feesList[i].prepaid==0){
+											dafu='到付'
+										}
+										if(a.feesList[i].prepaid==1){
+											dafu='预付'
+										}
+									
+									$('.feesbiao').append(
+										'<label>' +
+										a.feesList[i].feeTypeEname+' ('+ a.feesList[i].feeTypeCname +')'+
+										': </label> <span>' +bizhong + ' &nbsp' + c20gp +'</span><span style="margin-left: 50px;">' + bizhong + ' &nbsp' + c40gp + '</span></br><label style="margin-right: 10px;">到预付:</label><span>'+dafu+'</span></br><br />'
+									)
+								}
+
+							}
+
+							var tot = eval('(' + a.total + ')');
+							$('.mtol').text(tot['1']);
+							$('.rtol').text(tot['0']);
+							$('.ttol').text(tot['2'])
+							
+							if(tot['0']>0){
+								$('.mytot').append('<span class="totmoney"><span>￥</span><span>'+tot['0']+'</span></span>')
+							}
+							if(tot['1']>0){
+								$('.mytot').append('<span class="totmoney"><span>$</span><span>'+tot['1']+'</span></span>')
+							}
+							if(tot['2']>0){
+								$('.mytot').append('<span class="totmoney"><span>B</span><span>'+tot['2']+'</span></span>')
+							}
+						},
+						error: function(json) {
+							console.log(json)
+						}
+					})
+
+				})
+
+				//确认此方案
+
+				$('#quefang1').on('click', function() {
+						var thisfang = this.dataset.fangcode;
+						var thisschem=this.dataset.schemcode
+						console.log(thisfang)
+						var t = new Date().getTime();
+						$.ajax({
+							type: "post",
+							url: "http://106.14.251.28:8085/bizCenter/enquiryService/confirmBooking?accessToken="+localStorage.getItem('accessToken')+'&msgId='+t+''
+							+'&enquiryCode='+thisfang+'&schemeCode='+thisschem,
+							data:JSON.stringify({
+								
+							}),
+							async: true,
+							dataType: 'json',
+							contentType:'application/json;charset=utf-8',
+							success: function(data) {
+								console.log(data)
+								if(data.retCode == '0000') {
+									alert('确认方案成功')
+									location='pc_xunpan.html'
+								}
+							}
+						})
+					})
+					//查看已确认方案
+				$(document).on('click', '.chawei', function() {
+					$('.qmytot').empty()
+					var thisenqurycode = $(this).data('enqurycode')
+					var thsichmecode = $(this).data('schemecode')
+					console.log(thsichmecode)
+					var thisstatus = $(this).data('mystatus')
+					$('.chakanwuliu').attr('data-wucode', thisdata)
+					var t = new Date().getTime();
+					$.ajax({
+						type: "post",
+						url: "http://106.14.251.28:8085/bizCenter/schemeService/getSchemeInfo",
+						data: {
+							'accessToken': localStorage.getItem('accessToken'),
+							'msgId': t + '',
+							"schemeCode": thsichmecode,
+
+						},
+						async: true,
+						dataType: 'json',
+						success: function(data) {
+							console.log(data)
+								//var a=$.parseJSON(data.schemes);
+								//var a = eval('(' + data.schemes + ')')
+							var a = data.schemes
+								//console.log(a)
+							var tot = eval('(' + a.total + ')');
+
+							
+					
+							var scode = a.schemeCode
+								//alert(scode)
+								//console.log(scode)
+
+							$('.qhuiren').text(a.replyName)
+							$('.qhuidian').text(a.replyMobileNo)
+							$('.qhuitime').text(a.replyTime) //回复时间
+							$('.qxunbian').text(a.enquiryCode);
+							$('.ybjqy').text(a.supplierComanyName)//报价企业名称
+							$('.qwubian').text(a.schemeCode);
+							$('.qqiyun').text(a.polName);
+							$('.qmudigang').text(a.podName);
+							$('.qchuansi').text(a.carryCode);
+							$('.qzzgang').text(a.potName);
+							$('.qhangcheng').text(a.sailingDay);
+							$('.qkcri').text(a.etd);
+							$('.qjieguan').text(a.customsClearance);
+							$('.qyouxiao').text(a.expireDate);
+							$('.qgaichming').text(a.vessel);
+							$('.qgaichi').text(a.voyage)
+							
+							$('.qliang20gp').text(a.num20gp)
+							$('.qliang40gp').text(a.num40gp)
+							$('.dingbian').text(a.orderCode)
+							var rmbzong = 0;
+							var meizong = 0;
+							$('.qfeesbiao').empty();
+							$('.qmyxl').empty();
+								if(a.num20gp>0){
+									$('.qmyxl').append('<span class="liang">20GP * <span class="liang20gp">'+a.num20gp+'</span></span>')
+								}
+								if(a.num40gp>0){
+									$('.qmyxl').append('<span class="liang">40GP * <span class="liang40gp">'+a.num40gp+'</span></span>')
+								}
+								if(a.num40hq>0){
+									$('.qmyxl').append('<span class="liang">40HQ * <span class="liang40hq">'+a.num40hq+'</span></span>')
+								}
+								if(a.num45hc>0){
+									$('.qmyxl').append('<span class="liang">45HC * <span class="liang45hc">'+a.num45hc+'</span></span>')
+								}
+								//console.log('海运费')
+										$('.qhaibj').empty()
+							for(var i = 0; i < a.feesList.length; i++) {
+								var qbizhong = null;
+								var qc20gp = a.feesList[i].cost20gp;
+								var qc40gp = a.feesList[i].cost40gp;
+								if(!qc20gp) {
+									qc20gp = 0;
+								}
+								if(!qc40gp) {
+									qc40gp = 0;
+								}
+								
+								
+								
+							
+								//
+
+								var qjizong = (qc20gp * a.num20gp) + (qc40gp * a.num40gp)
+								if(a.feesList[i].currency == 0) {
+									qbizhong = '￥';
+									//rmbzong = rmbzong + jizong
+								};
+								if(a.feesList[i].currency == 1) {
+									qbizhong = '$ ';
+									//meizong = meizong + jizong
+								};
+								if(a.feesList[i].currency == 2) {
+									qbizhong = 'B'
+								};
+								if(a.feesList[i].feeTypeNum!=0){
+									if(a.feesList[i].byOrder == 1) {
+										
+										var dafu=''
+										if(a.feesList[i].prepaid==0){
+											dafu='到付'
+										}
+										if(a.feesList[i].prepaid==1){
+											dafu='预付'
+										}
+										
+										$('.qfeesbiao').append('<label>' +
+											a.feesList[i].feeTypeEname+' ('+ a.feesList[i].feeTypeCname +')'+
+											': </label> <span>' + qbizhong + ' ' + a.feesList[i].orderPrice + '</span><br /><label style="margin-right: 10px;">到预付:</label><span>'+dafu+'</span><br><br>')
+									} else {
+										var dafu=''
+										if(a.feesList[i].prepaid==0){
+											dafu='到付'
+										}
+										if(a.feesList[i].prepaid==1){
+											dafu='预付'
+										}
+										
+										$('.qfeesbiao').append(
+											'<label>' +
+											a.feesList[i].feeTypeEname+' ('+ a.feesList[i].feeTypeCname +')'+
+											': </label> <span>' +
+											qbizhong + '' + qc20gp +'</span><span style="margin-left: 50px;">' + qbizhong + '' + qc40gp +'</span><br /><label style="margin-right: 10px;">到预付:</label><span>'+dafu+'</span><br><br>'
+										)
+									}
+								}else{
+									
+									if(a.feesList[i].prepaid==0){
+											$('.qdaoyufu').text('到付')
+										}
+										if(a.feesList[i].prepaid==1){
+											$('.qdaoyufu').text('预付')
+										}
+									
+										if(a.num20gp>0){
+											console.log(a.feesList[i].cost20gp)
+											$('.qhaibj').append('<span>'+qbizhong+'</span> <span class="bao20gp" >'+a.feesList[i].cost20gp+'</span>')
+										}
+										if(a.num40gp>0){
+											
+											$('.qhaibj').append('<span>'+qbizhong+'</span> <span class="bao40gp" >'+a.feesList[i].cost40gp+'</span>')
+										}
+										if(a.num40hq>0){
+											
+											$('.qhaibj').append('<span>'+qbizhong+'</span> <span class="bao40hq" >'+a.feesList[i].cost40hq+'</span>')
+										}
+										if(a.num45hc>0){
+											
+											$('.qhaibj').append('<span>'+qbizhong+'</span> <span  class="bao45hc">'+a.feesList[i].cost45hc+'</span>')
+										}
+								}
+								
+							}
+
+							var tot = eval('(' + a.total + ')');
+						$('.mtol').text(tot['1']);
+						$('.rtol').text(tot['0']);
+						$('.ttol').text(tot['2'])
+						
+						if(tot['0']>0){
+							$('.qmytot').append('<span class="totmoney"><span>￥</span><span>'+tot['0']+'</span></span>')
+						}
+						if(tot['1']>0){
+							$('.qmytot').append('<span class="totmoney"><span>$</span><span>'+tot['1']+'</span></span>')
+						}
+						if(tot['2']>0){
+							$('.qmytot').append('<span class="totmoney"><span>B</span><span>'+tot['2']+'</span></span>')
+						}
+							//确认此方案
+
+						}
+					})
+				})
+
+				//查看物流状态
+
+				$('.chakanwuliu').on('click', function() {
+					var wucode = this.dataset.wucode;
+
+					//location = 'pc_wuliu.html';
+
+				})
+
+				
+
+				
+			</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>总部用户管理</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../plugins/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../plugins/font-awesome/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../admin/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/fenye.css" />
+		
+		<style>
+			.myform-group .form-group {
+				margin-left: 0 !important;
+				margin-right: 0 !important;
+			}
+			
+			.myform-group .form-group label {
+				padding: 0 !important;
+			}
+			th[rowspan='2']>span {
+				margin-top: -58px;
+				display: block;
+			}
+			.chsma{
+				color: red;
+				cursor: pointer;
+			}
+			.chsma:hover{
+				text-decoration: underline;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="myquxiao">
+
+		</div>
+		<div class="qxqd">
+			<div class="qxqdson">Are you sure to cancel?<br>确定取消吗？</div>
+			<div class="text-center">
+				<button class="btn btn-sm btn-primary qxbtn" style="margin-right: 40px;">YES(确定)</button>
+				<button class="btn btn-sm btn-info myqx">NO(取消)</button>
+			</div>
+
+		</div>
+
+		<div class='header'>
+			<div class='logo'></div>
+			<nav class='navbar navheader'>
+				<div class="pull-left clickbtn"> <button class="btn btn-primary "> <i class="fa fa-bars"></i> </button> </div>
+				<div class="pull-left clickuse dropdown">
+					<span  class="dropdown-toggle" data-toggle="dropdown" style="display: block;width: 100%;height: 100%;">
+						<i class="fa fa-user"></i> <span class="username"></span>
+					</span>
+					<ul class="dropdown-menu" id="usexin">
+						<li class="text-center" style="line-height: 35px;background-color: #309067;color: white;">
+							用户信息
+						</li>
+	                     <li>
+	                     	<ul class="geuse clearfix">
+	                     		<li class="useleft">用户名:</li>
+	                     		<li class="useright usname"></li>
+	                     	</ul >
+	                     </li>
+	                    <li>
+	                    	<ul class="geuse clearfix">
+	                     		<li class="useleft">公司名:</li>
+	                     		<li class="useright uscompany"></li>
+	                     	</ul>
+	                    </li>
+	                    <li>
+	                    	<ul class="geuse clearfix">
+	                     		<li class="useleft">邮箱:</li>
+	                     		<li class="useright usemail"></li>
+	                     	</ul>
+	                    </li>
+	                    <li>
+	                    	<ul class="geuse clearfix">
+	                     		<li class="useleft">电话号码:</li>
+	                     		<li class="useright usmob"></li>
+	                     	</ul>
+	                    </li>
+	                    
+	                </ul>
+				</div>
+				<div class="pull-left  clickupdate" data-toggle="modal" data-target="#myModalxm">
+					<i class="fa fa-unlock-alt"></i> <span>修改密码</span>
+				</div>
+				<ul class="nav navbar-nav navbar-left clickul" >
+					<li>
+						<a  class="tuideng" style="cursor: pointer;">
+							<i class="fa fa-sign-out"></i> <span style="">退出登录</span>
+						</a>
+						
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class='conspage'>
+			<div class='conspageson'>
+				<ol class="breadcrumb">
+					<li>
+						<a href="#">用户管理</a>
+					</li>
+					<!--<li class="active">客户管理</li>-->
+				</ol>
+			</div>
+		</div>
+		<div class='seider-after'>
+			<div class="scroll">
+				<aside class='seider'>
+
+					<div class="panel-group" id="accordion">
+						<div class="panel panel-default panelclick">
+					        <div class="panel-heading">			           
+					                <a  href="pc_zongyong.html" class="active">
+					                	<span class='tu'><i class="fa fa-random"></i></span>
+					                 	&nbsp;&nbsp;<span class='zi'>用户管理</span>	
+					                </a>
+					            
+					        </div>
+				    	</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo" >
+									<span class='tu'><i class="fa fa-files-o"></i></span> &nbsp;&nbsp;
+									<span class='zi'>询盘管理</span>
+
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapseTwo" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="pc_zongxunpan.html">当前询盘</a>
+										</li>
+										<li>
+											<a href="zongxunpanwan.html">已完成询盘</a>
+										</li>
+										<li>
+											<a href="zongxunpanqu.html">已取消询盘</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse4">
+									<span class='tu'><i class="fa  fa-tasks"></i></span> &nbsp;&nbsp;
+									<span class='zi'>订单管理</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapse4" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="pc_hainew.html">新增订单(录单)</a>
+										</li>
+										<li>
+											<a href="pc_haidiguan.html">订单管理</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse5">
+									<span class='tu'><i class="fa  fa-ship"></i></span> &nbsp;&nbsp;
+									<span class='zi'>物流可视化</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapse5" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="pc_haigenzong2.html">全程物流跟踪</a>
+										</li>
+										<li>
+											<a href="pc_haiweihu.html">物流状态维护</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse6">
+									<span class='tu'><i class="fa   fa-tags"></i></span> &nbsp;&nbsp;
+									<span class='zi'>运价管理</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapse6" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="zongyjcx.html">运价查询</a>
+										</li>
+										<li>
+											<a href="zongyjbj.html">运价编辑</a>
+										</li>
+										
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse7">
+									<span class='tu'><i class="fa  fa-bars"></i></span> &nbsp;&nbsp;
+									<span class='zi'>基础数据</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapse7" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="pc_xugangguan.html">港口管理</a>
+										</li>
+										<li>
+											<a href="pc_xuchuanguan.html">船公司管理</a>
+										</li>
+										<li>
+											<a href="pc_xuhangguan.html">航线管理</a>
+										</li>
+										<li>
+											<a href="pc_xumingguan.html">航名航次管理</a>
+										</li>
+										<li>
+											<a href="pc_xutiguan.html">提箱堆场管理</a>
+										</li>
+										<li>
+											<a href="pc_xumaguan.html">码头管理</a>
+										</li>
+										<li>
+											<a href="pc_xufeiguan.html">费项管理</a>
+										</li>
+										<li>
+											<a href="pc_xubiguan.html">币种管理</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</aside>
+			</div>
+		</div>
+
+		<div class='content'>
+
+			<div style="padding: 15px;">
+				
+				<div class='contzong'>
+			<div class="contson1 clearfix">
+
+				<form role="form" class="myform-grou">
+					<div class="container-fluid ">
+						<div class="form-group form-group-sm col-sm-4">
+							<label class="col-sm-4 control-label" style="padding-right: 0;">公司名称:<br>company name:</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control gsmc">
+							</div>
+						</div>
+						<div class="form-group form-group-sm col-sm-4">
+							<label class="col-sm-4 control-label" style="padding-right: 0;">邮箱:<br>email:</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control yx">
+							</div>
+						</div>
+						
+						<div class="form-group form-group-sm col-sm-4">
+							<label class="col-sm-4 control-label" style="padding-right: 0;">创建时间:<br>Create time</label>
+							<div class="col-sm-8">
+								<input type="date" class="form-control cjsj">
+							</div>
+						</div>
+						
+
+						
+					</div>
+
+					<div class="container-fluid ">
+						<div class="form-group form-group-sm col-sm-4">
+							<label class="col-sm-4 control-label" style="padding-right: 0;">姓名:<br>name:</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control xm">
+							</div>
+						</div>
+						<div class="form-group form-group-sm col-sm-4">
+							<label class="col-sm-4 control-label" style="padding-right: 0;">手机:<br>cellphone number:</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control sj">
+							</div>
+						</div>
+						<div class="form-group form-group-sm col-sm-4">
+							<label class="col-sm-4 control-label" style="padding-right: 0;">结束时间:<br>End Time</label>
+							<div class="col-sm-8">
+								<input type="date" class="form-control jssj">
+							</div>
+						</div>
+
+						
+					</div>
+					<div class="container-fluid">
+						
+						
+						
+						<div class="form-group form-group-sm col-sm-4">
+							<label class="col-sm-4 control-label" style="padding-right: 0;">类型:<br>type</label>
+							<div class="col-sm-8">
+									<select class="form-control lx">
+										<option>客户</option>
+										<option>海外部</option>
+										<option>泰国铃与</option>
+										<option>宁波铃与</option>
+										<option>供应商</option>
+										
+									</select>
+								</div>
+						</div>
+						<div class="form-group form-group-sm col-sm-4 ">
+
+							<button type="submit" class="btn btn-primary btn-sm col-sm-offset-1 sousuo">Search</button>
+
+						</div>
+						<div class="form-group form-group-sm col-sm-4 ">
+
+							<button type="reset" class="btn btn-primary btn-sm col-sm-offset-1"> Reset</button>
+
+						</div>
+					</div>
+					
+
+				</form>
+
+			</div>
+			<div class="contson2 clearfix">
+				<div class="pull-left" style="margin-top: 7px;">
+					<a href="" style="color: red;">共搜索 <span class="zongpan"></span> 个用户</a>
+				</div>
+
+				<button class="btn btn-sm btn-warning pull-right" style="display: none;" data-toggle="modal" data-target="#myModaladd">新增</button>
+			</div>
+			<div class="contson3">
+				<table class="table table-bordered tablecenter tablestrd  tableyong">
+					<thead>
+						<tr class="heardcolor">
+							<th rowspan="2"><span>序号<br>Serial number</span></th>
+							<th>用户编号<br>user ID</th>
+							<th>公司名称<br>company name</th>
+							<th>部门<br>department</th>
+							<th>姓名<br>name</th>
+							<th>邮箱<br>email</th>
+							<th>手机<br>cellphone number</th>
+							<th rowspan="2"><span>操作<br>operating</span></th>
+						</tr>
+						<tr class="heardcolor">
+							
+							<th>类型<br>type</th>
+							<th>PCMac</th>
+							<th>Mobile Mac</th>
+							<th>电脑状态<br>Computer state</th>
+							<th>手机状态<br>Phone status</th>
+							<th>创建时间<br>Create time</th>
+						</tr>
+					</thead>
+					<tbody>
+
+						
+					</tbody>
+				</table>
+				<div class='biaofooter clearfix'>
+					
+							<div class=" pull-left footerulleft">
+								<div class="form-inline" role="form">
+									<div class="form-group form-group-sm">
+										每页显示:
+										<select class="form-control" name="yeshu">
+											<option>5</option>
+											<option>10</option>
+											<option>25</option>
+											<option>50</option>
+										</select>
+										条，总共 <span class="pagezong"></span> 条
+									</div>
+
+								</div>
+
+							</div>
+							<div class="tcdPageCode pull-right" style="margin-top: -10px;"></div>
+						
+				</div>
+			</div>
+		</div>
+				
+			</div>
+		</div>
+
+<!-- 编辑 -->
+		<div class="modal fade" id="myModalbian" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header" style="background-color:#337ab7 ;color: white;">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title text-center">编辑</h4>
+					</div>
+					<div class="modal-body">
+
+						<form class="form-horizontal clearfix mylable" role="form">
+							
+							
+							
+							<div class="form-group form-group-sm col-sm-6">
+								<label class="col-sm-3 control-label">姓名:</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control bxm">
+								</div>
+							</div>
+							<div class="form-group form-group-sm col-sm-6">
+								<label class="col-sm-3 control-label">邮箱:</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control byx">
+								</div>
+							</div>
+							<div class="form-group form-group-sm col-sm-6">
+								<label class="col-sm-3 control-label">手机:</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control bsj">
+								</div>
+							</div>
+							
+							<div class="form-group form-group-sm col-sm-6">
+								<label class="col-sm-3 control-label">电脑状态:</label>
+								<div class="col-sm-9">
+									<select class="form-control pcsta">
+										<option>启用</option>
+										<option>禁用</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group form-group-sm col-sm-6">
+								<label class="col-sm-3 control-label">手机状态:</label>
+								<div class="col-sm-9">
+									<select class="form-control appsta">
+										<option>启用</option>
+										<option>禁用</option>
+									</select>
+								</div>
+							</div>
+
+						</form>
+
+					</div>
+					<div class="modal-footer" style="text-align: center;">
+						<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">关闭</button>
+						<button type="button" class="btn btn-primary btn-sm" id='quebian'>确定</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+
+	<!-- 密码初始化 -->
+		<div class="modal fade" id="myModalma" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width: 350px;margin: 150px auto;">
+					
+					<div class="modal-body">
+						<div class="text-center"><i class="fa fa-exclamation-triangle" style="color: darkred;font-size: 35px;"></i></div>
+						<h2 class="text-center" style="color: orange;">密码确定初始化？</h2>
+						<div class="text-center" style="margin-top: 30px;">
+							<button type="button" style="margin-right: 40px;" class="btn btn-default btn-sm" data-dismiss="modal">关闭</button>
+							<button type="button" class="btn btn-warning btn-sm" id='quemima'>确定</button>
+						</div>
+						
+
+					</div>
+					
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+		
+		
+		<!-- 警告 -->
+		<div class="modal fade" id="myModalxm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width: 350px;margin: 150px auto;">
+					
+					<div class="modal-body">
+						<div class="text-center"><i class="fa fa-exclamation-triangle" style="color: darkred;font-size: 35px;"></i></div>
+						<h2 class="text-center" style="color: orange;">确定修改密码吗？</h2>
+						<div class="text-center" style="margin-top: 30px;">
+							<button type="button" style="margin-right: 40px;" class="btn btn-default btn-sm" data-dismiss="modal">关闭</button>
+							<button type="button" class="btn btn-warning btn-sm" id='qxiuma'>确定</button>
+						</div>
+						
+
+					</div>
+					
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+		
+		<script src="../../plugins/jquery-2.1.4/jquery.min.js"></script>
+		<script src='../../plugins/bootstrap/js/bootstrap.min.js'></script>
+		<script type="text/javascript" src="../../plugins/jquery.slimscroll.js"></script>
+		<script src='../../fenye/js/jquery.page.js'></script>
+		<script>
+			$('.scroll').slimScroll({
+				height: '90%',
+
+			})
+		</script>
+		<script src='../../admin/js/main.js'></script>
+		<!--用户信息-->
+		<script src="../../assets/js/user.js"></script>
+		<!--退出登录-->
+        <script src="../../assets/js/tuichu.js"></script>
+		<script>
+		//创建表格
+		
+		function mytime(sjc){
+				var data = new Date(sjc);
+				var year=data.getFullYear();
+				var month=data.getMonth()+1;
+				var day=data.getDate();
+				var hours=data.getHours();
+				var min=data.getMinutes();
+				var s=data.getSeconds();
+				function toDou(s){
+					return s>=10? s+'': '0'+s;
+				}
+				var str=year+'-'+toDou(month)+'-'+toDou(day);
+				return str
+		}
+		
+		
+		
+		function creat(a,i){
+			var mac={app:'',pc:''}
+			if(a.deviceCodes){
+				 mac=$.parseJSON(a.deviceCodes)
+			}
+		
+			
+			var type=a.accountType
+			if(type==0){
+				type='客户'
+			}
+			if(type==1){
+				type='海外部'
+			}
+			if(type==2){
+				type='总部'
+			}
+			if(type==3){
+				type='供应商'
+			}
+			if(type==4){
+				type='系统管理员'
+			}
+			var bumen=a.customBelong;
+			if(bumen==1){
+				bumen='属于海外部'
+			}
+			else if(bumen==0){
+				bumen='属于总部'
+			}else{
+				bumen=''
+			}
+			
+			var pct=a.pcDisable
+			if(pct==0){
+				pct='启用'
+			}
+			if(pct==1){
+				pct='禁用'
+			}
+			var appt=a.appDisable
+			if(appt==0){
+				appt='启用'
+			}
+			if(appt==1){
+				appt='禁用'
+			}
+			
+			var timestr=''
+			if(a.createTime){
+				timestr=mytime(a.createTime)
+			}
+			 
+			$('.tableyong>tbody').append('<tr><td rowspan="2">'
+			+i+'</td><td>'
+			+a.accountId+'</td><td>'
+			+a.companyName+'</td><td>'
+			+bumen+'</td><td>'
+			+a.alias+'</td><td>'
+			+a.email+'</td><td>'
+			+a.mobileNo+'</td><td rowspan="2"><span class="bianji" data-toggle="modal" data-target="#myModalbian" data-code='+a.accountCode+'>编辑</span> <span data-toggle="modal" data-target="#myModalma" class="chsma" data-code='+a.accountCode+'>密码初始化</span></td></tr><tr><td>'
+			+type+'</td><td>'
+			+mac.app+'</td><td>'
+			+mac.pc+'</td><td>'
+			+pct+'</td><td>'
+			+appt+'</td><td>'
+			+timestr+'</td></tr>')
+		}
+		
+		
+		
+		function getuser(a,b){
+			$('.tableyong>tbody').empty()
+			
+			var lx=$('.lx').val()
+			
+			if(lx=='客户'){
+				lx=0
+			}
+			if(lx=='海外部'){
+				lx=1
+			}
+			if(lx=='泰国铃与'){
+				lx=4
+			}
+			if(lx=='宁波铃与'){
+				lx=2
+			}
+			if(lx=='供应商'){
+				lx=3
+			}
+			
+			var vt = new Date().getTime();
+			$.ajax({
+				type: "post",
+				url: "http://106.14.251.28:8081/userCenter/userService/getUsers",
+				data: {
+					'accessToken': localStorage.accessToken,
+					'msgId': vt + '',
+					'companyName':$('.gsmc').val(),
+					'alias':$('.xm').val(),
+					'email':$('.yx').val(),
+					'mobileNo':$('.sj').val(),
+					'accountType':lx,
+					'createTimeBegin':$('.cjsj').val(),
+					'createTimeEnd':$('.jssj').val(),
+					'currentPage':a,
+					'pageSize':b
+
+				},
+				async: true,
+				dataType: 'json',
+				success: function(json) {
+							var num = json.accountNum;
+							$('.pagezong').text(num)
+							if(+num != pagenum) {
+								pagenum = num;
+								$('.pagezong').text(pagenum)
+								creatfenye() //分页函数
+							}
+							$('.zongpan').text(num)
+					var shu=json.data
+					
+					console.log(json)
+					for (var i=0;i<shu.length;i++) {
+						creat(shu[i],i+1)
+						
+					}
+				},
+				error:function(data){
+					console.log(data)
+				}
+				})
+		}
+			
+			
+			
+			//分页	
+			function dangqian() {
+				var dang = ($(this).text() - 1) * $('[name="yeshu"]').val();
+				var tiao = $('[name="yeshu"]').val()
+				getuser(dang, tiao)
+				console.log($(this).text())
+			}
+
+			function prevPage() {
+				var dang = ($('.current').text() - 1) * $('[name="yeshu"]').val()
+				var tiao = $('[name="yeshu"]').val()
+				getuser(dang, tiao)
+			}
+
+			function nextPage() {
+				var dang = ($('.current').text() - 1) * $('[name="yeshu"]').val()
+				var tiao = $('[name="yeshu"]').val()
+				getuser(dang, tiao)
+			}
+			$(document).on('click', '.tcdNumber', dangqian)
+			$(document).on('click', '.prevPage', prevPage)
+			$(document).on('click', '.nextPage', nextPage)
+
+			$('[name="yeshu"]').on('change', function() {
+				getuser(0, $('[name="yeshu"]').val())
+				creatfenye()
+			})
+			
+			getuser(0,$('[name="yeshu"]').val())
+			
+			$('.sousuo').on('click',function(e){
+				e.preventDefault();
+				getuser(0,$('[name="yeshu"]').val())
+			})
+			
+			var pagenum = 0;
+
+			function creatfenye(pagezong, pagedang) {
+				var yeshu = Math.ceil(pagenum / $('[name="yeshu"]').val())
+				$(".tcdPageCode").createPage({
+					pageCount: yeshu,
+					current: 1,
+					backFn: function(p) {
+						//console.log(p);
+					}
+				});
+			}
+			
+			
+			//编辑
+			var loginName=null;
+			$(document).on('click','.bianji',function(){
+				var thiscode=this.dataset.code
+				$('#quebian').attr('data-code',thiscode)
+				var t = new Date().getTime();
+				$.ajax({
+					type: "post",
+					url: "http://106.14.251.28:8081/userCenter/userService/getUserDetail",
+					data: {
+						'accessToken': localStorage.accessToken,
+						'msgId': t + '',
+						'accountCode':thiscode
+	
+					},
+					async: true,
+					dataType: 'json',
+					success: function(json) {
+						console.log(json)
+						if(json.retCode=='0000'){
+							var shu=json.data;
+							
+							$('.bxm').val(shu.alias)
+							$('.byx').val(shu.email)
+							$('.bsj').val(shu.mobileNo)
+							
+							loginName=shu.loginName
+							
+							if(json.appDisable==1){
+								$('.appsta').val('禁用')
+							}
+							if(json.appDisable==0){
+								$('.appsta').val('启用')
+							}
+							
+							if(json.pcDisable==1){
+								$('.pcsta').val('禁用')
+							}
+							if(json.pcDisable==0){
+								$('.pcsta').val('启用')
+							}
+								
+						}
+					}
+				})
+				
+			})
+			
+			//确定编辑
+			
+			$('#quebian').on('click',function(){
+				var pcsta=$('.pcsta').val()
+				
+				if(pcsta=='启用'){
+					pcsta=0
+				}
+				if(pcsta=='禁用'){
+					pcsta=1
+				}
+				
+				var appsta=$('.appsta').val()
+				
+				if(appsta=='启用'){
+					appsta=0
+				}
+				if(appsta=='禁用'){
+					appsta=1
+				}
+				
+				var thiscode=this.dataset.code
+				var g = new Date().getTime();
+				$.ajax({
+					type: "post",
+					url: "http://106.14.251.28:8081/userCenter/userService/updateUserDeatil",
+					data: {
+						'accessToken': localStorage.accessToken,
+						'msgId': g + '',
+						'accountCode':thiscode,
+						'alias':$('.bxm').val(),
+						'email':$('.byx').val(),
+						'mobileNo':$('.bsj').val(),
+						'loginName':loginName,	
+						'appDisable':appsta,
+						'pcDisable':pcsta
+					},
+					async: true,
+					dataType: 'json',
+					success: function(json) {
+						console.log(json)
+						if(json.retCode=='0000'){
+							alert('编辑成功')
+							location='pc_zongyong.html'
+						}
+					}
+					})
+			})
+			
+			
+			//密码初始化
+		  var nowm=null;
+			$(document).on('click','.chsma',function(){
+				var thiscode=this.dataset.code
+				$('#quebian').attr('data-code',thiscode)
+				var t = new Date().getTime();
+				$.ajax({
+					type: "post",
+					url: "http://106.14.251.28:8081/userCenter/userService/getUserDetail",
+					data: {
+						'accessToken': localStorage.accessToken,
+						'msgId': t + '',
+						'accountCode':thiscode
+					},
+					async: true,
+					dataType: 'json',
+					success: function(json) {
+						console.log(json)
+						if(json.retCode=='0000'){
+							var shu=json.data;
+								nowm=shu.accountCode
+							
+								
+						}
+					}
+				})
+				
+			})
+			
+			//密码确定初始化
+			$('#quemima').on('click',function(){
+				var nt = new Date().getTime();
+				$.ajax({
+					type: "post",
+					url: "http://106.14.251.28:8081/userCenter/userService/initPwd",
+					data: {
+						'accessToken': localStorage.accessToken,
+						'msgId': nt + '',
+						'accountCode':nowm
+					},
+					async: true,
+					dataType: 'json',
+					success: function(json) {
+						console.log(json)
+					},
+					error:function(json){
+						console.log(json)
+					}
+					
+				})
+			})
+		</script>
+		
+		
+	</body>
+
+</html>

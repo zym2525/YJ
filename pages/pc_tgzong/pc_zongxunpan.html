@@ -1,0 +1,2660 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>总部询盘</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../plugins/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../plugins/font-awesome/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../admin/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/fenye.css" />
+		<style>
+			.biaoxun,
+			.xgbj,
+			.zjbj,
+			.fsc {
+				color: red;
+				cursor: pointer;
+			}
+			
+			.biaoxun:hover,
+			.xgbj:hover,
+			.zjbj:hover,
+			.fsc:hover,
+			{
+				text-decoration: underline;
+			}
+			
+			.kegai {
+				width: 80px;
+				text-align: center;
+			}
+			
+			.liejia {
+				width: 80px;
+				text-align: center;
+			}
+			
+			#feeul {
+				max-height: 150px;
+				overflow: auto;
+			}
+			
+			#feeul li {
+				padding: 2px;
+				padding-left: 15px;
+				cursor: pointer;
+			}
+			
+			.bianbz,
+			.biandp,
+			.biandyf {
+				height: 30px;
+				width: 80px;
+			}
+			
+			.feebz,
+			.feedp,
+			.feeyf {
+				width: 77px;
+				height: 30px;
+			}
+			
+			input.fjgp20,
+			input.fjgp40,
+			input.fdan {
+				width: 70px;
+				height: 20px;
+				text-align: center;
+			}
+			
+			.dyf {
+				width: 70px;
+				height: 20px;
+			}
+			
+			.fjbz {
+				height: 20px;
+			}
+			
+			.chgp20,
+			.chgp40,
+			.chdan {
+				width: 60px;
+				height: 20px;
+			}
+			
+			#feeadd>tbody>tr:nth-child(4n+3) {
+				background-color: whitesmoke;
+			}
+			
+			#feeadd>tbody>tr:nth-child(4n+3)+tr {
+				background-color: whitesmoke;
+			}
+			
+			.hightmodl {
+				height: 900px;
+				overflow: auto;
+			}
+			
+			@media only screen and (max-height: 700px) {
+				.hightmodl {
+					height: 600px;
+					overflow: auto;
+				}
+			}
+			
+			.kaizhou>li,
+			.jiezhou>li,
+			.baoqi>li {
+				padding-left: 15px;
+				padding-bottom: 3px;
+				cursor: pointer;
+			}
+			
+			.kaizhou>li:hover,
+			.jiezhou>li:hover,
+			.baoqi>li:hover {
+				background-color: whitesmoke;
+			}
+			
+			.liang {
+				margin-right: 40px;
+			}
+			
+			.jia20gp,
+			.jia40gp,
+			.jia40hq,
+			.jia45hc {
+				margin-right: 20px;
+				display: inline-block;
+				width: 70px;
+				text-align: center;
+			}
+			
+			.bao20gp,
+			.bao40gp,
+			.bao40hq,
+			.bao45hc {
+				width: 70px;
+				margin-right: 20px;
+				text-align: center;
+			}
+			
+			.chdan,
+			.chgp40,
+			.chgp20 {
+				text-align: center;
+			}
+			
+			.myform-group .form-group {
+				margin-left: 0 !important;
+				margin-right: 0 !important;
+			}
+			
+			.myform-group .form-group label {
+				padding: 0 !important;
+			}
+			
+			th[rowspan='2']>span {
+				margin-top: -58px;
+				display: block;
+			}
+			
+			@media only screen and (max-width:1440px) {
+				th[rowspan='2']>span {
+					margin-top: -80px;
+					display: block;
+				}
+			}
+			
+			.fjbz {
+				width: 70px;
+			}
+			
+			.baoqi {
+				width: 350px;
+			}
+			
+			.tjmk {
+				margin-left: 10px;
+			}
+			
+			#dom1,
+			#dom2 {
+				width: 800px;
+				height: 700px;
+				border: 1px solid green;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="myquxiao">
+
+		</div>
+		<div class="qxqd">
+			<div class="qxqdson">Are you sure to cancel?<br>确定取消吗？</div>
+			<div class="text-center">
+				<button class="btn btn-sm btn-primary qxbtn" style="margin-right: 40px;">YES(确定)</button>
+				<button class="btn btn-sm btn-info myqx">NO(取消)</button>
+			</div>
+
+		</div>
+
+		<div class='header'>
+			<div class='logo'></div>
+			<nav class='navbar navheader'>
+				<div class="pull-left clickbtn"> <button class="btn btn-primary "> <i class="fa fa-bars"></i> </button> </div>
+				<div class="pull-left clickuse dropdown">
+					<span class="dropdown-toggle" data-toggle="dropdown" style="display: block;width: 100%;height: 100%;">
+						<i class="fa fa-user"></i> <span class="username"></span>
+					</span>
+					<ul class="dropdown-menu" id="usexin">
+						<li class="text-center" style="line-height: 35px;background-color: #309067;color: white;">
+							用户信息
+						</li>
+						<li>
+							<ul class="geuse clearfix">
+								<li class="useleft">用户名:</li>
+								<li class="useright usname"></li>
+							</ul>
+						</li>
+						<li>
+							<ul class="geuse clearfix">
+								<li class="useleft">公司名:</li>
+								<li class="useright uscompany"></li>
+							</ul>
+						</li>
+						<li>
+							<ul class="geuse clearfix">
+								<li class="useleft">邮箱:</li>
+								<li class="useright usemail"></li>
+							</ul>
+						</li>
+						<li>
+							<ul class="geuse clearfix">
+								<li class="useleft">电话号码:</li>
+								<li class="useright usmob"></li>
+							</ul>
+						</li>
+
+					</ul>
+				</div>
+				<div class="pull-left  clickupdate" data-toggle="modal" data-target="#myModalxm">
+					<i class="fa fa-unlock-alt"></i> <span>修改密码</span>
+				</div>
+				<ul class="nav navbar-nav navbar-left clickul">
+					<li>
+						<a class="tuideng" style="cursor: pointer;">
+							<i class="fa fa-sign-out"></i> <span style="">退出登录</span>
+						</a>
+
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class='conspage'>
+			<div class='conspageson'>
+				<ol class="breadcrumb">
+					<li>
+						<a href="#">询盘管理</a>
+					</li>
+					<li class="active">当前询盘</li>
+				</ol>
+			</div>
+		</div>
+		<div class='seider-after'>
+			<div class="scroll">
+				<aside class='seider'>
+
+					<div class="panel-group" id="accordion">
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+								<a href="zongyjcx.html">
+									<span class='tu'><i class="fa fa-random"></i></span> &nbsp;&nbsp;
+									<span class='zi'>运价查询</span>
+								</a>
+
+							</div>
+						</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo" class="active">
+									<span class='tu'><i class="fa fa-files-o"></i></span> &nbsp;&nbsp;
+									<span class='zi'>询盘管理</span>
+
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapseTwo" class="panel-collapse collapse in">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="pc_zongxunpan.html">当前询盘</a>
+										</li>
+										<li>
+											<a href="zongxunpanwan.html">已完成询盘</a>
+										</li>
+										<li>
+											<a href="zongxunpanqu.html">已取消询盘</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse4">
+									<span class='tu'><i class="fa  fa-tasks"></i></span> &nbsp;&nbsp;
+									<span class='zi'>订单管理</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapse4" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="pc_hainew.html">新增订单(录单)</a>
+										</li>
+										<li>
+											<a href="pc_haidiguan.html">订单管理</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse5">
+									<span class='tu'><i class="fa  fa-ship"></i></span> &nbsp;&nbsp;
+									<span class='zi'>物流可视化</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapse5" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="pc_haigenzong2.html">全程物流跟踪</a>
+										</li>
+										<li>
+											<a href="pc_haiweihu.html">物流状态维护</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</aside>
+			</div>
+		</div>
+
+		<div class='content'>
+
+			<div style="padding: 15px;">
+
+				<div class='contzong'>
+					<div class="contson1 clearfix">
+
+						<form class="form-horizontal myform-group" role="form">
+							<div class='container-fluid' style="padding-right: 0;padding-left: 0;">
+
+								<div class="form-group form-group-sm col-sm-4">
+									<label class="col-sm-4 control-label" style="padding-right: 0;">起运港:<br>Port Of Loading:</label>
+									<div class="col-sm-8">
+										<select class="form-control" name="qyg">
+											<option>NINGBO</option>
+											<option>LAEM CHABANG</option>
+											<option>BANGKOK</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group form-group-sm col-sm-4">
+									<label class="col-sm-4 control-label" style="padding-right: 0;">报价状态:<br>Quote Status:</label>
+									<div class="col-sm-8">
+										<select class="form-control" name='bjzt'>
+											<option>全部</option>
+											<option>已报价</option>
+											<option>未报价</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group form-group-sm col-sm-4">
+									<label class="col-sm-4 control-label" style="padding-right: 0;">开始时间:<br>Starting time:</label>
+									<div class="col-sm-8">
+										<input type="date" class="form-control" name="starttime">
+									</div>
+								</div>
+
+							</div>
+
+							<div class="container-fluid" style="padding-right: 0;padding-left: 0;">
+
+								<div class="form-group form-group-sm col-sm-4">
+									<label class="col-sm-4 control-label" style="padding-right: 0;">目的港:<br>Final Destinatton:</label>
+									<div class="col-sm-8 btn-group">
+										<span class="caret mycreat"></span><input type="text" class="form-control dropdown-toggle" data-toggle="dropdown" name="mdg" readonly>
+										<div class="dropdown-menu mydrop" role="menu" style="width: 300px;margin-left: 13px;">
+
+											<input class="form-control souinput" placeholder="search..." />
+											<ul class="ulgang">
+
+											</ul>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group form-group-sm col-sm-4">
+									<label class="col-sm-4 control-label" style="padding-right: 0;">询盘状态:<br>Inquiry status</label>
+									<div class="col-sm-8">
+										<select class="form-control" name="xpzt">
+											<option>全部</option>
+											<option>已询价</option>
+											<option>未询价</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group form-group-sm col-sm-4">
+									<label class="col-sm-4 control-label" style="padding-right: 0;">结束时间:<br>End Time:</label>
+									<div class="col-sm-8">
+										<input type="date" class="form-control" name="endtime">
+									</div>
+								</div>
+
+							</div>
+
+							<div class='container-fluid' style="padding-right: 0;padding-left: 0;">
+								<div class="form-group form-group-sm col-sm-4">
+									<label class="col-sm-4 control-label" style="padding-right: 0;">询价人:<br>Inquiry person</label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control" name="xjr">
+									</div>
+								</div>
+
+								<div class="form-group form-group-sm col-sm-4">
+
+									<button type="submit" class="col-sm-offset-3 btn btn-primary btn-sm sousuo" style="width: 70px;">Search</button>
+
+								</div>
+
+								<div class="form-group form-group-sm col-sm-4 ">
+
+									<button type="reset" class="col-sm-offset-3 btn btn-primary btn-sm" style="width: 70px;">Reset</button>
+
+								</div>
+
+							</div>
+
+						</form>
+
+					</div>
+					<div class="contson2 clearfix">
+						<div class="pull-left">
+							<a href="" style="color: red !important;">共有 <span class="zongpan"></span> 个询盘</a>
+						</div>
+						<div class="pull-right">
+							<label style="color: red;">统计口径：</label>
+							<label class="tjmk"><input class="tjkj" name="tjkj" value="mdg" type="radio"/>目的港</label>
+							<label class="tjmk"><input class="tjkj" name="tjkj" value="xjcs" type="radio"/>询价次数</label>
+							<label class="tjmk"><input class="tjkj" name="tjkj" value="kh" type="radio"/>客户</label>
+							<label class="tjmk"><input class="tjkj" name="tjkj" value="cgs" type="radio"/>船公司</label>
+							<label class="tjmk"><input class="tjkj" name="tjkj" value="dcps" type="radio"/>订舱票数</label>
+							<label style="margin-left: 30px;color: red;">选择图形：</label>
+							<label class="tjmk"><input class="xztx" name="xztx" value="sxt" type="radio"/>扇形图</label>
+							<label class="tjmk"><input class="xztx" name="xztx" value="zzt" type="radio"/>柱状图</label>
+							<button class="btn btn-primary btn-sm" style="margin-left: 10px;" id="cktjt">查看统计图</button>
+						</div>
+
+					</div>
+					<div class="contson3">
+						<table class="table table-bordered tablecenter tablestrd" id='tablexunpan'>
+							<thead>
+								<tr>
+									<th rowspan="2" class="text-center"><span>序号<br>Serial number</span></th>
+
+									<th>客户名称<br>client's name</th>
+									<th>订舱票数<br>Booking number</th>
+									<th class="text-center">起运港<br>Port Of Loading</th>
+									<th class="text-center">目的港<br>Final Destinatton</th>
+									<th colspan="4" class="text-center">箱型箱量<br> Box quantity</th>
+									<th rowspan="2" class="text-center"><span>报价状态<br>Quotation status</span></th>
+									<th rowspan="2" class="text-center"><span>询价状态<br>Enquiry status</span></th>
+									<th>询价时间<br>Inquiry time</th>
+
+									<th rowspan="2"><span>操作<br>operation</span></th>
+								</tr>
+								<tr>
+									<th class="text-center"><span>询价人<br>Inquiry person</span></th>
+									<th>询价次数<br>Number of inquiries</th>
+									<th>船公司<br>Suipping Line</th>
+									<th>预计出货时间<br>Estimated time of shipment</th>
+									<th>20GP</th>
+									<th>40GP</th>
+									<th>40HQ</th>
+									<th>45HC</th>
+
+									<th>备注<br>Remarks</th>
+								</tr>
+							</thead>
+							<tbody>
+
+							</tbody>
+						</table>
+						<div class='biaofooter clearfix'>
+							<div class=" pull-left footerulleft">
+								<div class="form-inline" role="form">
+									<div class="form-group form-group-sm">
+										每页显示:
+										<select class="form-control" name="yeshu">
+											<option>5</option>
+											<option>10</option>
+											<option>25</option>
+											<option>50</option>
+										</select>
+										条，总共 <span class="pagezong"></span> 条
+									</div>
+
+								</div>
+
+							</div>
+							<div class="tcdPageCode pull-right" style="margin-top: -10px;"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- 修改报价-->
+		<div class="modal fade" id="myModalxg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header" style="background-color: #337ab7;color: white;">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title text-center">Modify the offer(修改报价)</h4>
+					</div>
+					<div class="modal-body">
+
+						<div id="myTabContent" class="tab-content">
+							<div class="tab-pane fade in active" id="home">
+								<div>
+									<br />
+									<label>Inquiry number(询价编号)：</label> <span class="xunbian"></span>
+									<br />
+									<br />
+									<label>Logistics program number(物流方案编号)：</label> <span class="wubian"></span>
+									<br />
+									<br />
+									<label>Reply to people(回复人)：</label> <span class="huiren"></span>
+									<label style="margin-left: 60px;">Reply to the phone(回复电话)：</label> <span class="huidian"></span>
+									<br />
+									<br />
+									<label>Quotes business(报价企业)：</label> <span class="xbjqy"></span>
+									<br />
+									<br />
+									<label>Response Time(回复时间)：</label> <span class="huitime"></span>
+									<br />
+									<br />
+									<div class="clearfix" style="border: 1px solid #CCCCCC;padding: 10px 15px;border-radius: 10px;background-color: whitesmoke;">
+										<div>
+											<div style="float: left;width: 50%;">
+												<label>Port Of Loading(起运港)：</label> <span class="qiyun"></span>
+											</div>
+											<div style="float: left;width: 50%;">
+												<label>Final Destinatton(目的港)：</label> <span class="mudigang"></span>
+											</div>
+										</div>
+										<br />
+										<br />
+										<div>
+											<div style="float: left;width: 50%;">
+												<label>Suipping Line(船公司)：</label> <span class="chuansi"></span>
+											</div>
+											<div style="float: left;width: 50%;">
+												<label>Transit port(中转港)：</label> <span class="zzgang"></span>
+											</div>
+										</div>
+										<br />
+										<br />
+										<div>
+											<div style="float: left;width: 50%;">
+												<label>sail(开船) ：</label> <span class="kcri"></span>
+											</div>
+											<div style="float: left;width: 50%;">
+												<label>deadline(截关)：</label> <span class="jieguan"></span>
+											</div>
+										</div>
+										<br />
+										<br>
+										<div>
+
+											<label>voyage(航程)：</label> <span class="hangcheng"></span>
+
+										</div>
+
+									</div>
+									<br />
+
+									<div style="border: 1px solid #CCCCCC;padding: 10px 15px;border-radius: 10px;background-color: whitesmoke;">
+										<label>shipping fee(海运费):</label>
+										<br />
+										<br />
+
+										<div>
+											<label>Box quantity(箱型箱量)：</label><span class="myxl"></span>
+										</div>
+										<div class="haiyunfei">
+											<label style="color: green;margin-right: 17px;">cost(成本)：</label>
+											<span class="haicb"></span>
+											<br />
+											<label style="color:red;">Quotes(报价)：</label>
+											<span class="haibj"></span>
+										</div>
+										<br />
+										<div>
+											<label>Valid period(有效期)：</label> <span class="youxiao"></span>
+											<label style="margin-left: 30px;">To prepaid(到预付)：</label> <span class="daoyufu"></span>
+										</div>
+									</div>
+
+									<br />
+
+									<div class="feesbiao" style="border: 1px solid #CCCCCC;padding: 10px 15px;border-radius: 10px;background-color: whitesmoke;">
+
+									</div>
+									<br />
+									<div style="height: 2px; width: 100%;background-color: red;"></div>
+									<br />
+									<label>TOTAL:</label>
+									<br/>
+									<br />
+
+									<div class="mytot"></div>
+
+									<!--<button class="btn btn-xs btn-primary" style="margin-left: 220px;margin-right: 20px;" id='qxtj'>确认报价</button>	-->
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+					<div class="modal-footer" style="text-align: center;">
+						<button type="button" class="btn btn-info btn-sm" id='tkhqrbj'>Confirm the offer(确认方案)</button>
+						<button class="btn btn-sm btn-success" id='qrxgbj'>Modify the offer(修改报价)</button>
+						<button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">shut down(关闭)</button>
+
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+
+		<!-- 询价 -->
+		<div class="modal fade" id="myModalx" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header" style="background-color: #337ab7;color: white;">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title text-center" id="myModalLabel">向供应商询价</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal" role="form">
+							<div class="form-group form-group-sm">
+								<label class="col-sm-5 control-label">PORT OF LOADING(起运港)：</label>
+								<div class="col-sm-7 clearfix">
+									<!--<span style="color: red;display: block;padding-top: 10px;" class="pull-left">*</span><input type="text" autocomplete="off" style="width: 95%;" name="zhiqi" class="form-control pull-right" value="CNNGB">
+									<ul class="ulg">
+
+									</ul>-->
+									<!--<select name="zhiqi" class="form-control pull-right" style="width: 95%;">
+										<option>CNNGB</option>
+									</select>-->
+									<input class="form-control pull-right" name="zhiqi" readonly="" style="width: 95%;" />
+								</div>
+							</div>
+							<div class="form-group form-group-sm">
+								<label for="lastname" class="col-sm-5 control-label">FINAL DESTINATION(目的港)：</label>
+								<div class="col-sm-7 clearfix">
+									<span style="color: red;display: block;padding-top: 10px;" class="pull-left">*</span><input type="text" autocomplete="off" readonly style="width: 95%;" name="zhimudi" class="form-control pull-right">
+									<ul class="ulg">
+
+									</ul>
+								</div>
+							</div>
+							<div class="form-group form-group-sm">
+								<label for="lastname" class="col-sm-5 control-label">SUIPPING LINE(船公司)：</label>
+								<div class="col-sm-7 clearfix">
+									<input type="text" name="zhicuansi" class="form-control pull-right" readonly autocomplete="off" style="width: 95%;">
+									<ul class="ulg">
+
+									</ul>
+								</div>
+							</div>
+							<hr />
+							<div><label>请填写箱型箱量：</label></div>
+							<div>
+								<label>20GP</label> <input name='gp20' style="width: 40px;margin-right: 10px;text-align: center;" value="0" readonly>
+								<label>40GP</label> <input name='gp40' style="width: 40px;margin-right: 10px;text-align: center;" value="0" readonly>
+								<label>40HQ</label> <input name='hq40' style="width: 40px;margin-right: 10px;text-align: center;" value="0" readonly>
+								<label>45HQ</label> <input name='hq45' style="width: 40px;text-align: center;" value="0" readonly>
+							</div>
+							<br />
+							<label><span style="color: red;">*</span> &nbsp;预计出货时间：</label>
+							<input type='date' class="form-control" name="chutime" style="margin-bottom: 10px;" readonly />
+							<label>REMARK(其他事项)：</label>
+							<textarea class="form-control" style="margin-bottom: 10px;" name="qita" readonly></textarea>
+
+						</form>
+					</div>
+					<div class="modal-footer container-fluid">
+						<button type="button" class="btn btn-default btn-sm col-sm-2 col-sm-offset-4 xiangxunjia" data-dismiss="">询&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;价</button>
+						<button type="button" class="btn btn-primary btn-sm col-sm-2 " data-dismiss="modal">关&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;闭</button>
+					</div>
+					<div style="padding-bottom: 10px;padding-left: 15px;padding-right: 15px;">
+						<span style="font-size: 15px;font-weight: 600;">温馨提示：</span>
+						<span style="font-size: 13px;">询价后20分钟内，会收到最佳的物流方案,方案将以短信、邮件及APP消息方式进行提醒</span>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+
+		<!-- 直接报价 -->
+		<div class="modal fade" id="zongzhi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog" style="width: 750px;">
+				<div class="modal-content hightmodl">
+					<div class="modal-header" style="background-color: #337ab7;color: white;">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title text-center biaoti">Direct quotes(直接报价)</h4>
+					</div>
+					<div class="modal-body mylable ">
+						<form class="form-horizontal myform" role="form">
+							<div style="width: 90%;margin-left: 65px;" class="myform">
+								<div class="form-group form-group-sm">
+									<label class="col-sm-3 control-label" style="text-align: left;">Inquiry number(询盘编号):</label>
+									<div class="col-sm-9">
+										<p class="form-control-static bxpbh"></p>
+									</div>
+								</div>
+
+								<div class="form-group form-group-sm">
+									<label class="col-sm-3 control-label" style="padding-left: 0;text-align: left;">Inquiry time(询价时间):</label>
+									<div class="col-sm-9">
+										<p class="form-control-static bxjsj"></p>
+									</div>
+								</div>
+								<div class="form-group form-group-sm ">
+									<label class="col-sm-3 control-label" style="padding-left: 0;text-align: left;">Client's name(客户名称):</label>
+									<div class="col-sm-9">
+										<p class="form-control-static bkhmc"></p>
+									</div>
+								</div>
+								<div class="form-group form-group-sm ">
+									<label class="col-sm-3 control-label" style="padding-left: 0;text-align: left;">Inquiry person(询价人):</label>
+									<div class="col-sm-9">
+										<p class="form-control-static bxjr"></p>
+									</div>
+								</div>
+
+								<div class="form-group form-group-sm ">
+									<label class="col-sm-3 control-label" style="padding-left: 0;text-align: left;">contact number(联系电话):</label>
+									<div class="col-sm-9">
+										<p class="form-control-static blxdh"></p>
+									</div>
+								</div>
+							</div>
+							<div class="form-group form-group-sm clearfix btn-group" style="width: 80%;margin-left: 65px;position: relative;">
+								<label><span style="color: red;">*</span> Quotes business(报价企业):</label> <span class="caret mycreat" style="top:35px;right: 10px;"></span><input class="form-control bbjqy dropdown-toggle" data-toggle="dropdown" readonly>
+								<ul class="dropdown-menu baoqi" role="menu">
+
+								</ul>
+							</div>
+							<br />
+							<br />
+							<div class="form-group form-group-sm " style="width: 80%;margin-left: 65px;">
+								<label>Quotes people(报价人):</label> <input class="form-control bjr" />
+							</div>
+							<br />
+							<div class="form-group form-group-sm " style="width: 80%;margin-left: 65px;">
+								<label>Quote phone(报价电话):</label> <input class="form-control bjdh" />
+							</div>
+							<br />
+							<label style="margin-left: 65px;">Port Of Loading(起运港)：</label> <span style="font-size: 15px;font-weight: 700;" class="bqyg"></span>
+							<label style="margin-left: 50px;">Final Destinatton(目的地)：</label> <span style="font-size: 15px;font-weight: 700;" class="bmdg"></span>
+							<br />
+							<br />
+							<div class="clearfix" style="width: 80%;margin-left: 65px;">
+								<div class="form-group form-group-sm col-sm-6">
+									<label>Remarks(备注):</label>
+									<textarea class="form-control  bbz"></textarea>
+								</div>
+								<div class="form-group form-group-sm col-sm-6">
+									<label>Estimated shipping time(预计出货时间):</label>
+									<input class="form-control  byjchj">
+								</div>
+							</div>
+
+							<br />
+							<div class="clearfix" style="width: 80%;margin-left: 65px;">
+								<div class="form-group form-group-sm col-sm-4 btn-group">
+									<label><span style="color: red;">*</span> Suipping Line(船公司):</label><span class="caret mycreat" style="top:35px"></span><input class="form-control dropdown-toggle bcgs" readonly autocomplete="off" data-toggle="dropdown">
+									<div class="dropdown-menu mydrop" role="menu" style="margin-left: 0;width: 350px;">
+
+										<input class="form-control souchuaninput" placeholder="search..." />
+										<ul class="ulgang">
+
+										</ul>
+									</div>
+								</div>
+								<div class="form-group form-group-sm col-sm-4">
+									<label>voyage(航程):</label> <input class="form-control bhc" />
+								</div>
+
+								<div class="form-group form-group-sm col-sm-4 btn-group">
+									<label>sail(开船):</label><span class="caret mycreat" style="top:35px"></span><input class="form-control bkc dropdown-toggle" data-toggle="dropdown" readonly>
+									<ul class="dropdown-menu kaizhou" role="menu">
+										<li>
+											周日 (Sunday)
+										</li>
+										<li>
+											周一 (Monday)
+										</li>
+										<li>
+											周二 (Tuesday)
+										</li>
+										<li>
+											周三 (Wednesday)
+										</li>
+										<li>
+											周四 (Thursday)
+										</li>
+										<li>
+											周五 (Friday)
+										</li>
+										<li>
+											周六 (Saturday)
+										</li>
+
+									</ul>
+								</div>
+								<div class="form-group form-group-sm col-sm-8 btn-group">
+									<label>Transit port(中转港):</label><span class="caret mycreat" style="top:35px"></span><input class="form-control bzzg dropdown-toggle " readonly autocomplete="off" data-toggle="dropdown" />
+									<div class="dropdown-menu mydrop" style="margin-left: 0;width: 96%;" role="menu">
+
+										<input class="form-control souinput" placeholder="search..." />
+										<ul class="ulgang">
+
+										</ul>
+									</div>
+								</div>
+								<div class="form-group form-group-sm col-sm-4 btn-group">
+									<label>deadline(截关):</label><span class="caret mycreat" style="top:35px"></span> <input class="form-control bjg dropdown-toggle" data-toggle="dropdown" readonly>
+									<ul class="dropdown-menu jiezhou" role="menu">
+										<li>
+											周日 (Sunday)
+										</li>
+										<li>
+											周一 (Monday)
+										</li>
+										<li>
+											周二 (Tuesday)
+										</li>
+										<li>
+											周三 (Wednesday)
+										</li>
+										<li>
+											周四 (Thursday)
+										</li>
+										<li>
+											周五 (Friday)
+										</li>
+										<li>
+											周六 (Saturday)
+										</li>
+									</ul>
+								</div>
+
+							</div>
+
+							<div class="form-group form-group-sm" style="margin-top: 10px;width: 90%;margin-left: 65px;">
+								<label class="col-sm-3 control-label" style="text-align: left;">Box quantity(箱型箱量):</label>
+								<div class="col-sm-9">
+									<p class="form-control-static xl">
+
+									</p>
+								</div>
+							</div>
+							<br />
+							<div style="background-color: whitesmoke;width: 85%;margin-left:60px;padding: 5px;border-radius: 5px;border: 1px solid gainsboro ;">
+								<p style="padding-left: 0;color: red;font-weight: 600;">shipping fee(海运费): (unit(单位)：
+									<input class="hb text-center" readonly style="margin-top: 10px;width: 30px; outline: none;border: none">)
+									<label style="margin-left: 70px;">到预付:</label>
+									<select class="hdyf" style="width: 70px;">
+										<option>预付</option>
+										<option>到付</option>
+									</select>
+								</p>
+								<br />
+								<div><label style="color: green;">cost(成本):</label></div>
+								<div class="clearfix haichen">
+
+								</div>
+								<div><label style="color: red;">Quotes(报价):</label></div>
+								<div class="clearfix haibao">
+
+								</div>
+
+								<div class="form-group form-group-sm ">
+									<label class="col-sm-3 control-label" style="padding-left: 0;text-align: left;">Valid period(有效期)：</label>
+									<div class="col-sm-9">
+										<input type="date" class="form-control byxq">
+									</div>
+								</div>
+								<br />
+							</div>
+
+							<div class="form-group form-group-sm" style="color: red;">
+								<label class="col-sm-3 control-label" style="text-align: left;margin-left: 65px;">Additional fee(附加费):</label>
+
+							</div>
+							<br />
+
+							<span class="btn btn-sm btn-primary" id='addfjbb' style="margin-left: 65px;" data-toggle="modal" data-target="#fjbiao" data-backdrop="myModal">Add a surcharge(添加附加费)</span>
+							<br />
+							<br />
+							<div style="width: 100%;">
+								<table class="table table-bordered tablecenter" id='feeadd'>
+									<thead>
+										<tr class="warning">
+											<th>费用名称<br>Cost name</th>
+											<th>20GP</th>
+											<th>40GP</th>
+											<th>单票<br>Single ticket</th>
+											<th>币种<br>Currency</th>
+											<th>到预付<br>To prepaid</th>
+											<th>操作<br>operating</th>
+										</tr>
+									</thead>
+									<tbody>
+
+									</tbody>
+								</table>
+								<ul class="baofee">
+
+								</ul>
+							</div>
+
+						</form>
+					</div>
+					<div class="modal-footer" style="text-align: left;border-top-color: darkred;">
+						<!--<label style="margin-left: 20px;">TOTAL:</label>
+						<div style="margin-left: 65px;">
+							<label style="color: green;">成本：</label>
+
+							<label style="margin-left: 50px;margin-right: 50px;">$ <span class="mcrz"></span></label>
+							<label>￥<span class="crz"></span></label>
+							<br />
+							<br />
+							<label style="color: blue;">报价：</label>
+
+							<label style="margin-left: 50px;margin-right: 50px;">$ <span class="mbrz"></span></label>
+							<label>￥<span class="brz"></span></label>
+							<br />
+							<br />
+							<label style='color: red;'>利润：</label>
+
+							<label style="margin-left: 50px;margin-right: 50px;">$ <span class="mlrz"></span></label>
+							<label>￥<span class="lrz"></span></label>
+						</div>
+
+						<br />
+						<br />-->
+
+						<button type="button" class="btn btn-success btn-sm" id='qrzjbj' style="margin-left: 200px;width: 200px;">Confirm the offer(确认报价)</button>
+						<button type="button" class="btn btn-success btn-sm" data-dismiss="modal">cancel(取消)</button>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+		<!--附加费	-->
+		<div class="modal fade" id="fjbiao" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog" style="width: 650px;">
+				<div class="modal-content">
+					<div class="modal-header" style="background-color: #337ab7;color: white;">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title text-center">添加附加费</h4>
+					</div>
+					<div class="modal-body mylable clearfix" style="height: 500px;overflow: auto;">
+						<table class="table table-bordered tablecenter" id='feetable'>
+							<thead>
+								<tr class="warning">
+									<th></th>
+									<th>费用名称</th>
+									<th>20GP</th>
+									<th>40GP</th>
+									<th>单票</th>
+									<th>币种</th>
+									<th style="width: 80px;">到预付</th>
+								</tr>
+							</thead>
+							<tbody>
+
+							</tbody>
+						</table>
+					</div>
+					<div class="modal-footer" style="text-align: left;border-top-color: darkred;">
+
+						<button type="button" class="btn btn-success btn-sm feepi " style="margin-left: 200px;width: 100px;">批量添加</button>
+						<button type="button" class="btn btn-success btn-sm feeqx" data-dismiss="modal">取消</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+
+		<!--统计图	-->
+		<div class="modal fade" id="tongjitu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog" style="width: 830px;">
+				<div class="modal-content">
+					<div class="modal-header" style="background-color: #337ab7;color: white;">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title text-center">统计图</h4>
+					</div>
+					<div class="modal-body clearfix" id='tact' style="height: 730px">
+
+					</div>
+					<div class="modal-footer" style="text-align:center;border-top-color: darkred;">
+
+						<button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">关闭</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+
+		<!-- 警告-->
+		<div class="modal fade" id="myModaljg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width: 350px;margin: 150px auto;">
+
+					<div class="modal-body">
+						<div class="text-center"><i class="fa fa-exclamation-triangle" style="color: darkred;font-size: 35px;"></i></div>
+						<h2 class="text-center jgh" style="color: orange;"></h2>
+						<div class="text-center" style="margin-top: 25px;">
+							<button type="button" class="btn btn-warning btn-sm" data-dismiss="modal">关闭</button>
+						</div>
+					</div>
+
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+
+		<!-- 警告 -->
+		<div class="modal fade" id="myModalxm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width: 350px;margin: 150px auto;">
+
+					<div class="modal-body">
+						<div class="text-center"><i class="fa fa-exclamation-triangle" style="color: darkred;font-size: 35px;"></i></div>
+						<h2 class="text-center" style="color: orange;">确定修改密码吗？</h2>
+						<div class="text-center" style="margin-top: 30px;">
+							<button type="button" style="margin-right: 40px;" class="btn btn-default btn-sm" data-dismiss="modal">关闭</button>
+							<button type="button" class="btn btn-warning btn-sm" id='qxiuma'>确定</button>
+						</div>
+
+					</div>
+
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+
+		<script src="../../plugins/jquery-2.1.4/jquery.min.js"></script>
+		<script src='../../plugins/ECharts/echarts.min.js'></script>
+		<script src='../../plugins/bootstrap/js/bootstrap.min.js'></script>
+		<script type="text/javascript" src="../../plugins/jquery.slimscroll.js"></script>
+		<script src='../../fenye/js/jquery.page.js'></script>
+		<script>
+			$('.scroll').slimScroll({
+				height: '90%',
+
+			})
+		</script>
+		<script src='../../admin/js/main.js'></script>
+		<!--用户信息-->
+		<script src="../../assets/js/user.js"></script>
+		<!--退出登录-->
+		<script src="../../assets/js/tuichu.js"></script>
+		<script src='../../assets/js/mohucha.js'></script>
+
+		<script src='tongji.js'></script>
+		<script>
+			//目的港
+			mohucha($('.souinput'))
+
+			$('.souinput').on('blur', function() {
+				setTimeout(function() {
+					$('.ulgang').empty();
+					$('.ligang').remove()
+				}, 200)
+
+			})
+			$('.bzzg').on('click', function() {
+				$('.souinput').val('');
+				$('.ulgang').empty();
+				var mythis = $(this)
+				setTimeout(function() {
+					mythis.next().children('.souinput').focus()
+				}, 50)
+
+			})
+
+			//目的港
+			$('[name="mdg"]').on('click', function() {
+				$('.souinput').val('');
+				$('.ulgang').empty();
+				var mythis = $(this)
+				setTimeout(function() {
+					mythis.next().children('.souinput').focus()
+				}, 50)
+
+			})
+
+			//船公司
+
+			mohuchuan($('.souchuaninput'))
+			$('.bcgs').on('click', function() {
+				$('.souchuaninput').val('');
+				$('.ulgang').empty();
+				var mythis = $(this)
+				setTimeout(function() {
+					mythis.next().children('.souchuaninput').focus()
+				}, 50)
+
+			})
+
+			//报价企业
+			var bjqy = '';
+
+			var vt = new Date().getTime();
+			$.ajax({
+				type: "post",
+				url: "http://106.14.251.28:8081/userCenter/companyService/getSupplierCompanys",
+				data: {
+					'accessToken': localStorage.accessToken,
+					'msgId': vt + '',
+				},
+				async: true,
+				dataType: 'json',
+				success: function(data) {
+					console.log(data)
+					var a = data.companys
+					console.log(a)
+					for(var i = 0; i < a.length; i++) {
+						$('.baoqi').append('<li data-person=' + a[i].contector + ' data-numb=' + a[i].mobileNo + ' data-code=' + a[i].companyCode + '>' + a[i].companyName + '</li>')
+					}
+				}
+
+			})
+
+			$(document).on('click', '.baoqi>li', function() {
+				$('.bjr').val($(this).data('person'))
+				$('.bjdh').val($(this).data('numb'))
+				$('.bbjqy').attr('data-code', $(this).data('code'))
+				$('.bbjqy').val($(this).text())
+			})
+
+			//开船截关
+
+			$('.kaizhou>li').on('click', function() {
+				var a = $.trim($(this).text())
+				$('.bkc').val(a)
+
+			})
+
+			$('.jiezhou>li').on('click', function() {
+				var a = $.trim($(this).text())
+				$('.bjg').val(a)
+
+			})
+
+			function quxiao() {
+				$('.myquxiao').css('display', 'block')
+				$('.qxqd').css('display', 'block')
+			}
+
+			function noqu() {
+				$('.myquxiao').css('display', 'none')
+				$('.qxqd').css('display', 'none')
+			}
+			$('.myqx').on('click', noqu)
+
+			var fjfsj = null;
+
+			var gf = new Date().getTime();
+			$.ajax({
+				type: "post",
+				url: "http://106.14.251.28:8085/bizCenter/feeService/getFeeTypes",
+				data: {
+					'accessToken': localStorage.accessToken,
+					'msgId': gf + ''
+
+				},
+				async: true,
+				dataType: 'json',
+				success: function(json) {
+					console.log(json)
+					fjfsj = json.types;
+
+					for(var i = 0; i < fjfsj.length; i++) {
+
+						if(fjfsj[i].feeTypeNum == 0) {
+							if(fjfsj[i].currency == 0) {
+								$('.hb').val('￥')
+							}
+							if(fjfsj[i].currency == 1) {
+								$('.hb').val('$')
+							}
+							if(fjfsj[i].currency == 2) {
+								$('.hb').val('B')
+							}
+						} else {
+							var fbz = '';
+							var gou = '';
+							if(+fjfsj[i].isDefault) {
+								gou = 'checked'
+							}
+							if(fjfsj[i].currency == 0) {
+								fbz = '￥'
+							}
+							if(fjfsj[i].currency == 1) {
+								fbz = '$'
+							}
+							if(fjfsj[i].currency == 2) {
+								fbz = 'B'
+							}
+							if(fjfsj[i].byOrder == 1) {
+								var fd = fjfsj[i].orderPrice;
+								if(!fd) {
+									fd = 0
+								}
+								$('#feetable>tbody').append('<tr data-code=' + fjfsj[i].feeTypeNum + ' data-order=' + fjfsj[i].byOrder + '><td><input type="checkbox" ' + gou + '></td><td class="feename">' + fjfsj[i].feeTypeEname + ' (' + fjfsj[i].feeTypeCname + ')' + '</td><td><input readonly class="fjgp20"></td><td><input class="fjgp40"  readonly></td><td><input class="fdan" value=' + fd + '></td><td>' +
+									'<input class="fjbz text-center"  readonly value=' + fbz + '></td><td><select class="dyf"><option>预付</option><option>到付</option></select></td></tr>')
+							} else {
+								var f20 = fjfsj[i].cost20gp;
+								var f40 = fjfsj[i].cost40gp;
+								if(!f20) {
+									f20 = 0
+								}
+								if(!f40) {
+									f40 = 0
+								}
+								$('#feetable').append('<tr data-code=' + fjfsj[i].feeTypeNum + ' data-order=' + fjfsj[i].byOrder + '><td><input type="checkbox" ' + gou + '></td><td class="feename">' + fjfsj[i].feeTypeEname + ' (' + fjfsj[i].feeTypeCname + ')' + '</td><td><input  class="fjgp20" value=' + f20 + '></td><td><input class="fjgp40" value=' + f40 + '></td><td><input readonly class="fdan"></td><td>' +
+									'<input class="fjbz text-center" readonly value=' + fbz + '></td><td><select class="dyf"><option>预付</option><option>到付</option></select></td></tr>')
+							}
+
+						}
+					}
+
+				}
+
+			})
+
+			//附加费表
+
+			$('#addfjbb').on('click', function(e) {
+				e.preventDefault();
+				$('.ligang').remove()
+					//$('#feetable>tbody').empty()
+					//$('#zongzhi').modal('hide')
+					/*for(var i = 0; i < fjfsj.length; i++) {
+					if(fjfsj[i].feeTypeNum!=0){
+						
+				}
+*/
+			})
+
+			$('.feeqx').on('click', function() {
+				//$('#zongzhi').modal('show')
+			})
+
+			var danbaoz = 0; //单票报价总金额
+			var bz20 = 0; //20gp的总价格
+			var bz40 = 0; //40gp的总价格
+			var mdanbaoz = 0; //单票报价总金额
+			var mbz20 = 0; //20gp的总价格
+			var mbz40 = 0; //40gp的总价格
+			$('.feepi').on('click', function() {
+				var thischeck = $('#feetable input[type="checkbox"]:checked')
+
+				if(thischeck.length > 0) {
+					$('#feeadd>tbody').empty()
+					for(var i = 0; i < thischeck.length; i++) {
+						//console.log(thischeck.eq(i).parents('tr').data('order'))
+						if(thischeck.eq(i).parents('tr').data('order') == 1) {
+							$('#feeadd>tbody').append(
+								'<tr data-code=' + thischeck.eq(i).parents('tr').data('code') + ' data-order=' + thischeck.eq(i).parents('tr').data('order') + ' data-panbao="成本"><td>' + thischeck.eq(i).parents('tr').find('.feename').text() + ' (成本)' + '</td><td><input readonly class="chgp20"></td><td><input readonly  class="chgp40"></td><td><input value=' + thischeck.eq(i).parents('tr').find('.fdan').val() + '  class="chdan"></td><td class="mybz">' +
+								thischeck.eq(i).parents('tr').find('.fjbz').val() + '</td><td class="bdyf">' +
+								thischeck.eq(i).parents('tr').find('.dyf').val() + '</td><td rowspan="2"><span class="fsc">删除</span></td></tr>' +
+								'<tr data-code=' + thischeck.eq(i).parents('tr').data('code') + ' data-order=' + thischeck.eq(i).parents('tr').data('order') + '  data-panbao="报价"><td>' + thischeck.eq(i).parents('tr').find('.feename').text() + ' (报价)' + '</td><td>' +
+								thischeck.eq(i).parents('tr').find('.fjgp20').val() + '</td><td>' +
+								thischeck.eq(i).parents('tr').find('.fjgp40').val() + '</td><td class="baodan">' +
+								thischeck.eq(i).parents('tr').find('.fdan').val() + '</td><td class="mybz">' +
+								thischeck.eq(i).parents('tr').find('.fjbz').val() + '</td><td class="bdyf">' +
+								thischeck.eq(i).parents('tr').find('.dyf').val() + '</td></tr>'
+							)
+						} else {
+							$('#feeadd>tbody').append(
+								'<tr data-code=' + thischeck.eq(i).parents('tr').data('code') + ' data-order=' + thischeck.eq(i).parents('tr').data('order') + '  data-panbao="成本"><td>' + thischeck.eq(i).parents('tr').find('.feename').text() + ' (成本)' + '</td><td><input value=' + thischeck.eq(i).parents('tr').find('.fjgp20').val() + ' class="chgp20"></td><td><input value=' + thischeck.eq(i).parents('tr').find('.fjgp40').val() + '  class=" chgp40"></td><td><input readonly class="chdan"></td><td class="mybz">' +
+								thischeck.eq(i).parents('tr').find('.fjbz').val() + '</td><td class="bdyf">' +
+								thischeck.eq(i).parents('tr').find('.dyf').val() + '</td><td rowspan="2"><span class="fsc">删除</span></td></tr>' +
+								'<tr data-code=' + thischeck.eq(i).parents('tr').data('code') + ' data-order=' + thischeck.eq(i).parents('tr').data('order') + '  data-panbao="报价"><td>' + thischeck.eq(i).parents('tr').find('.feename').text() + ' (报价)' + '</td><td class="bao20">' +
+								thischeck.eq(i).parents('tr').find('.fjgp20').val() + '</td><td class="bao40">' +
+								thischeck.eq(i).parents('tr').find('.fjgp40').val() + '</td><td class="baodan">' +
+								thischeck.eq(i).parents('tr').find('.fdan').val() + '</td><td class="mybz">' +
+								thischeck.eq(i).parents('tr').find('.fjbz').val() + '</td><td class="bdyf">' +
+								thischeck.eq(i).parents('tr').find('.dyf').val() + '</td></tr>'
+							)
+						}
+
+					}
+					$('#zongzhi').modal('show')
+					$('#fjbiao').modal('hide')
+
+					/*for(var j = 0; j < $('.baodan').length; j++) {
+						if($('.baodan').eq(j).next().text() == '人民币') {
+							danbaoz = +danbaoz + (+$('.baodan').eq(j).text())
+						}
+						if($('.baodan').eq(j).next().text() == '美元') {
+							mdanbaoz = +mdanbaoz + (+$('.baodan').eq(j).text())
+						}
+
+					}
+					for(var k = 0; k < $('.bao20').length; k++) {
+						if($('.bao20').eq(k).nextAll('.mybz').text() == '人民币') {
+							bz20 = bz20 + $('.bao20').eq(k).text() * $('.l20gp').text()
+						}
+						if($('.bao20').eq(k).nextAll('.mybz').text() == '美元') {
+							mbz20 = mbz20 + $('.bao20').eq(k).text() * $('.l20gp').text()
+						}
+
+					}
+					for(var m = 0; m < $('.bao40').length; m++) {
+						if($('.bao40').eq(m).nextAll('.mybz').text() == '人民币') {
+							bz40 = bz40 + $('.bao40').eq(m).text() * $('.l40gp').text()
+
+						}
+						if($('.bao40').eq(m).nextAll('.mybz').text() == '美元') {
+							mbz40 = mbz40 + $('.bao40').eq(m).text() * $('.l40gp').text()
+							console.log($('.bao40').eq(m).text())
+						}
+
+					}
+					//console.log(bz40)
+					//console.log(mbz40)
+
+					$('.brz').text(+$('.brz').text() + danbaoz + bz20 + bz40)
+					$('.lrz').text($('.brz').text() - $('.crz').text())
+					$('.mbrz').text(+$('.mbrz').text() + mdanbaoz + mbz20 + mbz40)
+					$('.mlrz').text($('.mbrz').text() - $('.mcrz').text())*/
+				} else {
+					alert('请选择一种附加费')
+				}
+
+			})
+
+			//分页
+			//分页	
+			function dangqian() {
+				var dang = ($(this).text() - 1) * $('[name="yeshu"]').val();
+				var tiao = $('[name="yeshu"]').val()
+				getpan(dang, tiao)
+				console.log($(this).text())
+			}
+
+			function prevPage() {
+				var dang = ($('.current').text() - 1) * $('[name="yeshu"]').val()
+				var tiao = $('[name="yeshu"]').val()
+				getpan(dang, tiao)
+			}
+
+			function nextPage() {
+				var dang = ($('.current').text() - 1) * $('[name="yeshu"]').val()
+				var tiao = $('[name="yeshu"]').val()
+				getpan(dang, tiao)
+			}
+			$(document).on('click', '.tcdNumber', dangqian)
+			$(document).on('click', '.prevPage', prevPage)
+			$(document).on('click', '.nextPage', nextPage)
+
+			$('[name="yeshu"]').on('change', function() {
+				getpan(0, $('[name="yeshu"]').val())
+				creatfenye()
+			})
+
+			//警告框
+			function success(a) {
+				$('.swap').css('display', 'block')
+				$('.success').css('display', 'block')
+				$('.success h3').text(a)
+
+				$('.error').css('display', 'none')
+			}
+
+			function error(a, b) {
+				$('.swap').css('display', 'block')
+				$('.success').css('display', 'none')
+				$('.error').css('display', 'block')
+				$('.error h3').text(a)
+				$('.error p').text(b)
+			}
+
+			$('.errorque').on('click', function() {
+				$('.swap').css('display', 'none')
+				$('.error').css('display', 'none')
+			})
+
+			function creattable(a, i) {
+				//console.log(a.schemeStatus)
+				var zhuang = '';
+				var baotai = '';
+				var xuntai = '';
+				var zhuangang = '';
+				var xun = '';
+				var quxiao = '';
+				var bj = '';
+				var cgs = '';
+				var beizhu = a.elements.remark;
+				if(!beizhu) {
+					beizhu = ''
+				}
+
+				cgs = a.carryCode;
+				if(!cgs) {
+					cgs = ''
+				}
+				quxiao = '<span class="quxiao" data-code=' + a.enquiryCode + ' data-mystatus=' + a.schemeStatus + '>取消</span>'
+				if(a.schemeStatus == 3 || a.schemeStatus == 4) {
+
+					baotai = '已向海外部或客户报价'
+					bj = '<span class="xgbj" data-toggle="modal" data-target="#myModalxg" data-enqurycode=' + a.enquiryCode + ' data-mystatus=' + a.schemeStatus + ' data-schemecode=' + a.schemeCode + '>修改报价</span>'
+				}
+				if(a.schemeStatus == 0 || a.schemeStatus == 2 || a.schemeStatus == 5) {
+					baotai = '未向海外部或客户报价';
+
+					bj = '<span class="zjbj" data-toggle="modal" data-target="#zongzhi" data-enqurycode=' + a.enquiryCode + ' data-mystatus=' + a.schemeStatus + ' data-schemecode=' + a.schemeCode + '>直接报价</span>'
+				}
+
+				if(a.enquirybizStatus == 0) {
+					xuntai = '未询价';
+					if(a.schemeStatus != 3) {
+						//xun = '<span class="biaoxun" data-toggle="modal" data-target="#myModalx" data-enqurycode=' + a.enquiryCode + ' data-mystatus=' + a.schemeStatus + '>询价</span>'
+					}
+				};
+				if(a.enquirybizStatus == 1) {
+					xuntai = '已询价'
+
+				}
+				if(a.status == 2) {
+					xuntai = '已取消'
+				}
+				var gp20 = null;
+				var gp40 = null;
+				var hq40 = null;
+				var hc45 = null;
+				gp20 = +(a.elements.num20gp);
+				gp40 = +(a.elements.num40gp);
+				hq40 = +(a.elements.num40hq);
+				hc45 = +(a.elements.num45hc);
+				if(!gp20) {
+					gp20 = '--'
+				};
+				if(!gp40) {
+					gp40 = '--'
+				};
+				if(!hq40) {
+					hq40 = '--'
+				};
+				if(!hc45) {
+					hc45 = '--'
+				};
+
+				var bnum = a.bookingNum;
+				if(!bnum) {
+					bnum = 0
+				}
+
+				var enu = a.enquiryNum
+				if(!enu) {
+					enu = 0
+				}
+
+				$('#tablexunpan>tbody').append(
+					'<tr><td rowspan="2">' +
+					i + '</td><td>' + a.customCompanyName + '</td><td>' +
+					bnum + '</td><td>' +
+					a.polName + '</td><td>' +
+					a.podName + '</td><td rowspan="2">' +
+					gp20 + '</td><td rowspan="2">' +
+					gp40 + '</td><td rowspan="2">' +
+					hq40 + '</td><td rowspan="2">' +
+					hc45 + '</td><td rowspan="2">' +
+					baotai + '</td><td rowspan="2">' +
+					xuntai + '</td><td>' +
+					a.enquiryTime + '</td><td rowspan="2">' + xun + ' ' + quxiao + ' ' + bj + '</td></tr><tr><td >' +
+					a.enquiryAccount + '</td><td>' +
+					enu + '</td><td>' +
+					cgs + '</td><td>' +
+					a.expectTime + '</td><td>' +
+					beizhu + '</td></tr>'
+				)
+			}
+
+			var pagenum = 0;
+
+			function creatfenye(pagezong, pagedang) {
+				var yeshu = Math.ceil(pagenum / $('[name="yeshu"]').val())
+				$(".tcdPageCode").createPage({
+					pageCount: yeshu,
+					current: 1,
+					backFn: function(p) {
+						//console.log(p);
+					}
+				});
+			}
+
+			//获取询盘列表
+			function getpan(dqys, yc) {
+				var baotai1 = $('[name="bjzt"]').val();
+				if(baotai1 == '全部') {
+					baotai1 = ''
+				}
+				if(baotai1 == '未报价') {
+					//baotai1 = '0,1,2,5';
+					baotai1 = '5';
+				}
+				if(baotai1 == '已报价') {
+					baotai1 = 3;
+				}
+
+				var qiyug = $('[name="qyg"]').val();
+				if(qiyug == 'NINGBO') {
+					qiyug = 'CNNGB'
+				}
+				if(qiyug == 'LAEM CHABANG') {
+					qiyug = 'THLCB'
+				}
+				if(qiyug == 'BANGKOK') {
+					qiyug = 'THBKK'
+				}
+				var xunpan = $('[name="xpzt"]').val()
+				if(xunpan == '全部') {
+					xunpan = ''
+				}
+				if(xunpan == '未询价') {
+					xunpan = 0
+				}
+				if(xunpan == '已询价') {
+					xunpan = 1
+				}
+				$('#tablexunpan>tbody').empty()
+				var g = new Date().getTime();
+				$.ajax({
+					type: "post",
+					url: "http://106.14.251.28:8085/bizCenter/enquiryService/getEnquirys",
+					data: {
+						'accessToken': localStorage.accessToken,
+						'msgId': g + '',
+						"isBackward": 1,
+						"enquiryStatus": 0,
+						"polCode": qiyug,
+						"podCode": $('[name="mdg"]').attr('data-code'),
+						"schemeStatus": baotai1,
+						"enquiryTimeStart": $('[name="starttime"]').val(),
+						"enquiryTimeEnd": $('[name="endtime"]').val(),
+						'enquirybizStatus': xunpan, //询价状态
+						"currentPage": dqys, //当前页数
+						"pageSize": yc //页长
+					},
+					async: true,
+					dataType: 'json',
+					success: function(json) {
+						console.log(json)
+						if(json.retCode == '0000') {
+							var a = json.enquirys;
+							var num = json.num;
+							$('.pagezong').text(num)
+							if(+num != pagenum) {
+								pagenum = num;
+								$('.pagezong').text(pagenum)
+								creatfenye() //分页函数
+							}
+
+							//console.log(a)
+							$('.zongpan').text(num)
+							for(var i = 0; i < a.length; i++) {
+								creattable(a[i], i + 1)
+							}
+
+						} else {
+							alert('数据报错')
+						}
+
+					},
+					error: function(data) {
+						console.log('ajax请求错误')
+					}
+				})
+			}
+
+			getpan(0, $('[name="yeshu"]').val())
+
+			function numb(a) {
+				var str = a;
+				var shuzhu = str.split('-');
+
+				var newstr = '';
+				for(var i = 0; i < shuzhu.length; i++) {
+					newstr += shuzhu[i]
+				}
+				return +newstr;
+			}
+
+			$('.sousuo').on('click', function(e) {
+				e.preventDefault();
+
+				var blur = numb($('[name="starttime"]').val()) > numb($('[name="endtime"]').val());
+				if(blur) {
+					error('搜索错误', '开始时间不能大于结束时间')
+				} else {
+
+					getpan(0, $('[name="yeshu"]').val())
+				}
+
+			})
+
+			//询价
+			$(document).on('click', '.biaoxun', function() {
+				console.log(this.dataset.enqurycode)
+				var thisenqury = this.dataset.enqurycode
+				$('.xiangxunjia').attr('data-enqury', this.dataset.enqurycode)
+				var tge = new Date().getTime();
+				$.ajax({
+					type: "post",
+					url: "http://106.14.251.28:8085/bizCenter/enquiryService/getEnquiryInfo",
+					data: {
+						'accessToken': localStorage.accessToken,
+						'msgId': tge + '',
+						"enquiryCode": thisenqury
+					},
+					async: true,
+					dataType: 'json',
+					success: function(data) {
+						console.log(data)
+						$('[name="zhiqi"]').val(data.polName)
+						$('[name="zhiqi"]').attr('data-code', data.polCode)
+						$('[name="zhimudi"]').val(data.podName)
+						$('[name="zhimudi"]').attr('data-code', data.podCode)
+						$('[name="zhicuansi"]').val(data.carryCname)
+						$('[name="zhicuansi"]').attr('data-code', data.carryCode)
+						var gp20 = data.elements.num20gp
+						var gp40 = data.elements.num40gp
+						var hq40 = data.elements.num40hq
+						var hq45 = data.elements.num45hc
+						if(gp20 == '--') {
+							gp20 = 0;
+						}
+						if(gp40 == '--') {
+							gp40 = 0;
+						}
+						if(hq40 == '--') {
+							hq40 = 0;
+						}
+						if(hq45 == '--') {
+							hq45 = 0;
+						}
+						$('[name="gp20"]').val(gp20)
+						$('[name="gp40"]').val(gp40)
+						$('[name="hq40"]').val(hq40)
+						$('[name="hq45"]').val(hq45)
+						$('[name="chutime"]').val(data.elements.expectDate)
+						$('[name="qita"]').val(data.elements.remark)
+						$('[name="kehu"]').val(data.enquiryAccount)
+					}
+				})
+
+			})
+
+			//询价	
+
+			$('.xiangxunjia').on('click', function() {
+
+				var thisenqury = this.dataset.enqury
+				var tg = new Date().getTime();
+				$.ajax({
+					type: "post",
+					url: "http://106.14.251.28:8085/bizCenter/enquiryService/backwardEnquiry",
+					data: {
+						'accessToken': localStorage.accessToken,
+						'msgId': tg + '',
+						"enquiryCode": thisenqury
+					},
+					async: true,
+					dataType: 'json',
+					success: function(data) {
+
+						console.log(data)
+
+						if(data.retCode == '0000') {
+							console.log(thisenqury)
+							alert('询价成功')
+							$('#myModalx').modal('hide')
+							location = 'pc_zongxunpan.html'
+						}
+					},
+					error: function(json) {
+
+					}
+				})
+
+			})
+
+			//取消
+			$(document).on('click', '.quxiao', function() {
+				var thiscode = $(this).data('code')
+				var trthis = $(this)
+				var z = new Date().getTime();
+
+				quxiao();
+				$('.qxbtn').on('click', function() {
+					$.ajax({
+						type: "post",
+						url: "http://106.14.251.28:8085/bizCenter/enquiryService/cancelEnquiry",
+						data: {
+							'accessToken': localStorage.accessToken,
+							'msgId': z + '',
+							'enquiryCode': thiscode
+						},
+						async: true,
+						dataType: 'json',
+						success: function(json) {
+							if(json.retCode == '0000') {
+								noqu()
+								trthis.parents('tr').next().remove()
+								trthis.parents('tr').remove()
+									//alert('取消成功 ' + json.enquiryCode)
+							}
+						}
+					})
+				})
+			})
+
+			//录单
+			$(document).on('click', '.ludan', function() {
+				location = 'pc_hainew.html';
+			})
+
+			//修改报价
+
+			$(document).on('click', '.xgbj', function() {
+				$('.mytot').empty()
+				var thisschemecode = $(this).data('schemecode')
+
+				var thisstatus = $(this).data('mystatus')
+				$('#qrxgbj').attr('data-schemecode', this.dataset.schemecode)
+				$('#qxtj').attr('data-schemecode', this.dataset.schemecode)
+				$('#xgbj').attr('data-schemecode', this.dataset.schemecode)
+				$('#tkhqrbj').attr('data-schemecode', this.dataset.schemecode)
+				$('#tkhqrbj').attr('data-enqurycode', this.dataset.enqurycode)
+				var t = new Date().getTime();
+				$.ajax({
+					type: "post",
+					url: "http://106.14.251.28:8085/bizCenter/schemeService/getSchemeTotalInfo",
+					data: {
+						'accessToken': localStorage.accessToken,
+						'msgId': t + '',
+						//"schemeCode": thisschemecode,
+						"schemeCode": thisschemecode,
+					},
+					async: true,
+					dataType: 'json',
+					success: function(data) {
+						console.log(data)
+
+						var a = data.schemes
+
+						var gp20 = null;
+						var gp40 = null;
+						var hq40 = null;
+
+						var scode = a.schemeCode
+							//alert(scode)
+							//console.log(scode)
+						$('.huiren').text(a.replyName)
+						$('.huidian').text(a.replyMobileNo)
+						$('.huitime').text(a.replyTime) //回复时间
+						$('.xunbian').text(a.enquiryCode); //询价编号
+						$('.xbjqy').text(a.supplierComanyName) //报价企业名称
+						$('.wubian').text(a.schemeCode);
+						$('.qiyun').text(a.polName);
+						$('.mudigang').text(a.podName);
+						$('.chuansi').text(a.carryCode);
+						$('.zzgang').text(a.potName);
+						$('.hangcheng').text(a.sailingDay);
+						$('.kcri').text(a.etd);
+						$('.jieguan').text(a.customsClearance);
+						$('.youxiao').text(a.expireDate);
+						//$('.gaichming').text(a.vessel);
+						//$('.gaichi').text(a.voyage)
+						$('.weigp20').val(gp20);
+						$('.weigp40').val(gp40);
+						$('.chgp20').text(gp20) //海运费成本费
+						$('.chgp40').text(gp40) //海运费成本费
+						$('.weibizhonng').text(bizhong);
+						$('.liang20gp').text(a.num20gp)
+						$('.liang40gp').text(a.num40gp)
+						var rmbzong = 0;
+						var meizong = 0;
+
+						$('.myxl').empty();
+						if(a.num20gp > 0) {
+							$('.myxl').append('<span class="liang">20GP * <span class="liang20gp">' + a.num20gp + '</span></span>')
+						}
+						if(a.num40gp > 0) {
+							$('.myxl').append('<span class="liang">40GP * <span class="liang40gp">' + a.num40gp + '</span></span>')
+						}
+						if(a.num40hq > 0) {
+							$('.myxl').append('<span class="liang">40HQ * <span class="liang40hq">' + a.num40hq + '</span></span>')
+						}
+						if(a.num45hc > 0) {
+							$('.myxl').append('<span class="liang">45HC * <span class="liang45hc">' + a.num45hc + '</span></span>')
+						}
+
+						$('.feesbiao').empty();
+
+						$('.haicb').empty()
+						$('.haibj').empty()
+							//$('.haiyunfei').empty()
+						for(var i = 0; i < a.primeFeesLists.length; i++) {
+							var bizhong = null;
+							var c20gp = a.primeFeesLists[i].cost20gp;
+							var c40gp = a.primeFeesLists[i].cost40gp;
+							if(c20gp == undefined) {
+								c20gp = 0;
+							}
+							if(c40gp == undefined) {
+								c40gp = 0;
+							}
+							var jizong = (c20gp * a.num20gp) + (c40gp * a.num40gp)
+
+							if(a.primeFeesLists[i].currency == 0) {
+								bizhong = '￥';
+							};
+							if(a.primeFeesLists[i].currency == 1) {
+								bizhong = '$ ';
+							};
+							if(a.primeFeesLists[i].currency == 2) {
+								bizhong = 'B '
+							};
+
+							if(a.primeFeesLists[i].byOrder == 1 && a.primeFeesLists[i].feeTypeNum != 0) {
+
+								for(var k = 0; k < a.feesList.length; k++) {
+
+									if(a.primeFeesLists[i].feeTypeNum == a.feesList[k].feeTypeNum) {
+
+										var dafu = ''
+										if(a.primeFeesLists[i].prepaid == 0) {
+											dafu = '到付'
+										}
+										if(a.primeFeesLists[i].prepaid == 1) {
+											dafu = '预付'
+										}
+
+										$('.feesbiao').append('<div class="feescb" data-currency=' + a.primeFeesLists[i].currency + ' data-isprime=' +
+											a.primeFeesLists[i].isPrime + ' data-feecode=' + a.primeFeesLists[i].feeCode + ' data-byorder=' + a.primeFeesLists[i].byOrder +
+											' data-shcecode=' + a.primeFeesLists[i].schemeCode + '><label style="color: green;margin-right: 17px;">cost(成本)：</label><label>' +
+											a.primeFeesLists[i].feeTypeEname + ' (' + a.primeFeesLists[i].feeTypeCname + ')' +
+											': </label> <span >' + bizhong + '</span><input class="liejia" value=' +
+											a.primeFeesLists[i].orderPrice + '></div>' +
+											'<div class="feesbj" data-feetype=' + a.feesList[k].feeTypeNum + ' data-currency=' + a.feesList[k].currency + ' data-isprime=' +
+											0 + ' data-feecode=' + a.feesList[k].feeCode + ' data-byorder=' + a.feesList[k].byOrder +
+											' data-shcecode=' + a.feesList[k].schemeCode + '><label style="color: red;">Quotes(报价)：</label><label>' +
+											a.feesList[k].feeTypeEname + ' (' + a.feesList[k].feeTypeCname + ')' +
+											': </label> <span>' + bizhong + '</span><input  class="kegai" style="width: 80px;text-align: center;" value=' +
+											a.feesList[k].orderPrice + ' /></div><label style="margin-right: 10px;color: #3f3cc1;">到预付:</label><span>' + dafu + '</span></br></br>')
+									}
+								}
+							} else if(a.primeFeesLists[i].feeTypeNum == 0 && a.primeFeesLists[i].byOrder != 1) {
+
+								if(a.primeFeesLists[i].prepaid == 0) {
+									$('.daoyufu').text('到付')
+								}
+								if(a.primeFeesLists[i].prepaid == 1) {
+									$('.daoyufu').text('预付')
+								}
+								for(var k2 = 0; k2 < a.feesList.length; k2++) {
+									if(a.primeFeesLists[i].feeTypeNum == a.feesList[k2].feeTypeNum) {
+
+										$('.haicb').attr('data-feecode', a.primeFeesLists[i].feeCode)
+
+										$('.haibj').attr('data-feecode', a.feesList[k2].feeCode)
+										$('.haibj').attr('data-currency', a.feesList[k2].currency)
+
+										if(a.num20gp > 0) {
+											$('.haicb').append('<span>' + bizhong + '</span> <input class="jia20gp" value=' + a.primeFeesLists[i].cost20gp + '>');
+											$('.haibj').append('<span>' + bizhong + '</span> <input class="bao20gp" value=' + a.feesList[k2].cost20gp + '>')
+										}
+										if(a.num40gp > 0) {
+											$('.haicb').append('<span>' + bizhong + '</span> <input class="jia40gp" value=' + a.primeFeesLists[i].cost40gp + '>');
+											$('.haibj').append('<span>' + bizhong + '</span> <input class="bao40gp" value=' + a.feesList[k2].cost40gp + '>')
+										}
+										if(a.num40hq > 0) {
+											$('.haicb').append('<span>' + bizhong + '</span> <input class="jia40hq" value=' + a.primeFeesLists[i].cost40hq + '>');
+											$('.haibj').append('<span>' + bizhong + '</span> <input class="bao40hq" value=' + a.feesList[k2].cost40hq + '>')
+										}
+										if(a.num45hc > 0) {
+											$('.haicb').append('<span>' + bizhong + '</span> <input class="jia45hc" value=' + a.primeFeesLists[i].cost45hc + '>');
+											$('.haibj').append('<span>' + bizhong + '</span> <input class="bao45hc" value=' + a.feesList[k2].cost45hc + '>')
+										}
+									}
+								}
+							}
+							/*else if(a.primeFeesLists[i].feeTypeNum == 0 && a.primeFeesLists[i].byOrder == 1) {
+								for(var k3 = 0; k3 < a.feesList.length; k3++) {
+									if(a.primeFeesLists[i].feeTypeNum == a.feesList[k3].feeTypeNum) {
+										$('.haiyunfei').append(
+											'<div class="feescb" data-feetype=' + a.primeFeesLists[i].feeTypeNum + ' data-currency=' + a.primeFeesLists[i].currency + ' data-isprime=' +
+											a.primeFeesLists[i].isPrime + ' data-feecode=' + a.primeFeesLists[i].feeCode + ' data-byorder=' + a.primeFeesLists[i].byOrder +
+											' data-shcecode=' + a.primeFeesLists[i].schemeCode + '><label style="color: green;margin-right: 17px;">成本：</label><span >' +
+											bizhong + '</span><input class="liejia" style="margin-left: 20px;margin-right: 20px;" value=' +
+											a.primeFeesLists[i].orderPrice + '></div>' +
+											'<div class="feesbj" data-feetype=' + a.feesList[k3].feeTypeNum + ' data-currency=' + a.feesList[k3].currency + ' data-isprime=' +
+											0 + ' data-feecode=' + a.feesList[k3].feeCode + ' data-byorder=' + a.feesList[k3].byOrder +
+											' data-shcecode=' + a.feesList[k3].schemeCode + '><label style="color: red;">报价：</label><span>' +
+											bizhong + '</span><input  class="kegai" style="width: 80px;text-align: center;" value=' +
+											a.feesList[k3].orderPrice + ' /></div>'
+
+										)
+
+									}
+								}
+							}*/
+							else {
+
+								for(var k4 = 0; k4 < a.feesList.length; k4++) {
+									if(a.primeFeesLists[i].feeTypeNum == a.feesList[k4].feeTypeNum) {
+
+										var dafu = ''
+										if(a.primeFeesLists[i].prepaid == 0) {
+											dafu = '到付'
+										}
+										if(a.primeFeesLists[i].prepaid == 1) {
+											dafu = '预付'
+										}
+
+										$('.feesbiao').append(
+											'<div class="feescb" data-currency=' + a.primeFeesLists[i].currency + ' data-isprime=' +
+											a.primeFeesLists[i].isPrime + ' data-feecode=' + a.primeFeesLists[i].feeCode + ' data-byorder=' + a.primeFeesLists[i].byOrder +
+											' data-shcecode=' + a.primeFeesLists[i].schemeCode + '><label style="color: green;margin-right: 17px;">cost(成本)：</label><label>' +
+											a.primeFeesLists[i].feeTypeEname + ' (' + a.primeFeesLists[i].feeTypeCname + ')' +
+											': </label> <span>' +
+											bizhong + '</span>' + '<input class="liejia" style="margin-right: 50px;" value=' + c20gp + '>' + bizhong + '' + '<input class="liejia" value=' + c40gp + '>' +
+											'</div>' +
+											'<div class="feesbj" data-feetype=' + a.feesList[k4].feeTypeNum + ' data-currency=' + a.feesList[k4].currency + ' data-isprime=' +
+											0 + ' data-feecode=' + a.feesList[k4].feeCode + ' data-byorder=' + a.feesList[k4].byOrder +
+											' data-shcecode=' + a.feesList[k4].schemeCode + '><label style="color: red;">Quotes(报价)：</label><label>' +
+											a.feesList[k4].feeTypeEname + ' (' + a.feesList[k4].feeTypeCname + ')' +
+											': </label><span style="margin-left: 4px;">' +
+											bizhong + '</span>' + '<input  class="kegai"  style="margin-right: 50px;" value=' + a.feesList[k4].cost20gp + '><span>' + bizhong + '</span>' + '<input class="kegai" value=' + a.feesList[k4].cost40gp + '>' +
+											'</div><label style="margin-right: 10px;color: #3f3cc1;">到预付:</label><span>' + dafu + '</span><br /></br>'
+										)
+									}
+
+								}
+							}
+						}
+
+						var tot = eval('(' + a.total + ')');
+
+						if(tot['0'] > 0) {
+							$('.mytot').append('<span class="totmoney"><span>￥</span><span>' + tot['0'] + '</span></span>')
+						}
+						if(tot['1'] > 0) {
+							$('.mytot').append('<span class="totmoney"><span>$</span><span>' + tot['1'] + '</span></span>')
+						}
+						if(tot['2'] > 0) {
+							$('.mytot').append('<span class="totmoney"><span>B</span><span>' + tot['2'] + '</span></span>')
+						}
+					}
+				})
+			})
+
+			//确认修改报价  确认运价方案 
+
+			$('#qrxgbj').on('click', function() {
+				var thisschemecode = this.dataset.schemecode
+
+				var feearr = [{
+					"feeCode": $('.haibj').data('feecode'),
+					"cost20gp": $('.bao20gp').val(),
+					"cost40gp": $('.bao40gp').val(),
+					"cost40hq": $('.bao40hq').val(),
+					"cost45hc": $('.bao45hc').val(),
+					"currency": $('.haibj').data('currency'),
+					"orderPrice": ""
+				}, {
+					"feeCode": $('.haicb').data('feecode'),
+					"cost20gp": $('.jia20gp').val(),
+					"cost40gp": $('.jia40gp').val(),
+					"cost40hq": $('.jia40hq').val(),
+					"cost45hc": $('.jia45hc').val(),
+					"currency": $('.haicb').data('currency'),
+					"orderPrice": ""
+				}]
+
+				for(var i = 0; i < $('.feescb').length; i++) {
+					if($('.feescb').eq(i).data('byorder') == 0) {
+						feearr.push({
+							"feeCode": $('.feescb').eq(i).data('feecode'),
+							"cost20gp": $('.feescb').eq(i).children('.liejia').eq(0).val(),
+							"cost40gp": $('.feescb').eq(i).children('.liejia').eq(1).val(),
+							"cost40hq": "",
+							"cost45hc": "",
+							"currency": $('.feescb').eq(i).data('currency'),
+							"orderPrice": ""
+						})
+					} else {
+						feearr.push({
+							"feeCode": $('.feescb').eq(i).data('feecode'),
+							"cost20gp": "",
+							"cost40gp": "",
+							"cost40hq": "",
+							"cost45hc": "",
+							"currency": $('.feescb').eq(i).data('currency'),
+							"orderPrice": $('.feescb').eq(i).children('.liejia').val()
+						})
+					}
+
+				}
+				for(var j = 0; j < $('.feesbj').length; j++) {
+					if($('.feesbj').eq(j).data('byorder') == 0) {
+						feearr.push({
+							"feeCode": $('.feesbj').eq(j).data('feecode'),
+							"cost20gp": $('.feesbj').eq(j).children('.kegai').eq(0).val(),
+							"cost40gp": $('.feesbj').eq(j).children('.kegai').eq(1).val(),
+							"cost40hq": "",
+							"cost45hc": "",
+							"currency": $('.feesbj').eq(j).data('currency'),
+							"orderPrice": ""
+						})
+					} else {
+
+						feearr.push({
+							"feeCode": $('.feesbj').eq(j).data('feecode'),
+							"cost20gp": "",
+							"cost40gp": "",
+							"cost40hq": "",
+							"cost45hc": "",
+							"currency": $('.feesbj').eq(j).data('currency'),
+							"orderPrice": $('.feesbj').eq(j).children('.kegai').val()
+						})
+					}
+
+				}
+				console.log(feearr)
+				console.log(thisschemecode)
+
+				var m = new Date().getTime();
+				$.ajax({
+					type: "post",
+					url: "http://106.14.251.28:8085/bizCenter/feeService/batchUpdateFee",
+					data: {
+						'accessToken': localStorage.accessToken,
+						'msgId': m + '',
+						"schemeCode": thisschemecode,
+						'fees': JSON.stringify(feearr)
+					},
+					async: true,
+					dataType: 'json',
+					success: function(data) {
+						console.log(data)
+						if(data.retCode == '0000') {
+							alert('修改报价成功')
+							location = 'pc_zongxunpan.html'
+						} else {
+							alert('修改失败')
+						}
+					}
+				})
+
+			})
+
+			//添加附加费
+			$('#addfjf').on('click', function(e) {
+				e.preventDefault();
+
+			})
+
+			//删除附加费
+
+			//$('.scfjf')
+			//删除附加费
+			$(document).on('click', '.feeshanchu', function() {
+				$(this).parents('tr').remove()
+			})
+
+			//总部直接报价 获取询盘信息
+
+			$(document).on('click', '.zjbj', function() {
+				$('#feeadd>tbody').empty()
+				var thisenqury = $(this).data('enqurycode')
+				$('.haichen').empty()
+				$('.haibao').empty()
+				$('p.xl').empty()
+				$('#qrbj1').attr('data-enqury', $(this).data('enqurycode'))
+				var pg = new Date().getTime();
+				$.ajax({
+					type: "post",
+					url: "http://106.14.251.28:8085/bizCenter/enquiryService/getEnquiryInfo",
+					data: {
+						'accessToken': localStorage.accessToken,
+						'msgId': pg + '',
+						'enquiryCode': thisenqury
+					},
+					success: function(data) {
+						console.log(data)
+						$('.bxpbh').text(data.enquiryCode)
+						$('.bxjsj').text(data.enquiryTime) //询价时间
+						$('.blxdh').text(data.mobileNo)
+						$('.bxjr').text(data.enquiryAccount) //询价人
+						$('.bkhmc').text(data.customCompanyName) //客户名称
+						$('.bqyg').text(data.polName) //起运港
+						$('.bqyg').attr('data-code', data.polCode)
+						$('.bmdg').text(data.podName) //目的港
+						$('.bmdg').attr('data-code', data.podCode)
+						$('.byjchj').val(data.elements.expectDate) //预计出货时间
+						$('.bcgs').val(data.carryCode) //船公司
+						$('.bcgs').attr('data-code', data.carryCode)
+							//有效期
+						$('.bbz').text(data.elements.remark)
+
+						var pol = data.polCode;
+						var pod = data.podCode;
+
+						var jt = new Date().getTime();
+						$.ajax({
+							type: "post",
+							url: "http://106.14.251.28:8085/bizCenter/feeService/getFeeTypesNearBy",
+							data: {
+								'accessToken': localStorage.accessToken,
+								'msgId': jt + '',
+								'polCode': pol,
+								'podCode': pod
+							},
+							success: function(json) {
+								console.log(json)
+
+								var fees = json.fees;
+								var prime = json.primeFees
+
+								if(fees.length > 0) {
+									for(var m = 0; m < fees.length; m++) {
+										for(var n = 0; n < prime.length; n++) {
+											if(fees[m].feeTypeNum == prime[n].feeTypeNum) {
+												if(fees[m].byOrder == 1) {
+													var currency = prime[n].currency
+													if(currency == 0) {
+														currency = '￥'
+													}
+													if(currency == 1) {
+														currency = '$'
+													}
+													if(currency == 1) {
+														currency = 'B'
+													}
+													var prepaid = prime[n].prepaid
+													if(prepaid == 0) {
+														prepaid = '到付'
+													}
+													if(prepaid == 1) {
+														prepaid = '预付'
+													}
+
+													$('#feeadd>tbody').append(
+														'<tr data-code=' + prime[n].feeTypeNum + ' data-order=' + prime[n].byOrder + ' data-panbao="成本"><td>' + prime[n].feeTypeEname + ' ( ' + prime[n].feeTypeCname + ') (成本)' + '</td><td><input readonly class="chgp20"></td><td><input readonly  class="chgp40"></td><td><input value=' + prime[n].orderPrice + '  class="chdan"></td><td class="mybz">' +
+														currency + '</td><td class="bdyf">' +
+														prepaid + '</td><td rowspan="2"><span class="fsc">删除</span></td></tr>' +
+														'<tr data-code=' + fees[m].feeTypeNum + ' data-order=' + fees[m].byOrder + '  data-panbao="报价"><td>' + fees[m].feeTypeEname + ' ( ' + fees[m].feeTypeCname + ') (报价)' + '</td><td>' +
+														'' + '</td><td>' +
+														'' + '</td><td class="baodan">' +
+														fees[m].orderPrice + '</td><td class="mybz">' +
+														currency + '</td><td class="bdyf">' +
+														prepaid + '</td></tr>'
+													)
+												} else {
+													var currency = prime[n].currency
+													if(currency == 0) {
+														currency = '￥'
+													}
+													if(currency == 1) {
+														currency = '$'
+													}
+													if(currency == 1) {
+														currency = 'B'
+													}
+													var prepaid = prime[n].prepaid
+													if(prepaid == 0) {
+														prepaid = '到付'
+													}
+													if(prepaid == 1) {
+														prepaid = '预付'
+													}
+
+													$('#feeadd>tbody').append(
+														'<tr data-code=' + prime[n].feeTypeNum + ' data-order=' + prime[n].byOrder + '  data-panbao="成本"><td>' + prime[n].feeTypeEname + ' ( ' + prime[n].feeTypeCname + ') (成本)' + '</td><td><input value=' + prime[n].cost20gp + ' class="chgp20"></td><td><input value=' + prime[n].cost40gp + '  class=" chgp40"></td><td><input readonly class="chdan"></td><td class="mybz">' +
+														currency + '</td><td class="bdyf">' +
+														prepaid + '</td><td rowspan="2"><span class="fsc">删除</span></td></tr>' +
+														'<tr data-code=' + fees[m].feeTypeNum + ' data-order=' + fees[m].byOrder + '  data-panbao="报价"><td>' + fees[m].feeTypeEname + ' ( ' + fees[m].feeTypeCname + ') (报价)' + '</td><td class="bao20">' +
+														fees[m].cost20gp + '</td><td class="bao40">' +
+														fees[m].cost40gp + '</td><td class="baodan">' +
+														'' + '</td><td class="mybz">' +
+														currency + '</td><td class="bdyf">' +
+														prepaid + '</td></tr>'
+													)
+												}
+											}
+										}
+
+									}
+
+								}
+
+							}
+						})
+
+						if(data.elements.num20gp > 0) {
+
+							$('p.xl').append('<span>20GP</span> * <span class="gp20liang">' + data.elements.num20gp + '</span>')
+
+							$('.haichen').append('<div class="form-group form-group-sm col-sm-3" ><label >' +
+								'<span class="biaoji" style="color: red;">*</span> 20GP * <span class="l20gp">' + data.elements.num20gp + '</span>:</label><input  class="gp20jia form-control" /></div>')
+
+							$('.haibao').append('<div class="form-group form-group-sm col-sm-3" ><label >' +
+								'<span class="biaoji" style="color: red;">*</span> 20GP * ' + data.elements.num20gp + ':</label><input  class="gp20jiabao form-control" /></div>')
+						}
+						if(data.elements.num40gp > 0) {
+							$('p.xl').append('<span style="margin-left: 20px;">40GP</span> * <span class="gp40liang">' + data.elements.num40gp + '</span>')
+
+							$('.haichen').append('<div class="form-group form-group-sm col-sm-3" ><label >' +
+								'<span class="biaoji" style="color: red;">*</span> 40GP * <span class="l40gp">' + data.elements.num40gp + '</span>:</label><input  class="gp40jia form-control" /></div>')
+
+							$('.haibao').append('<div class="form-group form-group-sm col-sm-3" ><label >' +
+								'<span class="biaoji" style="color: red;">*</span> 40GP * ' + data.elements.num40gp + ':</label><input  class="gp40jiabao form-control" /></div>')
+						}
+						if(data.elements.num40hq > 0) {
+							$('p.xl').append('<span style="margin-left: 20px;">40HQ</span> * <span class="hq40liang">' + data.elements.num40hq + '</span>')
+
+							$('.haichen').append('<div class="form-group form-group-sm col-sm-3" ><label >' +
+								'<span class="biaoji" style="color: red;">*</span> 40HQ * <span class="l40hq">' + data.elements.num40hq + '</span>:</label><input  class="hq40jia form-control" /></div>')
+
+							$('.haibao').append('<div class="form-group form-group-sm col-sm-3" ><label >' +
+								'<span class="biaoji" style="color: red;">*</span> 40HQ * ' + data.elements.num40hq + ':</label><input  class="hq40jiabao form-control" /></div>')
+						}
+						if(data.elements.num45hc > 0) {
+							$('p.xl').append('<span style="margin-left: 20px;">45HC</span> * <span class="hc40liang">' + data.elements.num45hc + '</span>')
+
+							$('.haichen').append('<div class="form-group form-group-sm col-sm-3" ><label >' +
+								'<span class="biaoji" style="color: red;">*</span> 45HC * <span class="l45hc">' + data.elements.num45hc + '</span>:</label><input  class="hc45jia form-control" /></div>')
+
+							$('.haibao').append('<div class="form-group form-group-sm col-sm-3" ><label >' +
+								'<span class="biaoji" style="color: red;">*</span> 45HC * ' + data.elements.num45hc + ':</label><input  class="hc45jiabao form-control" /></div>')
+						}
+
+					}
+				})
+
+			})
+
+			/*//费用计算
+
+			//成本
+
+			var zch = 0;
+			var zbao = 0;
+			var mzch = 0;
+			var mzbao = 0;
+
+			function chensuan() {
+				var a = $('.gp20jia').val() * $('.l20gp').text();
+				var b = $('.gp40jia').val() * $('.l40gp').text();
+				var c = $('.hq40jia').val() * $('.l40hq').text();
+				var d = $('.hc45jia').val() * $('.l45hc').text();
+
+				zch = a + b + c + d
+				if($('.hb').val() == '人民币') {
+					$('.crz').text(danzong + zch + cg20 + cg40)
+					$('.lrz').text($('.brz').text() - $('.crz').text())
+				}
+				if($('.hb').val() == '美元') {
+					$('.mcrz').text(mdanzong + mzch + mcg20 + mcg40)
+					$('.mlrz').text($('.mbrz').text() - $('.mcrz').text())
+				}
+
+				//console.log(z)
+			}
+			$(document).on('input', '.gp20jia', chensuan)
+			$(document).on('input', '.gp40jia', chensuan)
+			$(document).on('input', '.hq40jia', chensuan)
+			$(document).on('input', '.hc45jia', chensuan)
+
+			//报价
+
+			function baosuan() {
+				var a = $('.gp20jiabao').val() * $('.l20gp').text();
+				var b = $('.gp40jiabao').val() * $('.l40gp').text();
+				var c = $('.hq40jiabao').val() * $('.l40hq').text();
+				var d = $('.hc45jiabao').val() * $('.l45hc').text();
+				zbao = a + b + c + d
+
+				if($('.hb').val() == '人民币') {
+					$('.brz').text(zbao + danbaoz + bz20 + bz40)
+					$('.lrz').text($('.brz').text() - $('.crz').text())
+				}
+				if($('.hb').val() == '美元') {
+					$('.mbrz').text(mzbao + mdanbaoz + mbz20 + mbz40)
+					$('.mlrz').text($('.mbrz').text() - $('.mcrz').text())
+				}
+
+				//console.log(z)
+			}
+			$(document).on('input', '.gp20jiabao', baosuan)
+			$(document).on('input', '.gp40jiabao', baosuan)
+			$(document).on('input', '.hq40jiabao', baosuan)
+			$(document).on('input', '.hc45jiabao', baosuan)
+
+			//附加费计算
+			//单票计算
+
+			var danzong = 0;
+			var mdanzong = 0;
+
+			$(document).on('input', '.chdan', function() {
+				//
+				if($(this).parents('tr').data('panbao') == '成本') {
+					var a = 0;
+					var b = 0;
+					if($(this).parent().next().text() == '人民币') {
+						for(var i = 0; i < $('.chdan').length; i++) {
+							if($('.chdan').eq(i).parent().next().text() == '人民币') {
+								a = a + (+$('.chdan').eq(i).val())
+									//console.log(a)
+
+							}
+
+						}
+						danzong = a
+						$('.crz').text(danzong + zch + cg20 + cg40)
+						$('.lrz').text($('.brz').text() - $('.crz').text())
+
+					}
+					if($(this).parent().next().text() == '美元') {
+						for(var j = 0; j < $('.chdan').length; j++) {
+							if($('.chdan').eq(j).parent().next().text() == '美元') {
+								b = b + (+$('.chdan').eq(j).val())
+
+							}
+
+						}
+
+						mdanzong = b
+						$('.mcrz').text(mdanzong + mzch + mcg20 + mcg40)
+						$('.mlrz').text($('.mbrz').text() - $('.mcrz').text())
+
+					}
+
+				}
+
+			})
+
+			//g20成本价计算
+			var cg20 = 0;
+			var mcg20 = 0;
+			var cg40 = 0;
+			var mcg40 = 0
+			$(document).on('input', '.chgp20', function() {
+
+				if($(this).parents('tr').data('panbao') == '成本') {
+					var a = 0;
+					var b = 0;
+
+					if($(this).parent().nextAll('.mybz').text() == '人民币') {
+						for(var i = 0; i < $('.chgp20').length; i++) {
+							if($('.chgp20').eq(i).parent().nextAll('.mybz').text() == '人民币') {
+								a = a + ($('.chgp20').eq(i).val() * $('.l20gp').text())
+							}
+						}
+						cg20 = a;
+
+						$('.crz').text(danzong + zch + cg20 + cg40)
+						$('.lrz').text($('.brz').text() - $('.crz').text())
+					}
+					if($(this).parent().nextAll('.mybz').text() == '美元') {
+						for(var j = 0; j < $('.chgp20').length; j++) {
+							if($('.chgp20').eq(j).parent().nextAll('.mybz').text() == '美元') {
+								
+								b = b + ($('.chgp20').eq(j).val() * $('.l20gp').text())
+							}
+						}
+						mcg20 = b;
+
+						$('.mcrz').text(mdanzong + mzch + mcg20 + mcg40)
+						$('.mlrz').text($('.mbrz').text() - $('.mcrz').text())
+					}
+				}
+
+			})
+
+
+
+			$(document).on('input', '.chgp40', function() {
+				if($(this).parents('tr').data('panbao') == '成本') {
+					var a = 0;
+					var b = 0;
+
+					if($(this).parent().nextAll('.mybz').text() == '人民币') {
+						for(var i = 0; i < $('.chgp40').length; i++) {
+							if($('.chgp20').eq(i).parent().nextAll('.mybz').text() == '人民币') {
+								a = a + ($('.chgp40').eq(i).val() * $('.l40gp').text())
+							}
+						}
+						cg40 = a;
+
+						$('.crz').text(danzong + zch + cg20 + cg40)
+						$('.lrz').text($('.brz').text() - $('.crz').text())
+					}
+					if($(this).parent().nextAll('.mybz').text() == '美元') {
+						for(var j = 0; j < $('.chgp40').length; j++) {
+							if($('.chgp20').eq(j).parent().nextAll('.mybz').text() == '美元') {
+								b = b + ($('.chgp40').eq(j).val() * $('.l40gp').text())
+							}
+						}
+						mcg40 = b;
+
+						$('.mcrz').text(mdanzong + mzch + mcg20 + mcg40)
+						$('.mlrz').text($('.mbrz').text() - $('.mcrz').text())
+					}
+				}
+			})
+*/
+
+			//删除附加费
+
+			$(document).on('click', '.fsc', function() {
+				$(this).parents('tr').next().remove()
+				$(this).parents('tr').remove()
+			})
+
+			//确认报价
+			$('#qrzjbj').on('click', function() {
+				var huobi = ''
+				if($('.hb').val() == '￥') {
+					huobi = '0'
+				}
+				if($('.hb').val() == '$') {
+					huobi = '1'
+				}
+				if($('.hb').val() == 'B') {
+					huobi = '2'
+				}
+
+				var haidyf = ''
+
+				if($('.hdyf').val() == '预付') {
+					haidyf = 1
+				}
+				if($('.hdyf').val() == '到付') {
+					haidyf = 0
+				}
+				var arr = [{
+					'feeTypeNum': '0',
+					'currency': huobi,
+					'byOrder': '0',
+					'orderPrice': '0',
+					'Cost20gp': $('.gp20jia').val(),
+					'Cost40gp': $('.gp40jia').val(),
+					'Cost40hq': $('.hq40jia').val(),
+					'Cost45hc': $('.hc45jia').val(),
+					'prepaid': haidyf
+				}];
+				var arrbao = [{
+					'feeTypeNum': '0',
+					'currency': huobi,
+					'byOrder': '0',
+					'orderPrice': '0',
+					'Cost20gp': $('.gp20jiabao').val(),
+					'Cost40gp': $('.gp40jiabao').val(),
+					'Cost40hq': $('.hq40jiabao').val(),
+					'Cost45hc': $('.hc45jiabao').val(),
+					'prepaid': haidyf
+				}];
+
+				for(var i = 0; i < $('#feeadd>tbody>tr').length; i = i + 2) {
+
+					var fdayf = $('#feeadd>tbody>tr').eq(i).find('.bdyf').text()
+
+					if(fdayf == '到付') {
+						fdayf = 0
+					}
+					if(fdayf == '预付') {
+						fdayf = 1
+					}
+
+					var bizh = $('#feeadd>tbody>tr').eq(i).children().eq(4).text();
+					if(bizh == '￥') {
+						bizh = '0'
+					};
+					if(bizh == '$') {
+						bizh = '1'
+					};
+					if(bizh == 'B') {
+						bizh = '2'
+					};
+					var danpiao = this.dataset.order;
+					if(danpiao) {
+						danpiao = '1'
+					} else {
+						danpiao = '0'
+					};
+
+					arr.push({
+						'feeTypeNum': $('#feeadd>tbody>tr').eq(i).data('code'),
+						'Cost20gp': $('#feeadd>tbody>tr').eq(i).find('.chgp20').val(),
+						'Cost40gp': $('#feeadd>tbody>tr').eq(i).find('.chgp40').val(),
+						'currency': bizh,
+						'orderPrice': $('#feeadd>tbody>tr').eq(i).find('.chdan').val(),
+						'byOrder': $('#feeadd>tbody>tr').eq(i).data('order'),
+						'Cost40hq': '',
+						'Cost45hc': '',
+						'prepaid': fdayf
+					})
+					arrbao.push({
+						'feeTypeNum': $('#feeadd>tbody>tr').eq(i).next().data('code'),
+						'Cost20gp': +$('#feeadd>tbody>tr').eq(i).next().children().eq(1).text(),
+						'Cost40gp': +$('#feeadd>tbody>tr').eq(i).next().children().eq(2).text(),
+						'currency': bizh,
+						'orderPrice': $('#feeadd>tbody>tr').eq(i).next().children().eq(3).text(),
+						'byOrder': $('#feeadd>tbody>tr').eq(i).next().data('order'),
+						'Cost40hq': '',
+						'Cost45hc': '',
+						'prepaid': fdayf
+					})
+
+				}
+
+				var thisenqury = this.dataset.enqury;
+				var bg = new Date().getTime();
+				$.ajax({
+					type: "post",
+					url: "http://106.14.251.28:8085/bizCenter/schemeService/pubSchemeWithoutSp",
+					data: {
+						'accessToken': localStorage.accessToken,
+						'msgId': bg + '',
+						"enquiryCode": $('.bxpbh').text(),
+						"supplierCode": $('.bbjqy').data('code'),
+						'polCode': $('.bqyg').data('code'), //起运港
+						'podCode': $('.bmdg').data('code'), //目的港
+						'potCode': $('.bzzg').data('code'), //中转港
+						//'supplierCode':'GYS',
+						'carryCode': $('.bcgs').data('code'),
+						'sailingDay': $('.bhc').val(), //航程
+						'etd': $('.bkc').val(), //开船日
+						'customsClearance': $('.bjg').val(), //截关日
+						'expireDate': $('.byxq').val(), //有效期
+						'vessel': '', //船名
+						'voyage': '', //航次
+						'primeFees': JSON.stringify(arr),
+						'fees': JSON.stringify(arrbao)
+					},
+					async: true,
+					dataType: 'json',
+					success: function(data) {
+
+						console.log(data)
+
+						if(data.retCode == '0000') {
+							console.log(data.schemeCode)
+							alert('报价成功')
+							$('#zongzhi').modal('hide')
+							location = 'pc_zongxunpan.html'
+						} else {
+							alert('报价失败 ' + data.retMsg)
+						}
+					},
+					error: function(json) {
+						console.log(json)
+					}
+				})
+			})
+
+			//替客户确认报价
+
+			$('#tkhqrbj').on('click', function() {
+
+				var thisfang = this.dataset.enqurycode;
+				var thisschem = this.dataset.schemecode
+				console.log(thisfang)
+				var t = new Date().getTime();
+				$.ajax({
+					type: "post",
+					url: "http://106.14.251.28:8085/bizCenter/enquiryService/confirmBooking?accessToken=" + localStorage.getItem('accessToken') + '&msgId=' + t + '' +
+						'&enquiryCode=' + thisfang + '&schemeCode=' + thisschem,
+					data: JSON.stringify({
+
+					}),
+					async: true,
+					dataType: 'json',
+					contentType: 'application/json;charset=utf-8',
+					success: function(data) {
+						console.log(data)
+						if(data.retCode == '0000') {
+							alert('确认方案成功')
+
+						}
+					}
+				})
+			})
+		</script>
+
+	</body>
+
+</html>

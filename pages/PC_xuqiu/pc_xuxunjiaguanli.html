@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>pc端需求—询价管理</title>
+		<link rel="stylesheet" type="text/css" href="../../plugins/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/style.css" />
+	</head>
+
+	<body>
+		<div class='contzong'>
+			<div class="contson1 clearfix">
+
+				<form role="form">
+					<div class="container-fluid inpline">
+						<div class="form-group form-group-sm col-sm-2">
+							<label class="col-sm-5 control-label">客户名称:</label>
+							<div class="col-sm-7">
+								<input type="text" class="form-control">
+							</div>
+						</div>
+						<div class="form-group form-group-sm col-sm-2">
+							<label class="col-sm-5 control-label">订舱票数:</label>
+							<div class="col-sm-7">
+								<input type="text" class="form-control">
+							</div>
+						</div>
+						<div class="form-group form-group-sm col-sm-2">
+							<label class="col-sm-5 control-label">起运港:</label>
+							<div class="col-sm-7">
+								<input type="text" class="form-control">
+							</div>
+						</div>
+						<div class="form-group form-group-sm col-sm-3">
+							<label class="col-sm-5 control-label">开始时间:</label>
+							<div class="col-sm-7">
+								<input type="text" class="form-control">
+							</div>
+						</div>
+						<div class="form-group form-group-sm col-sm-2">
+							<label class="col-sm-5 control-label">收到报价份数:</label>
+							<div class="col-sm-7">
+								<input type="text" class="form-control">
+							</div>
+						</div>
+
+						<div class="form-group form-group-sm col-sm-1 ">
+
+							<button type="submit" class="btn btn-primary btn-sm">搜&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;索</button>
+
+						</div>
+					</div>
+
+					<div class="container-fluid inpline">
+						<div class="form-group form-group-sm col-sm-2">
+							<label class="col-sm-5 control-label">询价人:</label>
+							<div class="col-sm-7">
+								<input type="text" class="form-control">
+							</div>
+						</div>
+						<div class="form-group form-group-sm col-sm-2">
+							<label class="col-sm-5 control-label">询价次数:</label>
+							<div class="col-sm-7">
+								<input type="text" class="form-control">
+							</div>
+						</div>
+						<div class="form-group form-group-sm col-sm-2">
+							<label class="col-sm-5 control-label">目的港:</label>
+							<div class="col-sm-7">
+								<input type="text" class="form-control">
+							</div>
+						</div>
+						<div class="form-group form-group-sm col-sm-3">
+							<label class="col-sm-5 control-label">结束时间:</label>
+							<div class="col-sm-7">
+								<input type="text" class="form-control">
+							</div>
+						</div>
+						<div class="form-group form-group-sm col-sm-2">
+							<label class="col-sm-5 control-label">询价状态:</label>
+							<div class="col-sm-7">
+									<select class="form-control">
+										<option>已确认报价</option>
+										<option>未确认报价</option>
+										<option>已取消</option>
+									</select>
+								</div>
+						</div>
+
+						<div class="form-group form-group-sm col-sm-1 ">
+
+							<button type="reset" class="btn btn-primary btn-sm">条件重置</button>
+
+						</div>
+					</div>
+
+				</form>
+
+			</div>
+			<div class="contson2 clearfix">
+				<div class="pull-left" style="margin-top: 7px;">
+					<a href="" style="color: red;">共搜索 <span>xxxxxxx</span> 个询价</a>
+				</div>
+
+			</div>
+			<div class="contson3">
+				<table class="table table-bordered tablecenter tablestrd">
+					<thead>
+						<tr>
+							<th rowspan="2"><span>序号</span></th>
+							<th>客户名称</th>
+							<th>订舱票数</th>
+							<th>起运港</th>
+							<th>目的港</th>
+							<th colspan="4">箱型箱量</th>
+							<th rowspan="2"><span>报价份数</span></th>
+							<th rowspan="2"><span>询价状态</span></th>
+							<th>发布询价时间</th>
+							<th rowspan="2"><span>操作</span></th>
+						</tr>
+						<tr>
+							<th>询价人</th>
+							<th>询价次数</th>
+							<th>船公司</th>
+							<th>预计出货日期</th>
+							<th>20GP</th>
+							<th>40GP</th>
+							<th>40HQ</th>
+							<th>45HC</th>
+
+							<th>备注</th>
+						</tr>
+
+					</thead>
+					<tbody>
+
+						<tr>
+							<td rowspan="2">2</td>
+							<td>3</td>
+							<td>4</td>
+							<td>5</td>
+							<td>6</td>
+							<td rowspan="2">7</td>
+							<td rowspan="2">8</td>
+							<td rowspan="2">9</td>
+							<td rowspan="2">8</td>
+							<td>9</td>
+							<td rowspan="2">已确认报价</td>
+							<td>1</td>
+
+							<td rowspan="2">
+								<span class="zhibao" data-toggle="modal" data-target="#myModaladd">选择报价</span>
+								<span class="quxiao">取消</span>
+							</td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td>8</td>
+							<td>9</td>
+							<td>8</td>
+							<td>9</td>
+							
+							<td>1</td>
+
+						</tr>
+						<tr>
+							<td rowspan="2">2</td>
+							<td>3</td>
+							<td>4</td>
+							<td>5</td>
+							<td>6</td>
+							<td rowspan="2">7</td>
+							<td rowspan="2">8</td>
+							<td rowspan="2">9</td>
+							<td rowspan="2">8</td>
+							<td>9</td>
+							<td rowspan="2">未确认报价</td>
+							<td>1</td>
+
+							<td rowspan="2">
+								<span class="zhibao" data-toggle="modal" data-target="#myModaladd">选择报价</span>
+								<span class="quxiao">取消</span>
+							</td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td>8</td>
+							<td>9</td>
+							<td>8</td>
+							<td>9</td>
+							
+							<td>1</td>
+
+						</tr>
+						<tr>
+							<td rowspan="2">2</td>
+							<td>3</td>
+							<td>4</td>
+							<td>5</td>
+							<td>6</td>
+							<td rowspan="2">7</td>
+							<td rowspan="2">8</td>
+							<td rowspan="2">9</td>
+							<td rowspan="2">8</td>
+							<td>9</td>
+							<td rowspan="2">已取消</td>
+							<td>1</td>
+
+							<td rowspan="2">
+								<span class="zhibao" data-toggle="modal" data-target="#myModaladd">选择报价</span>
+								<span class="quxiao">取消</span>
+							</td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td>8</td>
+							<td>9</td>
+							<td>8</td>
+							<td>9</td>
+							
+							<td>1</td>
+
+						</tr>
+					</tbody>
+				</table>
+				<div class='biaofooter clearfix'>
+					<div class=" pull-left footerulleft">
+						<div class="form-inline" role="form">
+							<div class="form-group form-group-sm">
+								每页显示:
+								<select class="form-control">
+									<option>5</option>
+									<option>10</option>
+									<option>25</option>
+									<option>50</option>
+								</select>
+								条，总共 <span>100</span> 页
+							</div>
+
+						</div>
+
+					</div>
+					<ul class="pagination pull-right" style="margin:0 20px">
+						<li>
+							<a href="#">&laquo;</a>
+						</li>
+						<li>
+							<a href="#">1</a>
+						</li>
+						<li>
+							<a href="#">2</a>
+						</li>
+						<li>
+							<a href="#">3</a>
+						</li>
+						<li>
+							<a href="#">4</a>
+						</li>
+						<li>
+							<a href="#">5</a>
+						</li>
+						<li>
+							<a href="#">&raquo;</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!-- 选择报价-->
+		<div class="modal fade" id="myModaladd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog" style="width: 650px;">
+				<div class="modal-content">
+					<div class="modal-header" style="background-color:#337ab7 ;color: white;">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title text-center">选择报价</h4>
+					</div>
+					<div class="modal-body mylable">
+
+						<form class="form-horizontal myform" role="form">
+							<div class="form-group form-group-sm">
+								<label class="col-sm-2 control-label">询盘编号:</label>
+								<div class="col-sm-10">
+									<p class="form-control-static">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+								</div>
+							</div>
+							<div class="form-group form-group-sm">
+								<label class="col-sm-2 control-label">询价时间:</label>
+								<div class="col-sm-10">
+									<p class="form-control-static">2017-02-23 11:07</p>
+								</div>
+							</div>
+							<div class="form-group form-group-sm">
+								<label class="col-sm-2 control-label">询价人:</label>
+								<div class="col-sm-10">
+									<p class="form-control-static">某某某</p>
+								</div>
+							</div>
+							<div class="form-group form-group-sm">
+								<label class="col-sm-2 control-label">联系电话:</label>
+								<div class="col-sm-10">
+									<p class="form-control-static">12345678901</p>
+								</div>
+							</div>
+							<label style="margin-left: 47px;">起运港：</label> <span style="font-size: 15px;font-weight: 700;">NINGBO</span>
+							<label style="margin-left: 50px;">目的地：</label> <span style="font-size: 15px;font-weight: 700;">DUBAI</span>
+							<br />
+							
+							<div class="form-group form-group-sm">
+								<label class="col-sm-2 control-label" style="padding-right: 0;">预计出货时间:</label>
+								<div class="col-sm-10">
+									<p class="form-control-static">email@example.com</p>
+								</div>
+							</div>
+							<div class="form-group form-group-sm">
+								<label class="col-sm-2 control-label">备注:</label>
+								<div class="col-sm-10">
+									<p class="form-control-static">XXXXXXXXXXXXXXXXXXXXXX</p>
+								</div>
+							</div>
+							<label style="margin-left: 20px;margin-right: 10px;">船公司:</label> <input style="width: 50px;" />
+							<label style="margin-left: 20px;margin-right: 10px;">航程:</label> <input style="width: 50px;" />
+							<label style="margin-left: 20px;margin-right: 10px;">中转港:</label> <input style="width: 50px;" />
+							<label style="margin-left: 20px;margin-right: 10px;">开船:</label> <input style="width: 50px;" />
+							<label style="margin-left: 20px;margin-right: 10px;">截关:</label> <input style="width: 50px;" />
+
+							<div class="form-group form-group-sm" style="margin-top: 10px;">
+								<label class="col-sm-2 control-label">箱型箱量:</label>
+								<div class="col-sm-10">
+									<p class="form-control-static">
+										<span>20GP</span> * <span>1</span>
+										<span style="margin-left: 20px;">40GP</span> * <span>1</span>
+									</p>
+								</div>
+							</div>
+
+							<div class="form-group form-group-sm" style="color: red;">
+								<label class="col-sm-2 control-label">海运费:</label>
+								<div class="col-sm-10" style="padding-left: 0;">
+									<p class="form-control-static">(单位：美元)</p>
+								</div>
+							</div>
+
+							<label style="margin-left: 45px;margin-right: 10px;"><span>*</span> 20GP:</label>
+							<input style="width: 50px;" />
+							<label style="margin-left: 20px;margin-right: 10px;"><span>*</span> 40GP:</label>
+							<input style="width: 50px;" />
+							<div class="form-group form-group-sm" style="margin-top: 15px;">
+								<label class="col-sm-2 control-label">有效期：</label>
+								<div class="col-sm-10">
+									<input class="form-control">
+								</div>
+							</div>
+							<div class="form-group form-group-sm" style="color: red;">
+								<label class="col-sm-2 control-label">附加费:</label>
+
+							</div>
+							<br />
+							<button class="btn btn-sm btn-primary" style="margin-left: 20px;">添加附加费</button>
+							<br />
+							<br />
+							<table class="table table-bordered tablecenter">
+								<thead>
+									<tr>
+										<th>费用名称</th>
+										<th>20GP</th>
+										<th>40GP</th>
+										<th>币种</th>
+										<th>单票</th>
+										<th>到预付</th>
+										<th>操作</th>
+
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td><span class="shanchu">删除</span></td>
+
+									</tr>
+								</tbody>
+							</table>
+							<br />
+							<label style="margin-left: 30px;">订舱费:</label> <span> ￥170*1+￥350*1=￥250</span>
+							<br />
+							<br />
+							<label style="margin-left: 30px;">HRC:</label> <span> ￥1000*1+￥2000*1=￥3000</span>
+
+						</form>
+
+					</div>
+					<div class="modal-footer" style="text-align: center;">
+						<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">关闭</button>
+						<button type="button" class="btn btn-primary btn-sm">确定</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+
+		<script type="text/javascript" src="../../plugins/jquery-2.1.4/jquery.min.js"></script>
+		<script src="../../plugins/bootstrap/js/bootstrap.min.js"></script>
+
+	</body>
+
+</html>

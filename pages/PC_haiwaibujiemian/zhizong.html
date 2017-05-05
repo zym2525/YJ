@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../plugins/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../plugins/font-awesome/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../admin/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="../../plugins/alert/css/alert.css"/>
+	</head>
+	<body>
+		<div class="swap">
+	    
+		</div>
+		<div class="notice success">
+	        <img src="../../plugins/alert/img/success.png">
+	        <h3></h3>
+	        <a class="succesque"><span>OK</span></a>
+	    </div>
+	    <div class="notice error">
+	        <img src="../../plugins/alert/img/error.png">
+	        <h3></h3>
+	        <p></p>
+	        <a class="errorque"><span>确定</span></a>
+	    </div>
+		<div class='header'>
+			<div class='logo'></div>
+			<nav class='navbar navheader'>
+				<div class="pull-left clickbtn"> <button class="btn btn-primary "> <i class="fa fa-bars"></i> </button> </div>
+				<div class="pull-left clickuse dropdown">
+					<span  class="dropdown-toggle" data-toggle="dropdown" style="display: block;width: 100%;height: 100%;">
+						<i class="fa fa-user"></i> <span class="username"></span>
+					</span>
+					<ul class="dropdown-menu" id="usexin">
+						<li class="text-center" style="line-height: 35px;background-color: #309067;color: white;">
+							用户信息
+						</li>
+	                     <li>
+	                     	<ul class="geuse clearfix">
+	                     		<li class="useleft">用户名:</li>
+	                     		<li class="useright usname"></li>
+	                     	</ul >
+	                     </li>
+	                    <li>
+	                    	<ul class="geuse clearfix">
+	                     		<li class="useleft">公司名:</li>
+	                     		<li class="useright uscompany"></li>
+	                     	</ul>
+	                    </li>
+	                    <li>
+	                    	<ul class="geuse clearfix">
+	                     		<li class="useleft">邮箱:</li>
+	                     		<li class="useright usemail"></li>
+	                     	</ul>
+	                    </li>
+	                    <li>
+	                    	<ul class="geuse clearfix">
+	                     		<li class="useleft">电话号码:</li>
+	                     		<li class="useright usmob"></li>
+	                     	</ul>
+	                    </li>
+	                    
+	                </ul>
+				</div>
+				<div class="pull-left  clickupdate" data-toggle="modal" data-target="#myModalxm">
+					<i class="fa fa-unlock-alt"></i> <span>修改密码</span>
+				</div>
+				<ul class="nav navbar-nav navbar-left clickul" >
+					<li>
+						<a  class="tuideng" style="cursor: pointer;">
+							<i class="fa fa-sign-out"></i> <span style="">退出登录</span>
+						</a>
+						
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class='conspage'>
+			<div class='conspageson'>
+				<ol class="breadcrumb">
+					<li>
+						<a href="#">询价</a>
+					</li>
+					<li class="active">直接向总部询价</li>
+				</ol>
+			</div>
+		</div>
+		<div class='seider-after'>
+			<div class="scroll">
+				<aside class='seider'>
+
+					<div class="panel-group" id="accordion">
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne" class="active">
+									<span class='tu'><i class="fa fa-bluetooth"></i></span> &nbsp;&nbsp;
+									<span class='zi'>询价</span>
+
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapseOne" class="panel-collapse collapse in">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="pc_haiyun.html" class="active">运价查询</a>
+										</li>
+										<li>
+											<a href="zhizong.html">直接向总部查询</a>
+										</li>
+										
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default panelclick " >
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo">
+									<span class='tu'><i class="fa fa-files-o"></i></span> &nbsp;&nbsp;
+									<span class='zi'>询盘管理</span>
+
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapseTwo" class="panel-collapse collapse">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="pc_haixunpan.html">当前询盘</a>
+										</li>
+										<li>
+											<a href="xunpanwan.html">已完成询盘</a>
+										</li>
+										<li>
+											<a href="xunpanqu.html">已取消询盘</a>
+										</li>
+										
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapseThree">
+									<span class='tu'><i class="fa fa-book"></i></span> &nbsp;&nbsp;
+									<span class='zi'>订单管理</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapseThree" class="panel-collapse collapse">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="pc_hainew.html">新增订单</a>
+										</li>
+										<li>
+											<a href="pc_haidiguan.html">订单管理</a>
+										</li>
+										
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse4">
+									<span class='tu'><i class="fa  fa-tasks"></i></span> &nbsp;&nbsp;
+									<span class='zi'>物流可视化</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapse4" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="pc_haigenzong2.html">全程物流跟踪</a>
+										</li>
+										<li>
+											<a href="pc_haiweihu.html">物流状态维护</a>
+										</li>
+										
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						
+
+					</div>
+				</aside>
+			</div>
+		</div>
+
+		<div class='content'>
+
+			<div  style="padding: 15px;">
+		<div style="border: 1px solid black; width: 700px;height: 750px;margin: auto;background-color: white;">
+			<div class="modal-body">
+						<form class="form-horizontal" role="form">
+							<div class="form-group form-group-sm">
+								<label class="col-sm-5 control-label">PORT OF LOADING(起运港)：</label>
+								<div class="col-sm-7 clearfix">
+									<select class="form-control pull-right" style="width: 95%;" name="zhiqi">
+										<option>NINGBO</option>
+										<option>LAEM CHABANG</option>
+										<option>BANGKOK</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group form-group-sm">
+								<label for="lastname" class="col-sm-5 control-label">FINAL DESTINATION(目的港)：</label>
+								<div class="col-sm-7 clearfix btn-group">
+									<span style="color: red;display: block;padding-top: 10px;" class="pull-left">*</span> <span class="caret mycreat"></span><input type="text" autocomplete="off" style="width: 95%;" name="zhimudi" readonly class="form-control pull-right dropdown-toggle" data-toggle="dropdown">
+									<div class="dropdown-menu mydrop" role="menu" style="width: 89%;">
+										
+										<input class="form-control souinput" placeholder="search..."/>
+										<ul class="ulgang">
+											
+										</ul>
+									</div>
+	
+								</div>
+							</div>
+							<div class="form-group form-group-sm">
+								<label for="lastname" class="col-sm-5 control-label">SUIPPING LINE(船公司)：</label>
+								<div class="col-sm-7 clearfix btn-group">
+								 <span class="caret mycreat"></span><input type="text" autocomplete="off" style="width: 95%;" name="zhicuansi" readonly class="form-control pull-right dropdown-toggle" data-toggle="dropdown">
+									<div class="dropdown-menu mydrop" style="width: 89%;" role="menu" >
+										
+										<input class="form-control souchuaninput" placeholder="search..."/>
+										<ul class="ulgang">
+											
+										</ul>
+									</div>
+	
+								</div>
+							</div>
+							<hr />
+							<div><label><span style="color: red;">*</span> 请填写箱型箱量：</label></div>
+							<div>
+								<label>20GP</label> <input name='gp20' style="width: 40px;margin-right: 10px;text-align: center;" value="0">
+								<label>40GP</label> <input name='gp40' style="width: 40px;margin-right: 10px;text-align: center;" value="0">
+								<label>40HQ</label> <input name='hq40' style="width: 40px;margin-right: 10px;text-align: center;" value="0">
+								<label>45HQ</label> <input name='hq45' style="width: 40px;text-align: center;" value="0">
+							</div>
+							<br />
+							<label><span style="color: red;">*</span> &nbsp;预计出货时间：</label>
+							<input type='date' class="form-control" name="chutime" style="margin-bottom: 10px;" />
+							<label>REMARK(其他事项)：</label>
+							<textarea class="form-control" style="margin-bottom: 10px;" name="qita"></textarea>
+							<div class="form-group form-group-sm">
+								<label class="col-sm-3 control-label"><span style="color: red;">*</span> CUSTOMER(客户)：</label>
+								<div class="col-sm-9 btn-group">
+									<span class="caret mycreat"></span><input type="text" class="form-control dropdown-toggle" data-toggle="dropdown" name="khzh"  readonly >
+									<div class="dropdown-menu mydrop" role="menu" style="width: 300px;margin-left: 13px;">
+										<input class="form-control soukehuinput" placeholder="search..."/>
+										<ul class="ulgang"></ul>
+									</div>
+								</div>
+							</div>
+							
+							<input type="checkbox"  class="radiozhi" style="margin-right: 10px;" value="LYZB" checked/><label>宁波铃与</label>
+							<input type="checkbox"  class="radiozhi" style="margin-left: 30px;margin-right: 10px;" checked value="TGLY"/><label>泰国铃与</label>
+						</form>
+					</div>
+					<div class=" text-center">
+						<button type="button" class="btn btn-primary btn-sm xiangxunjia"  >询&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;价</button>
+						
+					</div>
+					<br />
+					<div style="padding-bottom: 10px;padding-left: 15px;padding-right: 15px;">
+						<span style="font-size: 15px;font-weight: 600;">温馨提示：</span>
+						<span style="font-size: 13px;">询价后20分钟内，会收到最佳的物流方案,方案将以短信、邮件及APP消息方式进行提醒</span>
+					</div>
+		</div>
+		</div>
+		</div>
+		
+		
+		<!-- 警告 -->
+		<div class="modal fade" id="myModalxm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width: 350px;margin: 150px auto;">
+					
+					<div class="modal-body">
+						<div class="text-center"><i class="fa fa-exclamation-triangle" style="color: darkred;font-size: 35px;"></i></div>
+						<h2 class="text-center" style="color: orange;">确定修改密码吗？</h2>
+						<div class="text-center" style="margin-top: 30px;">
+							<button type="button" style="margin-right: 40px;" class="btn btn-default btn-sm" data-dismiss="modal">关闭</button>
+							<button type="button" class="btn btn-warning btn-sm" id='qxiuma'>确定</button>
+						</div>
+						
+
+					</div>
+					
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+			<script src="../../plugins/jquery-2.1.4/jquery.min.js"></script>
+		<script src='../../plugins/bootstrap/js/bootstrap.min.js'></script>
+		<script type="text/javascript" src="../../plugins/jquery.slimscroll.js"></script>
+		
+		
+		<script>
+			$('.scroll').slimScroll({
+				height: '90%',
+				
+			})
+		</script>
+		<script src='../../admin/js/main.js'></script>
+		<!--用户信息-->
+		<script src="../../assets/js/user.js"></script>
+		<!--退出登录-->
+        <script src="../../assets/js/tuichu.js"></script>
+		<script src="../../assets/js/mohucha.js"></script>
+		<script>
+		
+		function success(a){
+				$('.swap').css('display','block')
+				$('.success').css('display','block')
+				$('.success h3').text(a)
+				
+				$('.error').css('display','none')
+				}
+				
+				function error(a,b){
+					$('.swap').css('display','block')
+					$('.success').css('display','none')
+					$('.error').css('display','block')
+					$('.error h3').text(a)
+					$('.error p').text(b)
+				}
+				
+				$('.errorque').on('click',function(){
+					$('.swap').css('display','none')
+					$('.error').css('display','none')
+				})
+		
+		//模糊客户
+		mohukehu($('.soukehuinput'))
+			
+			//目的港
+			mohucha($('.souinput'))
+			$('[name="zhimudi"]').on('click',function(){
+				$('.souinput').val('');
+				$('.ulgang').empty();
+				var mythis=$(this)
+				setTimeout(function(){
+					mythis.next().children('.souinput').focus()
+				},50)
+				
+			})
+			
+			//船公司
+			
+			mohuchuan($('.souchuaninput'))
+			$('[name="zhicuansi"]').on('click',function(){
+				$('.souchuaninput').val('');
+				$('.ulgang').empty();
+				var mythis=$(this)
+				setTimeout(function(){
+					mythis.next().children('.souchuaninput').focus()
+				},50)
+				
+			})
+
+			
+			
+			//验证是否为整数的正则
+			var intPattern = /^0$|^[1-9]\d*$/
+			var rat = /^\+?[1-9][0-9]*$/
+			//直接查询	
+			var pattime=true;
+			function yantime(a){
+				
+						var today=new Date()
+						var n=today.getFullYear()
+						var y=today.getMonth()
+						var r=today.getDate()
+						var yue=y+1
+						if(yue<10){
+							yue=0+''+yue;
+						}
+						if(r<10){
+							r=0+''+r
+						}
+						//console.log(n);
+						//console.log(yue);
+						//console.log(r);
+						var shijian=n+''+yue+''+r;
+						 
+						
+							var str=a.val();
+							var shuzhu=str.split('-');
+							
+							var newstr='';
+							for(var i=0;i<shuzhu.length;i++){
+								newstr+=shuzhu[i]
+							}
+						
+							//console.log(+newstr)
+							if((+newstr)<(+shijian)){
+								pattime=false;
+							}else{
+								pattime=true;
+							}
+				}
+
+			$('.xiangxunjia').on('click', function() {
+				
+				
+				
+				pattime=true;
+				var blure1 = ($('[name="zhiqi"]').val() != '') && ($('[name="zhimudi"]').val() != '') 
+				var b1=$('[name="gp20"]').val()==''||$('[name="gp20"]').val()==0;
+				var b2=$('[name="gp40"]').val()==''||$('[name="gp40"]').val()==0;
+				var b3=$('[name="hq40"]').val()==''||$('[name="hq40"]').val()==0;
+				var b4=$('[name="hq45"]').val()==''||$('[name="hq45"]').val()==0;
+				var p1=rat.test($('[name="gp20"]').val())||b1
+				var p2=rat.test($('[name="gp40"]').val())||b2
+				var p3=rat.test($('[name="hq40"]').val())||b3
+				var p4=rat.test($('[name="hq45"]').val())||b4
+				var pat=!(b1&&b2&&b3&&b4);
+				var pzong=p1&&p2&&p3&&p4
+				 var patjzhuang=(pzong&&pat)
+				
+				yantime($('[name="chutime"]'))
+				var mypant = patjzhuang&&pattime
+				
+				var qiyug=$('[name="zhiqi"]').val();
+				if(qiyug=='NINGBO'){
+					qiyug='CNNGB'
+				}
+				if(qiyug=='LAEM CHABANG'){
+					qiyug='THLCB'
+				}
+				if(qiyug=='BANGKOK'){
+					qiyug='THBKK'
+				}
+				
+				var ling=''
+				if($('.radiozhi:checked').length>0){
+					for (var i=0;i<$('.radiozhi:checked').length;i++) {
+					ling=ling+','+ $('.radiozhi:checked').eq(i).val()
+					}
+				}
+				ling=ling.substring(1,ling.length)
+				
+				
+				if(mypant) {
+					var tg = new Date().getTime();
+					$.ajax({
+						type: "post",
+						url: "http://106.14.251.28:8085/bizCenter/enquiryService/pubEnquiryWithoutCustom",
+						data: {
+							'accessToken': localStorage.getItem('accessToken'),
+							'msgId': tg + '',
+							"polCode": qiyug,
+							"podCode": $('[name="zhimudi"]').attr('data-code'),
+							"carryCode": $('[name="zhicuansi"]').attr('data-code'),
+							"elements": '{"num20gp":' + $('[name="gp20"]').val() 
+									    + ',"num40gp": ' + $('[name="gp40"]').val()
+									    + ',"num40hq": ' + $('[name="hq40"]').val()
+									    + ',"num45hc": ' + $('[name="hq45"]').val() 
+									    + ',"expectDate":"'+$('[name="chutime"]').val()
+									    +'","remark": "'+$('[name="qita"]').val()+'"}',
+							"customCompanyCode":$('[name="khzh"]').attr('data-code'),
+							"destCompanyCode":ling
+						},
+						async: true,
+						dataType: 'json',
+						success: function(data) {
+							console.log(data)
+							if(data.retCode == '0000') {
+								alert('向总部直接询价成功')
+								location='zhizong.html';	
+							}else if(data.retCode=='1115'){
+								alert('客户不能为空')
+							}
+						},
+						error: function() {}
+					})
+				} else {
+					
+					if(!blure1){
+						error('直接询价失败','起运港和目的港不能为空')
+					}else{
+							if(!patjzhuang){
+							   error('直接询价失败','集装箱数量请填写整数，且最少为一个');
+							}else{
+								if(!pattime){
+									
+									 error('直接询价失败','时间格式不对，预计出货日期不能小于当前日期');
+								}
+							}
+					}
+					
+					
+					
+					
+				}
+
+				
+
+			})
+		</script>
+	</body>
+</html>

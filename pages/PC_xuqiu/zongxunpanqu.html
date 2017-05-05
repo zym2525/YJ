@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>总部询盘</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../plugins/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../plugins/font-awesome/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../admin/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/fenye.css" />
+		<style>
+			.biaoxun,
+			.xgbj,
+			.zjbj {
+				color: red;
+				cursor: pointer;
+			}
+			
+			.biaoxun:hover,
+			.xgbj:hover,
+			.zjbj:hover {
+				text-decoration: underline;
+			}
+			
+			.kegai {
+				width: 60px;
+				text-align: center;
+			}
+			
+			.liejia {
+				display: inline-block;
+				width: 60px;
+				text-align: center;
+			}
+			
+			#feeul {
+				max-height: 150px;
+				overflow: auto;
+			}
+			
+			#feeul li {
+				padding: 2px;
+				padding-left: 15px;
+				cursor: pointer;
+			}
+			
+			.bianbz,
+			.biandp,
+			.biandyf {
+				height: 30px;
+				width: 80px;
+			}
+			
+			.feebz,
+			.feedp,
+			.feeyf {
+				width: 77px;
+				height: 30px;
+			}
+			.myform-group  .form-group{
+				margin-left: 0 !important;
+				margin-right: 0 !important;
+			}
+			
+			.myform-group  .form-group label{
+				padding: 0 !important;
+			}
+			th[rowspan='2']>span {
+			    margin-top: -58px;
+			    display: block;
+			}
+			@media only screen and (max-width:1440px ) {
+					th[rowspan='2']>span {
+				    margin-top: -80px;
+				    display: block;
+				}
+			}
+			
+			#dom1,#dom2{
+				width: 800px;
+				height: 700px;
+				border: 1px solid green;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class='header'>
+			<div class='logo'></div>
+			<nav class='navbar navheader'>
+				<div class="pull-left clickbtn"> <button class="btn btn-primary "> <i class="fa fa-bars"></i> </button> </div>
+				<div class="pull-left clickuse dropdown">
+					<span  class="dropdown-toggle" data-toggle="dropdown" style="display: block;width: 100%;height: 100%;">
+						<i class="fa fa-user"></i> <span class="username"></span>
+					</span>
+					<ul class="dropdown-menu" id="usexin">
+						<li class="text-center" style="line-height: 35px;background-color: #309067;color: white;">
+							用户信息
+						</li>
+	                     <li>
+	                     	<ul class="geuse clearfix">
+	                     		<li class="useleft">用户名:</li>
+	                     		<li class="useright usname"></li>
+	                     	</ul >
+	                     </li>
+	                    <li>
+	                    	<ul class="geuse clearfix">
+	                     		<li class="useleft">公司名:</li>
+	                     		<li class="useright uscompany"></li>
+	                     	</ul>
+	                    </li>
+	                    <li>
+	                    	<ul class="geuse clearfix">
+	                     		<li class="useleft">邮箱:</li>
+	                     		<li class="useright usemail"></li>
+	                     	</ul>
+	                    </li>
+	                    <li>
+	                    	<ul class="geuse clearfix">
+	                     		<li class="useleft">电话号码:</li>
+	                     		<li class="useright usmob"></li>
+	                     	</ul>
+	                    </li>
+	                    
+	                </ul>
+				</div>
+				<div class="pull-left  clickupdate" data-toggle="modal" data-target="#myModalxm">
+					<i class="fa fa-unlock-alt"></i> <span>修改密码</span>
+				</div>
+				<ul class="nav navbar-nav navbar-left clickul" >
+					<li>
+						<a  class="tuideng" style="cursor: pointer;">
+							<i class="fa fa-sign-out"></i> <span style="">退出登录</span>
+						</a>
+						
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class='conspage'>
+			<div class='conspageson'>
+				<ol class="breadcrumb">
+					<li>
+						<a href="#">询盘管理</a>
+					</li>
+					<li class="active">已取消询盘</li>
+				</ol>
+			</div>
+		</div>
+		<div class='seider-after'>
+			<div class="scroll">
+				<aside class='seider'>
+
+					<div class="panel-group" id="accordion">
+						<div class="panel panel-default panelclick">
+					        <div class="panel-heading">			           
+					                <a  href="pc_zongyong.html">
+					                	<span class='tu'><i class="fa fa-random"></i></span>
+					                 	&nbsp;&nbsp;<span class='zi'>用户管理</span>	
+					                </a>
+					            
+					        </div>
+				    	</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo" class="active">
+									<span class='tu'><i class="fa fa-files-o"></i></span> &nbsp;&nbsp;
+									<span class='zi'>询盘管理</span>
+
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapseTwo" class="panel-collapse collapse in">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="pc_zongxunpan.html">当前询盘</a>
+										</li>
+										<li>
+											<a href="zongxunpanwan.html">已完成询盘</a>
+										</li>
+										<li>
+											<a href="zongxunpanqu.html">已取消询盘</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse4">
+									<span class='tu'><i class="fa  fa-tasks"></i></span> &nbsp;&nbsp;
+									<span class='zi'>订单管理</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapse4" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="pc_hainew.html">新增订单(录单)</a>
+										</li>
+										<li>
+											<a href="pc_haidiguan.html">订单管理</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse5">
+									<span class='tu'><i class="fa  fa-ship"></i></span> &nbsp;&nbsp;
+									<span class='zi'>物流可视化</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapse5" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="pc_haigenzong2.html">全程物流跟踪</a>
+										</li>
+										<li>
+											<a href="pc_haiweihu.html">物流状态维护</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse6">
+									<span class='tu'><i class="fa   fa-tags"></i></span> &nbsp;&nbsp;
+									<span class='zi'>运价管理</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapse6" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="zongyjcx.html">运价查询</a>
+										</li>
+										<li>
+											<a href="zongyjbj.html">运价编辑</a>
+										</li>
+										
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse7">
+									<span class='tu'><i class="fa  fa-bars"></i></span> &nbsp;&nbsp;
+									<span class='zi'>基础数据</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapse7" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="pc_xugangguan.html">港口管理</a>
+										</li>
+										<li>
+											<a href="pc_xuchuanguan.html">船公司管理</a>
+										</li>
+										<li>
+											<a href="pc_xuhangguan.html">航线管理</a>
+										</li>
+										<li>
+											<a href="pc_xumingguan.html">航名航次管理</a>
+										</li>
+										<li>
+											<a href="pc_xutiguan.html">提箱堆场管理</a>
+										</li>
+										<li>
+											<a href="pc_xumaguan.html">码头管理</a>
+										</li>
+										<li>
+											<a href="pc_xufeiguan.html">费项管理</a>
+										</li>
+										<li>
+											<a href="pc_xubiguan.html">币种管理</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</aside>
+			</div>
+		</div>
+
+		<div class='content'>
+
+			<div style="padding: 15px;">
+
+				<div class='contzong'>
+					<div class="contson1 clearfix">
+
+						<form class="form-horizontal myform-group" role="form">
+							<div class='container-fluid' style="padding-right: 0;padding-left: 0;">
+								
+								<div class="form-group form-group-sm col-sm-4">
+									<label class="col-sm-4 control-label" style="padding-right: 0;">起运港:<br>Port Of Loading:</label>
+									<div class="col-sm-8">
+										<select class="form-control" name="qyg">
+											<option>NINGBO</option>
+											<option>LAEM CHABANG</option>
+											<option>BANGKOK</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group form-group-sm col-sm-4">
+									<label class="col-sm-4 control-label" style="padding-right: 0;">报价状态:<br>Quote Status:</label>
+									<div class="col-sm-8">
+										<select class="form-control" name='bjzt'>
+											<option>全部</option>
+											<option>已报价</option>
+											<option>未报价</option>
+										</select>
+									</div>
+								</div>								
+
+								<div class="form-group form-group-sm col-sm-4">
+									<label class="col-sm-4 control-label" style="padding-right: 0;">开始时间:<br>Starting time:</label>
+									<div class="col-sm-8">
+										<input type="date" class="form-control" name="starttime">
+									</div>
+								</div>
+
+							</div>
+
+							<div class="container-fluid" style="padding-right: 0;padding-left: 0;">
+								
+								<div class="form-group form-group-sm col-sm-4">
+									<label class="col-sm-4 control-label" style="padding-right: 0;">目的港:<br>Final Destinatton:</label>
+									<div class="col-sm-8 btn-group">
+										<span class="caret mycreat"></span><input type="text" class="form-control dropdown-toggle" data-toggle="dropdown" name="mdg"  readonly >
+										<div class="dropdown-menu mydrop" role="menu" style="width: 300px;margin-left: 13px;">
+									
+											<input class="form-control souinput" placeholder="search..."/>
+											<ul class="ulgang">
+												
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="form-group form-group-sm col-sm-4">
+									<label class="col-sm-4 control-label" style="padding-right: 0;">询盘状态:<br>Inquiry status</label>
+									<div class="col-sm-8">
+										<select class="form-control" name="xpzt">
+											<option>全部</option>
+											<option>已询价</option>
+											<option>未询价</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group form-group-sm col-sm-4">
+									<label class="col-sm-4 control-label" style="padding-right: 0;">结束时间:<br>End Time:</label>
+									<div class="col-sm-8">
+										<input type="date" class="form-control" name="endtime">
+									</div>
+								</div>
+
+							</div>
+
+							<div class='container-fluid' style="padding-right: 0;padding-left: 0;">
+								<div class="form-group form-group-sm col-sm-4">
+									<label class="col-sm-4 control-label" style="padding-right: 0;">询价人:<br>Inquiry person</label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control" name="xjr">
+									</div>
+								</div>
+								
+								<div class="form-group form-group-sm col-sm-4">
+
+									<button type="submit" class="col-sm-offset-3 btn btn-primary btn-sm sousuo" style="width: 70px;">Search</button>
+
+								</div>
+
+								<div class="form-group form-group-sm col-sm-4 ">
+
+									<button type="reset" class="col-sm-offset-3 btn btn-primary btn-sm" style="width: 70px;">Reset</button>
+
+								</div>
+
+							</div>
+
+						</form>
+
+					</div>
+					<div class="contson2 clearfix">
+						<div class="pull-left" >
+							<a href="" style="color: red !important;">共有 <span class="zongpan"></span> 个询盘</a>
+						</div>
+						<div class="pull-right">
+							<label style="color: red;">统计口径：</label>
+							<label class="tjmk"><input class="tjkj" name="tjkj" value="mdg" type="radio"/>目的港</label>
+							<label class="tjmk"><input class="tjkj" name="tjkj" value="xjcs" type="radio"/>询价次数</label>
+							<label class="tjmk"><input class="tjkj" name="tjkj" value="kh" type="radio"/>客户</label>
+							<label class="tjmk"><input class="tjkj" name="tjkj" value="cgs" type="radio"/>船公司</label>
+							<label class="tjmk"><input class="tjkj" name="tjkj" value="dcps" type="radio"/>订舱票数</label>
+							<label style="margin-left: 30px;color: red;">选择图形：</label>
+							<label class="tjmk"><input class="xztx" name="xztx" value="sxt" type="radio"/>扇形图</label>
+							<label class="tjmk"><input class="xztx" name="xztx" value="zzt" type="radio"/>柱状图</label>
+							<button class="btn btn-primary btn-sm" style="margin-left: 10px;" id="cktjt">查看统计图</button>
+						</div>
+						
+					</div>
+					<div class="contson3">
+						<table class="table table-bordered tablecenter tablestrd" id='tablexunpan'>
+							<thead>
+								<tr>
+									<th rowspan="2" class="text-center"><span>序号<br>Serial number</span></th>
+									
+									<th >客户名称<br>client's name</th>
+									<th>订舱票数<br>Booking number</th>
+									<th class="text-center">起运港<br>Port Of Loading</th>
+									<th class="text-center">目的港<br>Final Destinatton</th>
+									<th colspan="4" class="text-center">箱型箱量<br> Box quantity</th>
+									<th rowspan="2" class="text-center"><span>报价状态<br>Quotation status</span></th>
+									<th rowspan="2" class="text-center"><span>询价状态<br>Enquiry status</span></th>
+									<th>询价时间<br>Inquiry time</th>
+
+									
+								</tr>
+								<tr>
+									<th  class="text-center"><span>询价人<br>Inquiry person</span></th>
+									<th>询价次数<br>Number of inquiries</th>
+									<th>船公司<br>Suipping Line</th>
+									<th>预计出货时间<br>Estimated time of shipment</th>
+									<th>20GP</th>
+									<th>40GP</th>
+									<th>40HQ</th>
+									<th>45HC</th>
+
+									<th>备注<br>Remarks</th>
+								</tr>
+							</thead>
+							<tbody>
+
+								
+
+							</tbody>
+						</table>
+						<div class='biaofooter clearfix'>
+							<div class=" pull-left footerulleft">
+								<div class="form-inline" role="form">
+									<div class="form-group form-group-sm">
+										每页显示:
+										<select class="form-control" name="yeshu">
+											<option>5</option>
+											<option>10</option>
+											<option>25</option>
+											<option>50</option>
+										</select>
+										条，总共 <span class="pagezong"></span> 条
+									</div>
+
+								</div>
+
+							</div>
+							<div class="tcdPageCode pull-right" style="margin-top: -10px;"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		
+		<!--统计图	-->
+		<div class="modal fade" id="tongjitu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog" style="width: 830px;">
+				<div class="modal-content">
+					<div class="modal-header" style="background-color: #337ab7;color: white;">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title text-center">统计图</h4>
+					</div>
+					<div class="modal-body clearfix" id='tact' style="height: 730px">
+						
+					</div>
+					<div class="modal-footer" style="text-align:center;border-top-color: darkred;">
+
+						<button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">关闭</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+		
+		
+		<!-- 警告-->
+		<div class="modal fade" id="myModaljg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width: 350px;margin: 150px auto;">
+					
+					<div class="modal-body">
+						<div class="text-center"><i class="fa fa-exclamation-triangle" style="color: darkred;font-size: 35px;"></i></div>
+						<h2 class="text-center jgh" style="color: orange;"></h2>
+						<div class="text-center" style="margin-top: 25px;">
+							<button type="button" class="btn btn-warning btn-sm" data-dismiss="modal">关闭</button>
+						</div>
+					</div>
+				
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+		
+
+		
+
+		<script src="../../plugins/jquery-2.1.4/jquery.min.js"></script>
+		<script src='../../plugins/ECharts/echarts.min.js'></script>
+		<script src='../../plugins/bootstrap/js/bootstrap.min.js'></script>
+		<script type="text/javascript" src="../../plugins/jquery.slimscroll.js"></script>
+		<script src='../../fenye/js/jquery.page.js'></script>
+		<script>
+			$('.scroll').slimScroll({
+				height: '90%',
+
+			})
+		</script>
+		<script src='../../admin/js/main.js'></script>
+		<!--用户信息-->
+		<script src="../../assets/js/user.js"></script>
+		<!--退出登录-->
+        <script src="../../assets/js/tuichu.js"></script>
+		<script src='../../assets/js/mohucha.js'></script>
+		<script src="tongjiqu.js"></script>
+		<script>
+			//目的港
+			mohucha($('.souinput'))
+	
+			$('.mdg').on('click',function(){
+				$('.souinput').val('');
+				$('.ulgang').empty();
+				var mythis=$(this)
+				setTimeout(function(){
+					mythis.next().children('.souinput').focus()
+				},50)
+				
+			})
+			//分页	
+			function dangqian() {
+				var dang = ($(this).text() - 1) * $('[name="yeshu"]').val();
+				var tiao = $('[name="yeshu"]').val()
+				getpan(dang, tiao)
+				console.log($(this).text())
+			}
+
+			function prevPage() {
+				var dang = ($('.current').text() - 1) * $('[name="yeshu"]').val()
+				var tiao = $('[name="yeshu"]').val()
+				getpan(dang, tiao)
+			}
+
+			function nextPage() {
+				var dang = ($('.current').text() - 1) * $('[name="yeshu"]').val()
+				var tiao = $('[name="yeshu"]').val()
+				getpan(dang, tiao)
+			}
+			$(document).on('click', '.tcdNumber', dangqian)
+			$(document).on('click', '.prevPage', prevPage)
+			$(document).on('click', '.nextPage', nextPage)
+
+			$('[name="yeshu"]').on('change', function() {
+					getpan(0, $('[name="yeshu"]').val())
+					creatfenye()
+			})
+
+			//警告框
+			function success(a) {
+				$('.swap').css('display', 'block')
+				$('.success').css('display', 'block')
+				$('.success h3').text(a)
+
+				$('.error').css('display', 'none')
+			}
+
+			function error(a, b) {
+				$('.swap').css('display', 'block')
+				$('.success').css('display', 'none')
+				$('.error').css('display', 'block')
+				$('.error h3').text(a)
+				$('.error p').text(b)
+			}
+
+			$('.errorque').on('click', function() {
+				$('.swap').css('display', 'none')
+				$('.error').css('display', 'none')
+			})
+
+			function creattable(a, i) {
+				//console.log(a.schemeStatus)
+				var zhuang = '';
+				var baotai = '';
+				var xuntai = '';
+				var zhuangang = '';
+				var xun = '';
+				var quxiao = '';
+				var bj = '';
+				var cgs = '';
+				var beizhu = a.elements.remark;
+				if(!beizhu) {
+					beizhu = ''
+				}
+
+				cgs = a.carryCode;
+				if(!cgs) {
+					cgs = ''
+				}
+				quxiao = '<span class="quxiao" data-code=' + a.enquiryCode + ' data-mystatus=' + a.schemeStatus + '>取消</span>'
+				if(a.schemeStatus == 1||a.schemeStatus == 3||a.schemeStatus==4) {
+
+					baotai = '已报价'
+					bj = '<span class="xgbj" data-toggle="modal" data-target="#myModalxg" data-enqurycode=' + a.enquiryCode + ' data-mystatus=' + a.schemeStatus + ' data-schemecode=' + a.schemeCode + '>修改报价</span>'
+				}
+				if(a.schemeStatus == 0 || a.schemeStatus == 2 || a.schemeStatus == 5) {
+					baotai = '未报价';
+					bj = '<span class="zjbj" data-toggle="modal" data-target="#myModalbao" data-enqurycode=' + a.enquiryCode + ' data-mystatus=' + a.schemeStatus + ' data-schemecode=' + a.schemeCode + '>直接报价</span>'
+				}
+
+				if(a.enquirybizStatus == 0) {
+					xuntai = '未询价';
+					xun = '<span class="biaoxun" data-toggle="modal" data-target="#myModalx" data-enqurycode=' + a.enquiryCode + ' data-mystatus=' + a.schemeStatus + '>询价</span>'
+
+				};
+				if(a.enquirybizStatus == 1) {
+					xuntai = '已询价'
+						//      xun = '<span class="chakan" data-toggle="modal" data-target="#myModalcha" data-enqurycode=' + a.enquiryCode + ' data-mystatus=' + a.schemeStatus + ' data-schemecode=' + a.schemeCode + '>查看</span>'
+				}
+				if(a.status == 2) {
+					xuntai = '已取消'
+				}
+				var gp20 = null;
+				var gp40 = null;
+				var hq40 = null;
+				var hc45 = null;
+				gp20 = +(a.elements.num20gp);
+				gp40 = +(a.elements.num40gp);
+				hq40 = +(a.elements.num40hq);
+				hc45 = +(a.elements.num45hc);
+				if(!gp20) {
+					gp20 = '--'
+				};
+				if(!gp40) {
+					gp40 = '--'
+				};
+				if(!hq40) {
+					hq40 = '--'
+				};
+				if(!hc45) {
+					hc45 = '--'
+				};
+				
+				var bnum=a.bookingNum;
+				if(!bnum){
+					bnum=0
+				}
+				
+				var enu=a.enquiryNum
+				if(!enu){
+					enu=0
+				}
+				
+				$('#tablexunpan>tbody').append(
+					'<tr><td rowspan="2">' +
+					i + '</td><td>'+a.customCompanyName+'</td><td>'
+					+bnum+'</td><td>' +
+					a.polName + '</td><td>' +
+					a.podName + '</td><td rowspan="2">' +
+					gp20 + '</td><td rowspan="2">' +
+					gp40 + '</td><td rowspan="2">' +
+					hq40 + '</td><td rowspan="2">' +
+					hc45 + '</td><td rowspan="2">' +
+					baotai + '</td><td rowspan="2">' +
+					xuntai + '</td><td>' +
+					a.enquiryTime + '</td></tr><tr><td >' +
+					a.enquiryAccount + '</td><td>'
+					+enu+'</td><td>' +
+					cgs + '</td><td>' +
+					a.expectTime + '</td><td>' +
+					beizhu + '</td></tr>'
+				)
+			}
+
+
+
+		var pagenum=0;
+		function creatfenye(pagezong,pagedang){
+					var yeshu = Math.ceil(pagenum / $('[name="yeshu"]').val())
+							$(".tcdPageCode").createPage({
+								pageCount: yeshu,
+								current: 1,
+								backFn: function(p) {
+									//console.log(p);
+								}
+							});
+		}
+
+			//获取询盘列表
+			function getpan(dqys, yc) {
+				var baotai1 = $('[name="bjzt"]').val();
+				if(baotai1 == '全部') {
+					baotai1 = ''
+				}
+				if(baotai1 == '未报价') {
+					baotai1 = '0,1,2,5';
+				}
+				if(baotai1 == '已报价') {
+					baotai1 = 3;
+				}
+
+				var qiyug=$('[name="qyg"]').val();
+						if(qiyug=='NINGBO'){
+							qiyug='CNNGB'
+						}
+						if(qiyug=='LAEM CHABANG'){
+							qiyug='THLCB'
+						}
+						if(qiyug=='BANGKOK'){
+							qiyug='THBKK'
+						}
+				var xunpan=$('[name="xpzt"]').val()
+				if(xunpan=='全部'){xunpan=''}
+				if(xunpan=='未询价'){xunpan=0}
+				if(xunpan=='已询价'){xunpan=1}	
+				$('#tablexunpan>tbody').empty()
+				var g = new Date().getTime();
+				$.ajax({
+					type: "post",
+					url: "http://106.14.251.28:8085/bizCenter/enquiryService/getEnquirys",
+					data: {
+						'accessToken': localStorage.accessToken,
+						'msgId': g + '',
+						"isBackward": 1,
+						"enquiryStatus": 2,
+						"polCode":qiyug,
+						"podCode": $('[name="mdg"]').attr('data-code'),
+						"schemeStatus": baotai1,
+						"enquiryTimeStart": $('[name="starttime"]').val(),
+						"enquiryTimeEnd": $('[name="endtime"]').val(),
+						'enquirybizStatus':xunpan,//询价状态
+						"currentPage": dqys, //当前页数
+						"pageSize": yc //页长
+					},
+					async: true,
+					dataType: 'json',
+					success: function(json) {
+						console.log(json)
+						if(json.retCode == '0000') {
+							var a = json.enquirys;
+							var num=json.num;
+							$('.pagezong').text(num)
+							if(+num!=pagenum){
+								pagenum=num;
+								$('.pagezong').text(pagenum)
+								creatfenye()//分页函数
+							}
+
+							//console.log(a)
+							$('.zongpan').text(num)
+							for(var i = 0; i < a.length; i++) {
+								creattable(a[i], i + 1)
+							}
+
+						} else {
+							alert('数据报错')
+						}
+
+					},
+					error: function(data) {
+						console.log('ajax请求错误')
+					}
+				})
+			}
+
+			
+			getpan(0, $('[name="yeshu"]').val())
+
+			function numb(a) {
+				var str = a;
+				var shuzhu = str.split('-');
+
+				var newstr = '';
+				for(var i = 0; i < shuzhu.length; i++) {
+					newstr += shuzhu[i]
+				}
+				return +newstr;
+			}
+
+			$('.sousuo').on('click', function(e) {
+				e.preventDefault();
+
+				var blur = numb($('[name="starttime"]').val()) > numb($('[name="endtime"]').val());
+				if(blur) {
+					error('搜索错误', '开始时间不能大于结束时间')
+				} else {
+					
+					getpan(0,$('[name="yeshu"]').val())
+				}
+
+			})
+
+		
+
+				
+
+					//客户公司模糊查询
+
+					function mohukehu(a, b) {
+
+						a.on('input', function() {
+							suoyin = -1
+							clearTimeout(timer)
+							timer = setTimeout(function() {
+								//console.log(a.val())
+								var thisval = a.val();
+								//console.log(thisval)
+								if(thisval != '') {
+
+									var v = new Date().getTime();
+									$.ajax({
+										type: "post",
+										url: "http://106.14.251.28:8081/userCenter/companyService/fzCustomCompany",
+										data: {
+											'accessToken': localStorage.accessToken,
+											'msgId': v + '',
+											"companyCode": thisval
+										},
+										async: true,
+										dataType: 'json',
+										success: function(data) {
+											console.log(data)
+											if(data.retCode == '0000') {
+
+												a.next().addClass('ulshow')
+												a.next().empty();
+												//var as = $.parseJSON(data.ports)
+												var shu = data.companys
+												var changdu = 10;
+												if(shu.length < 10) {
+													changdu = shu.length
+												} else {
+													changdu = 10
+												}
+
+												for(var i = 0; i < changdu; i++) {
+													a.next().append(
+														'<li><span class="licode">' + $.trim(shu[i].companyCode) + '</span><span class="ename">[&nbsp;' + $.trim(shu[i].companyName) + '&nbsp;]</span></li>'
+													)
+
+												}
+
+											}
+										}
+									})
+								} else {
+									a.next().removeClass('ulshow');
+								}
+
+							}, 400)
+						})
+
+						a.next().on('click', 'li', function() {
+							//console.log(1)
+							$(this).parent().prev().val($(this).children('.licode').text())
+							$(this).parent().removeClass('ulshow');
+						})
+						a.on('blur', function() {
+							setTimeout(function() {
+									$('.ulg').removeClass('ulshow')
+								}, 500)
+								//console.log($(document.activeElement))	
+						})
+
+					}
+
+					mohukehu($('[name="kehu"]'))
+					//mohuchuan($('[name="zhicuansi"]'))
+		</script>
+
+	</body>
+
+</html>

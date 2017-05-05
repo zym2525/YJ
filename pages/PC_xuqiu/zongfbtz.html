@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>总部发布通知</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../plugins/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../plugins/font-awesome/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../admin/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/fenye.css" />
+
+		<style>
+			.yulan{
+				margin-top: 30px;
+				width: 150px;
+				height: 30px;
+				line-height: 30px;
+				background-color: green;
+				font-size: 18px;
+				color: white;
+				border-radius: 5px 5px 0 0;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="myquxiao">
+
+		</div>
+		<div class="qxqd">
+			<div class="qxqdson">Are you sure to cancel?<br>确定取消吗？</div>
+			<div class="text-center">
+				<button class="btn btn-sm btn-primary qxbtn" style="margin-right: 40px;">YES(确定)</button>
+				<button class="btn btn-sm btn-info myqx">NO(取消)</button>
+			</div>
+
+		</div>
+
+		<div class='header'>
+			<div class='logo'></div>
+			<nav class='navbar navheader'>
+				<!--<div class="pull-left clickbtn"> <button class="btn btn-primary "> <i class="fa fa-bars"></i> </button> </div>-->
+				<div class="pull-left" style="color: white;line-height: 65px;margin-left: 10px;">
+					<i class="fa fa-user"></i> <span class="username"></span>
+				</div>
+				<ul class="nav navbar-nav navbar-right clickul">
+					<li>
+						<a class="tuideng" style="cursor: pointer;">
+							<i class="fa fa-envelope-o"></i> <span style="">退出登录</span>
+						</a>
+
+					</li>
+
+				</ul>
+			</nav>
+		</div>
+		<div class='conspage'>
+			<div class='conspageson'>
+				<ol class="breadcrumb">
+					<li>
+						<a href="#">通知管理</a>
+					</li>
+					<li class="active">发布通知</li>
+				</ol>
+			</div>
+		</div>
+		<div class='seider-after'>
+			<div class="scroll">
+				<aside class='seider'>
+
+					<div class="panel-group" id="accordion">
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+								<a href="pc_zongyong.html">
+									<span class='tu'><i class="fa fa-random"></i></span> &nbsp;&nbsp;
+									<span class='zi'>用户管理</span>
+								</a>
+
+							</div>
+						</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo">
+									<span class='tu'><i class="fa fa-files-o"></i></span> &nbsp;&nbsp;
+									<span class='zi'>询盘管理</span>
+
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapseTwo" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="pc_zongxunpan.html">当前询盘</a>
+										</li>
+										<li>
+											<a href="zongxunpanwan.html">已完成询盘</a>
+										</li>
+										<li>
+											<a href="zongxunpanqu.html">已取消询盘</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapseThree">
+									<span class='tu'><i class="fa fa-book"></i></span> &nbsp;&nbsp;
+									<span class='zi'>询价管理</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapseThree" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="zongxjgl.html">当前询价</a>
+										</li>
+										<li>
+											<a href="zongxjglywc.html">已完成</a>
+										</li>
+										<li>
+											<a href="zongxjglqx.html">已取消</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse4">
+									<span class='tu'><i class="fa  fa-tasks"></i></span> &nbsp;&nbsp;
+									<span class='zi'>订单管理</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapse4" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="#">新增订单(录单)</a>
+										</li>
+										<li>
+											<a href="#">订单管理</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse5">
+									<span class='tu'><i class="fa  fa-ship"></i></span> &nbsp;&nbsp;
+									<span class='zi'>物流可视化</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapse5" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="#">全程物流跟踪</a>
+										</li>
+										<li>
+											<a href="#">物流状态维护</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse6">
+									<span class='tu'><i class="fa   fa-tags"></i></span> &nbsp;&nbsp;
+									<span class='zi'>运价管理</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapse6" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="zongyjcx.html">运价查询</a>
+										</li>
+										<li>
+											<a href="#">运价编辑</a>
+										</li>
+										<li>
+											<a href="#">热门港口设置</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse7" class="active">
+									<span class='tu'><i class="fa  fa-bars"></i></span> &nbsp;&nbsp;
+									<span class='zi'>基础数据</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapse7" class="panel-collapse collapse in">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="pc_xugangguan.html">港口管理</a>
+										</li>
+										<li>
+											<a href="pc_xuchuanguan.html">船公司管理</a>
+										</li>
+										<li>
+											<a href="pc_xuhangguan.html">航线管理</a>
+										</li>
+										<li>
+											<a href="pc_xumingguan.html">航名航次管理</a>
+										</li>
+										<li>
+											<a href="pc_xutiguan.html">提箱堆场管理</a>
+										</li>
+										<li>
+											<a href="pc_xumaguan.html">码头管理</a>
+										</li>
+										<li>
+											<a href="pc_xufeiguan.html">费项管理</a>
+										</li>
+										<li>
+											<a href="pc_xubiguan.html">币种管理</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse8">
+									<span class='tu'><i class="fa  fa-file-powerpoint-o"></i></span> &nbsp;&nbsp;
+									<span class='zi'>权限管理</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapse8" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="#">系统管理员</a>
+										</li>
+										<li>
+											<a href="#">操作人员</a>
+										</li>
+										<li>
+											<a href="#">商务人员</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse9">
+									<span class='tu'><i class="fa  fa-pie-chart"></i></span> &nbsp;&nbsp;
+									<span class='zi'>统计分析</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapse9" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="zongyctj.html">运价查询统计</a>
+										</li>
+										<li>
+											<a href="#">询价统计</a>
+										</li>
+										<li>
+											<a href="#">利润统计</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse10">
+									<span class='tu'><i class="fa  fa-list-alt"></i></span> &nbsp;&nbsp;
+									<span class='zi'>日志管理</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapse10" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="#">登录日志</a>
+										</li>
+										<li>
+											<a href="#">操作日志</a>
+										</li>
+										<li>
+											<a href="#">查询日志</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse11">
+									<span class='tu'><i class="fa   fa-volume-up"></i></span> &nbsp;&nbsp;
+									<span class='zi'>通知管理</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapse11" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="#">发布通知</a>
+										</li>
+										<li>
+											<a href="#">通知列表</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse12">
+									<span class='tu'><i class="fa  fa-credit-card"></i></span> &nbsp;&nbsp;
+									<span class='zi'>广告管理</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapse12" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="#">广告列表</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse13">
+									<span class='tu'><i class="fa  fa-barcode"></i></span> &nbsp;&nbsp;
+									<span class='zi'>密码管理</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapse13" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="#">密码列表</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</aside>
+			</div>
+		</div>
+
+		<div class='content'>
+
+			<div style="padding: 15px;">
+				<div>
+					<div>
+						<textarea class="form-control bjheader"></textarea>
+					</div>
+					<div style="margin-top: 10px;">
+						<textarea class="form-control bjbody" rows="15"></textarea>
+					</div>
+				</div>
+				
+				
+				<div class="yulan">预览</div>
+				<div class="panel panel-primary" style="border-top-left-radius: 0;">
+				    <div class="panel-heading" style="border-top-left-radius: 0;">
+				        <h2 class="panel-title ylheader">
+				           	 标题
+				        </h2>
+				    </div>
+				    <div class="panel-body ylbody">
+				        	内容
+				    </div>
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+		<script src="../../plugins/jquery-2.1.4/jquery.min.js"></script>
+		<script src='../../plugins/bootstrap/js/bootstrap.min.js'></script>
+		<script type="text/javascript" src="../../plugins/jquery.slimscroll.js"></script>
+		<script src='../../fenye/js/jquery.page.js'></script>
+		<script src='../../plugins/ECharts/echarts.min.js'></script>
+		<script>
+			$('.scroll').slimScroll({
+				height: '90%',
+
+			})
+		</script>
+		<script src='../../admin/js/main.js'></script>
+		<script src="../../assets/js/tuichu.js"></script>
+		<script>
+				$('.bjheader').on('input',function(){
+					$('.ylheader').text($(this).val())
+				})
+				$('.bjbody').on('input',function(){
+					$('.ylbody').text($(this).val())
+				})
+		</script>
+
+	</body>
+
+</html>

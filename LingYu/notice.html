@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=8">
+    <meta name="renderer" content="webkit">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+<style>
+    html,body{
+        font-family: 微软雅黑;
+        height:100%;
+        overflow:hidden;
+    }
+    .swap{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        width: 100%;
+        height: 100%;
+        opacity: 0.5;
+        z-index: 10000;
+        display: none;
+    }
+    .notice{
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 250px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px #000;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        z-index: 100001;
+    }
+    .notice img{
+        z-index: 99;
+        position: relative;
+        top: -45px;
+        left: 55px;
+    }
+    .notice h3,p{
+        text-align: center;
+       top: -30px;
+       position: relative;
+    }
+    .notice h3{
+        font-size: 18px;
+    }
+    .notice p{
+        font-size: 12px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .notice.success a{
+        background-color: #75C643;
+    }
+    .notice.success a:hover{
+        background-color: #B8E986;
+    }
+    .notice.error a{
+        background-color: #D0011B;
+    }
+    .success{
+    	display: none;
+    }
+    .error{
+    	display: none;
+    }
+    .notice.error a:hover{
+        background-color: #E47583;
+    }
+    .notice a{
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 140px;
+        height: 30px;
+        text-decoration: none;
+        margin-top: 20px;
+        margin-left: 30px;
+    }
+    .notice a:hover{
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .notice span{
+        display: inline-flex;
+        font-size: 16px;
+        color: #FFFFFF;
+        letter-spacing: 0.66px;
+    }
+</style>
+<body>
+	<div class="swap">
+	    
+	</div>
+	<div class="notice success">
+        <img src="img/success.png">
+        <h3></h3>
+        <a><span>OK</span></a>
+    </div>
+    <div class="notice error">
+        <img src="img/error.png">
+        <h3></h3>
+        <p></p>
+        <a><span>OK</span></a>
+    </div>
+<script src="../plugins/alert/js/jquery-1.7.1.min.js"></script>
+<script>
+	function success(a){
+		$('.swap').css('display','block')
+		$('.success').css('display','block')
+		$('.success h3').text(a)
+		
+		$('.error').css('display','none')
+	}
+	//success('询价成功')
+	function error(a,b){
+		$('.swap').css('display','block')
+		$('.success').css('display','none')
+		$('.error').css('display','block')
+		$('.error h3').text(a)
+		$('.error p').text(b)
+	}
+	//error('询价失败','输入字符格式不对输入字符格式不对输入字符格式不对')
+</script>
+</body>
+</html>

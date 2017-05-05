@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>币种管理</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../plugins/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../plugins/font-awesome/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../admin/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/fenye.css" />
+
+		<style>
+			.myform-group .form-group {
+				margin-left: 0 !important;
+				margin-right: 0 !important;
+			}
+			
+			.myform-group .form-group label {
+				padding: 0 !important;
+			}
+			
+			th[rowspan='2']>span {
+				margin-top: -58px;
+				display: block;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="myquxiao">
+
+		</div>
+		<div class="qxqd">
+			<div class="qxqdson">Are you sure to cancel?<br>确定取消吗？</div>
+			<div class="text-center">
+				<button class="btn btn-sm btn-primary qxbtn" style="margin-right: 40px;">YES(确定)</button>
+				<button class="btn btn-sm btn-info myqx">NO(取消)</button>
+			</div>
+
+		</div>
+
+		<div class='header'>
+			<div class='logo'></div>
+			<nav class='navbar navheader'>
+				<div class="pull-left clickbtn"> <button class="btn btn-primary "> <i class="fa fa-bars"></i> </button> </div>
+				<div class="pull-left clickuse dropdown">
+					<span  class="dropdown-toggle" data-toggle="dropdown" style="display: block;width: 100%;height: 100%;">
+						<i class="fa fa-user"></i> <span class="username"></span>
+					</span>
+					<ul class="dropdown-menu" id="usexin">
+						<li class="text-center" style="line-height: 35px;background-color: #309067;color: white;">
+							用户信息
+						</li>
+	                     <li>
+	                     	<ul class="geuse clearfix">
+	                     		<li class="useleft">用户名:</li>
+	                     		<li class="useright usname"></li>
+	                     	</ul >
+	                     </li>
+	                    <li>
+	                    	<ul class="geuse clearfix">
+	                     		<li class="useleft">公司名:</li>
+	                     		<li class="useright uscompany"></li>
+	                     	</ul>
+	                    </li>
+	                    <li>
+	                    	<ul class="geuse clearfix">
+	                     		<li class="useleft">邮箱:</li>
+	                     		<li class="useright usemail"></li>
+	                     	</ul>
+	                    </li>
+	                    <li>
+	                    	<ul class="geuse clearfix">
+	                     		<li class="useleft">电话号码:</li>
+	                     		<li class="useright usmob"></li>
+	                     	</ul>
+	                    </li>
+	                    
+	                </ul>
+				</div>
+				<div class="pull-left  clickupdate" data-toggle="modal" data-target="#myModalxm">
+					<i class="fa fa-unlock-alt"></i> <span>修改密码</span>
+				</div>
+				<ul class="nav navbar-nav navbar-left clickul" >
+					<li>
+						<a  class="tuideng" style="cursor: pointer;">
+							<i class="fa fa-sign-out"></i> <span style="">退出登录</span>
+						</a>
+						
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class='conspage'>
+			<div class='conspageson'>
+				<ol class="breadcrumb">
+					<li>
+						<a href="#">基础数据</a>
+					</li>
+					<li class="active">币种管理</li>
+				</ol>
+			</div>
+		</div>
+		<div class='seider-after'>
+			<div class="scroll">
+				<aside class='seider'>
+
+					<div class="panel-group" id="accordion">
+						<div class="panel panel-default panelclick">
+					        <div class="panel-heading">			           
+					                <a  href="pc_zongyong.html">
+					                	<span class='tu'><i class="fa fa-random"></i></span>
+					                 	&nbsp;&nbsp;<span class='zi'>用户管理</span>	
+					                </a>
+					            
+					        </div>
+				    	</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo" >
+									<span class='tu'><i class="fa fa-files-o"></i></span> &nbsp;&nbsp;
+									<span class='zi'>询盘管理</span>
+
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapseTwo" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="pc_zongxunpan.html">当前询盘</a>
+										</li>
+										<li>
+											<a href="zongxunpanwan.html">已完成询盘</a>
+										</li>
+										<li>
+											<a href="zongxunpanqu.html">已取消询盘</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse4">
+									<span class='tu'><i class="fa  fa-tasks"></i></span> &nbsp;&nbsp;
+									<span class='zi'>订单管理</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapse4" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="pc_hainew.html">新增订单(录单)</a>
+										</li>
+										<li>
+											<a href="pc_haidiguan.html">订单管理</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse5">
+									<span class='tu'><i class="fa  fa-ship"></i></span> &nbsp;&nbsp;
+									<span class='zi'>物流可视化</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapse5" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="pc_haigenzong2.html">全程物流跟踪</a>
+										</li>
+										<li>
+											<a href="pc_haiweihu.html">物流状态维护</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse6">
+									<span class='tu'><i class="fa   fa-tags"></i></span> &nbsp;&nbsp;
+									<span class='zi'>运价管理</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapse6" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="zongyjcx.html">运价查询</a>
+										</li>
+										<li>
+											<a href="zongyjbj.html">运价编辑</a>
+										</li>
+										
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse7" class="active">
+									<span class='tu'><i class="fa  fa-bars"></i></span> &nbsp;&nbsp;
+									<span class='zi'>基础数据</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapse7" class="panel-collapse collapse in">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="pc_xugangguan.html">港口管理</a>
+										</li>
+										<li>
+											<a href="pc_xuchuanguan.html">船公司管理</a>
+										</li>
+										<li>
+											<a href="pc_xuhangguan.html">航线管理</a>
+										</li>
+										<li>
+											<a href="pc_xumingguan.html">航名航次管理</a>
+										</li>
+										<li>
+											<a href="pc_xutiguan.html">提箱堆场管理</a>
+										</li>
+										<li>
+											<a href="pc_xumaguan.html">码头管理</a>
+										</li>
+										<li>
+											<a href="pc_xufeiguan.html">费项管理</a>
+										</li>
+										<li>
+											<a href="pc_xubiguan.html">币种管理</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</aside>
+			</div>
+		</div>
+
+		<div class='content'>
+
+			<div style="padding: 15px;">
+				<div class='contzong'>
+					<div class="contson1 clearfix">
+
+						<form role="form">
+							<div class="container-fluid inpline">
+
+								<div class="form-group form-group-sm col-sm-5">
+									<label class="col-sm-3 control-label">币种:</label>
+									<div class="col-sm-9">
+										<input type="text" class="form-control sbz">
+									</div>
+								</div>
+								<div class="form-group form-group-sm col-sm-5">
+									<label class="col-sm-3 control-label">状态:</label>
+									<div class="col-sm-9">
+										<select class="form-control szt">
+											<option>启用</option>
+											<option>禁用</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group form-group-sm col-sm-1 col-sm-offset-1">
+
+									<button type="submit" class="btn btn-primary btn-sm sousuo">搜&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;索</button>
+
+								</div>
+							</div>
+
+						</form>
+
+					</div>
+					<div class="contson2 clearfix">
+						<div class="pull-left" style="margin-top: 7px;">
+							<a href="" style="color: red;">共有 <span class="xianzong"></span> 条记录</a>
+						</div>
+
+						<button class="btn btn-sm btn-warning pull-right" style="display: none;" data-toggle="modal" data-target="#myModaladd">新增</button>
+					</div>
+					<div class="contson3">
+						<table class="table table-bordered tablecenter table-striped table-hover" id='bz'>
+							<thead>
+								<tr class="heardcolor">
+									<th>序号</th>
+									<th>编号</th>
+									<th>币种</th>
+									<th>状态</th>
+									<!--<th>操作</th>-->
+
+								</tr>
+							</thead>
+							<tbody>
+
+							</tbody>
+						</table>
+						<div class='biaofooter clearfix'>
+							<div class=" pull-left footerulleft">
+								<div class="form-inline" role="form">
+									<div class="form-group form-group-sm">
+										每页显示:
+										<select class="form-control" name="yeshu">
+											<option>5</option>
+											<option>10</option>
+											<option>25</option>
+											<option>50</option>
+										</select>
+										条，总共 <span class="pagezong"></span> 条
+									</div>
+
+								</div>
+
+							</div>
+							<div class="tcdPageCode pull-right" style="margin-top: -10px;"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 增加 -->
+		<div class="modal fade" id="myModaladd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header" style="background-color:#337ab7 ;color: white;">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title text-center">增加</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal clearfix mylable" role="form">
+							<div class="form-group form-group-sm col-sm-6">
+								<label class="col-sm-3 control-label">编号:</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control">
+								</div>
+							</div>
+
+							<div class="form-group form-group-sm col-sm-6">
+								<label class="col-sm-3 control-label">币种:</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control">
+								</div>
+							</div>
+							<div class="form-group form-group-sm col-sm-6">
+								<label class="col-sm-3 control-label">状态:</label>
+								<div class="col-sm-9">
+									<select class="form-control ">
+										<option>禁用</option>
+										<option>启用</option>
+									</select>
+								</div>
+							</div>
+
+						</form>
+					</div>
+					<div class="modal-footer" style="text-align: center;">
+						<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">关闭</button>
+						<button type="button" class="btn btn-primary btn-sm">确定</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+
+		<!-- 编辑 -->
+		<div class="modal fade" id="myModalbian" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header" style="background-color:#337ab7 ;color: white;">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title text-center">编辑</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal clearfix mylable" role="form">
+							<div class="form-group form-group-sm col-sm-6">
+								<label class="col-sm-3 control-label">编号:</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control">
+								</div>
+							</div>
+
+							<div class="form-group form-group-sm col-sm-6">
+								<label class="col-sm-3 control-label">币种:</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control">
+								</div>
+							</div>
+							<div class="form-group form-group-sm col-sm-6">
+								<label class="col-sm-3 control-label">状态:</label>
+								<div class="col-sm-9">
+									<select class="form-control">
+										<option>禁用</option>
+										<option>启用</option>
+									</select>
+								</div>
+							</div>
+
+						</form>
+
+					</div>
+					<div class="modal-footer" style="text-align: center;">
+						<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">关闭</button>
+						<button type="button" class="btn btn-primary btn-sm">确定</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+		
+		<!-- 警告 -->
+		<div class="modal fade" id="myModalxm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width: 350px;margin: 150px auto;">
+					
+					<div class="modal-body">
+						<div class="text-center"><i class="fa fa-exclamation-triangle" style="color: darkred;font-size: 35px;"></i></div>
+						<h2 class="text-center" style="color: orange;">确定修改密码吗？</h2>
+						<div class="text-center" style="margin-top: 30px;">
+							<button type="button" style="margin-right: 40px;" class="btn btn-default btn-sm" data-dismiss="modal">关闭</button>
+							<button type="button" class="btn btn-warning btn-sm" id='qxiuma'>确定</button>
+						</div>
+						
+
+					</div>
+					
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+
+		<script src="../../plugins/jquery-2.1.4/jquery.min.js"></script>
+		<script src='../../plugins/bootstrap/js/bootstrap.min.js'></script>
+		<script type="text/javascript" src="../../plugins/jquery.slimscroll.js"></script>
+		<script src='../../fenye/js/jquery.page.js'></script>
+		<script>
+			$('.scroll').slimScroll({
+				height: '90%',
+
+			})
+		</script>
+		<script src='../../admin/js/main.js'></script>
+		<!--用户信息-->
+		<script src="../../assets/js/user.js"></script>
+		<!--退出登录-->
+        <script src="../../assets/js/tuichu.js"></script>
+		<script>
+			function craettable(a, i) {
+				var status=a.status
+				var sta='<td><span class="bianji" data-toggle="modal" data-target="#myModalbian">编辑</span> &nbsp;'+sta+'</td>'
+				
+				if(status==0){
+					status='启用';
+					sta='<span class="jinyong" data-code='+a.dataCode+'>禁用</span>'
+				}else{
+					status='禁用'
+					sta='<span class="qiyong" data-code='+a.dataCode+'>禁用</span>'
+				}
+				
+				
+				$('#bz>tbody').append('<tr><td>' +
+					i + '</td><td>' +
+					a.currency + '</td><td>' +
+					a.currencyName + '</td><td>'+
+					status+'</td></tr>')
+			}
+			
+			
+			
+			//分页	
+			function dangqian() {
+				var dang = $(this).text() - 1;
+				var tiao = $('[name="yeshu"]').val()
+				getbi(dang, tiao)
+				console.log(dang)
+				console.log(tiao)
+			}
+
+			function prevPage() {
+				var dang = $('.current').text() - 1;
+				var tiao = $('[name="yeshu"]').val()
+				getbi(dang, tiao)
+			}
+
+			function nextPage() {
+				var dang = $('.current').text() - 1; 
+				var tiao = $('[name="yeshu"]').val()
+				getbi(dang, tiao)
+			}
+			$(document).on('click', '.tcdNumber', dangqian)
+			$(document).on('click', '.prevPage', prevPage)
+			$(document).on('click', '.nextPage', nextPage)
+
+			$('[name="yeshu"]').on('change', function() {
+				getbi(0, $('[name="yeshu"]').val())
+				creatfenye()
+			})
+			
+			var pagenum = 0;
+
+			function creatfenye(pagezong, pagedang) {
+				var yeshu = Math.ceil(pagenum / $('[name="yeshu"]').val())
+				$(".tcdPageCode").createPage({
+					pageCount: yeshu,
+					current: 1,
+					backFn: function(p) {
+						//console.log(p);
+					}
+				});
+			}
+			
+			
+			getbi(0, $('[name="yeshu"]').val())
+			
+			//搜索
+			
+			$('.sousuo').on('click',function(e){
+				e.preventDefault();
+				getbi(0, $('[name="yeshu"]').val())
+			})
+			
+			function getbi(a,b){
+				
+				var sta=$('.szt').val()
+				if(sta=='启用'){
+					sta=0
+				}else{
+					sta=1
+				}
+				$('#bz>tbody').empty()
+				var gx = new Date().getTime();
+				$.ajax({
+					type: "post",
+					url: "http://106.14.251.28:8085/bizCenter/simpleDataService/getCurrencys",
+					data: {
+						'accessToken': localStorage.getItem('accessToken'),
+						'msgId': gx + '',
+						'status':sta,
+						"currencyName":$('.sbz').val(),
+						"currentPage": a, //当前页数
+						"pageSize": b //页长
+					},
+					async: true,
+					dataType: 'json',
+					success: function(data) {
+								//console.log(data)
+								var num=0
+								var a = $.parseJSON(data.currencys)
+								if(a.length){
+									
+									num = a[0].num;
+								}	 
+								$('.pagezong').text(num)
+								if(+num != pagenum) {
+									pagenum = num;
+									$('.pagezong').text(pagenum)
+									creatfenye() //分页函数
+								}
+	
+								
+								$('.zongpan').text(num)
+								$('.xianzong').text(num)
+						for(var i = 0; i < a.length; i++) {
+	
+							craettable(a[i], i + 1)
+						}
+					}
+	
+				})
+			}
+			
+			
+		</script>
+
+	</body>
+
+</html>

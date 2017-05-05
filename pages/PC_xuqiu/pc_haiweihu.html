@@ -1,0 +1,1995 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>PC总部—物流维护</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../plugins/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../plugins/font-awesome/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../admin/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="../../plugins/alert/css/alert.css"/>
+		<link rel="stylesheet" type="text/css" href="../../assets/css/fenye.css"/>
+		<style>
+			#keshitable tr {
+				cursor: pointer;
+			}
+			
+			#ypcd caption .chuanming,
+			#hgfx caption .chuanming {
+				font-size: 15px;
+				font-weight: 500;
+				color: black;
+				margin-left: 20px;
+				margin-right: 5px;
+			}
+			
+			#ypcd caption .chuanming+span,
+			#hgfx caption .chuanming+span {
+				font-size: 15px;
+				font-weight: 500;
+				color: black;
+			}
+			
+			#ypcd caption .hangci,
+			#hgfx caption .hangci {
+				font-size: 15px;
+				font-weight: 500;
+				color: black;
+				margin-left: 40px;
+				margin-right: 5px;
+			}
+			
+			#ypcd caption .hangci+span,
+			#hgfx caption .hangci+span {
+				font-size: 15px;
+				font-weight: 500;
+				color: black;
+			}
+			
+			#zxjg caption {
+				text-align: center;
+				font-size: 15px;
+				color: black;
+				font-weight: 500;
+			}
+			
+			.zhtai li {
+				float: left;
+				margin-left: 20px;
+			}
+			
+			.zhtai li:first-child {}
+			
+			.lideng {
+				width: 15px;
+				height: 15px;
+				background-color: green;
+				border-radius: 50%;
+			}
+			
+			.txul{
+				
+				
+				width:130px !important;
+				min-width: 0 !important;
+				max-height: 200px;
+				overflow: auto; 
+			}
+			.txul>li{
+				padding: 3px 10px;
+				cursor: pointer;
+				
+				
+				
+			}
+			.txul>li:hover{
+				background-color: whitesmoke;
+			}
+			
+			.myform-group  .form-group{
+				margin-left: 0 !important;
+				margin-right: 0 !important;
+			}
+			
+			.myform-group  .form-group label{
+				padding: 0 !important;
+			}
+			th[rowspan='2']>span {
+			    margin-top: -58px;
+			    display: block;
+			}
+			@media only screen and (max-width:1440px ) {
+					th[rowspan='2']>span {
+				    margin-top: -80px;
+				    display: block;
+				}
+			}
+			
+			#zxjgl th[rowspan='2']>span {
+			    margin-top: -33px;
+			    display: block;
+			}
+			.hangci{
+				margin-left: 40px;
+				margin-right: 10px;
+				color: black;
+			}
+			.chuanming,.jgmt{
+				margin-right: 10px;
+				color: black;
+			}
+		
+		</style>
+	</head>
+
+	<body>
+		
+		<div class='header'>
+			<div class='logo'></div>
+			<nav class='navbar navheader'>
+				<div class="pull-left clickbtn"> <button class="btn btn-primary "> <i class="fa fa-bars"></i> </button> </div>
+				<div class="pull-left clickuse dropdown">
+					<span  class="dropdown-toggle" data-toggle="dropdown" style="display: block;width: 100%;height: 100%;">
+						<i class="fa fa-user"></i> <span class="username"></span>
+					</span>
+					<ul class="dropdown-menu" id="usexin">
+						<li class="text-center" style="line-height: 35px;background-color: #309067;color: white;">
+							用户信息
+						</li>
+	                     <li>
+	                     	<ul class="geuse clearfix">
+	                     		<li class="useleft">用户名:</li>
+	                     		<li class="useright usname"></li>
+	                     	</ul >
+	                     </li>
+	                    <li>
+	                    	<ul class="geuse clearfix">
+	                     		<li class="useleft">公司名:</li>
+	                     		<li class="useright uscompany"></li>
+	                     	</ul>
+	                    </li>
+	                    <li>
+	                    	<ul class="geuse clearfix">
+	                     		<li class="useleft">邮箱:</li>
+	                     		<li class="useright usemail"></li>
+	                     	</ul>
+	                    </li>
+	                    <li>
+	                    	<ul class="geuse clearfix">
+	                     		<li class="useleft">电话号码:</li>
+	                     		<li class="useright usmob"></li>
+	                     	</ul>
+	                    </li>
+	                    
+	                </ul>
+				</div>
+				<div class="pull-left  clickupdate" data-toggle="modal" data-target="#myModalxm">
+					<i class="fa fa-unlock-alt"></i> <span>修改密码</span>
+				</div>
+				<ul class="nav navbar-nav navbar-left clickul" >
+					<li>
+						<a  class="tuideng" style="cursor: pointer;">
+							<i class="fa fa-sign-out"></i> <span style="">退出登录</span>
+						</a>
+						
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class='conspage'>
+			<div class='conspageson'>
+				<ol class="breadcrumb">
+					<li>
+						<a href="#">物流可视化</a>
+					</li>
+					<li class="active">状态维护</li>
+				</ol>
+			</div>
+		</div>
+		<div class='seider-after'>
+			<div class="scroll">
+				<aside class='seider'>
+
+					<div class="panel-group" id="accordion">
+						<div class="panel panel-default panelclick">
+					        <div class="panel-heading">			           
+					                <a  href="pc_zongyong.html">
+					                	<span class='tu'><i class="fa fa-random"></i></span>
+					                 	&nbsp;&nbsp;<span class='zi'>用户管理</span>	
+					                </a>
+					            
+					        </div>
+				    	</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo" >
+									<span class='tu'><i class="fa fa-files-o"></i></span> &nbsp;&nbsp;
+									<span class='zi'>询盘管理</span>
+
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapseTwo" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="pc_zongxunpan.html">当前询盘</a>
+										</li>
+										<li>
+											<a href="zongxunpanwan.html">已完成询盘</a>
+										</li>
+										<li>
+											<a href="zongxunpanqu.html">已取消询盘</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse4">
+									<span class='tu'><i class="fa  fa-tasks"></i></span> &nbsp;&nbsp;
+									<span class='zi'>订单管理</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapse4" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="pc_hainew.html">新增订单(录单)</a>
+										</li>
+										<li>
+											<a href="pc_haidiguan.html">订单管理</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse5" class="active">
+									<span class='tu'><i class="fa  fa-ship"></i></span> &nbsp;&nbsp;
+									<span class='zi'>物流可视化</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapse5" class="panel-collapse collapse in">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="pc_haigenzong2.html">全程物流跟踪</a>
+										</li>
+										<li>
+											<a href="pc_haiweihu.html">物流状态维护</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse6">
+									<span class='tu'><i class="fa   fa-tags"></i></span> &nbsp;&nbsp;
+									<span class='zi'>运价管理</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapse6" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="zongyjcx.html">运价查询</a>
+										</li>
+										<li>
+											<a href="zongyjbj.html">运价编辑</a>
+										</li>
+										
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default panelclick">
+							<div class="panel-heading">
+
+								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse7">
+									<span class='tu'><i class="fa  fa-bars"></i></span> &nbsp;&nbsp;
+									<span class='zi'>基础数据</span>
+									<i class='pull-right fa fa-angle-left '></i>
+								</a>
+
+							</div>
+							<div id="collapse7" class="panel-collapse collapse ">
+								<div class="panel-body">
+									<ul>
+										<li>
+											<a href="pc_xugangguan.html">港口管理</a>
+										</li>
+										<li>
+											<a href="pc_xuchuanguan.html">船公司管理</a>
+										</li>
+										<li>
+											<a href="pc_xuhangguan.html">航线管理</a>
+										</li>
+										<li>
+											<a href="pc_xumingguan.html">航名航次管理</a>
+										</li>
+										<li>
+											<a href="pc_xutiguan.html">提箱堆场管理</a>
+										</li>
+										<li>
+											<a href="pc_xumaguan.html">码头管理</a>
+										</li>
+										<li>
+											<a href="pc_xufeiguan.html">费项管理</a>
+										</li>
+										<li>
+											<a href="pc_xubiguan.html">币种管理</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</aside>
+			</div>
+		</div>
+
+		<div class='content'>
+
+			<div  style="padding: 15px;">
+				
+		<div class="contzong">
+			<div class="contson1">
+				<form class=" myform-group" role="form">
+					<div class="container-fluid">
+						<div class="form-group form-group-sm col-sm-6">
+							<label class="col-sm-3 control-label">订单编号:<br>Order number:</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" name="ddh">
+							</div>
+						</div>
+						
+						<div class="form-group form-group-sm col-sm-5">
+							<label class="col-sm-4 control-label">开始时间:<br>Starting time</label>
+							<div class="col-sm-8">
+								<input type="date" class="form-control" name="kssj">
+							</div>
+						</div>
+						<div class="form-group form-group-sm col-sm-1">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="submit" class="btn btn-primary btn-sm sousuo" style="width: 70px;">Search</button>
+							</div>
+						</div>
+					</div>
+					<div class="container-fluid">
+						<div class="form-group form-group-sm col-sm-6">
+							<label class="col-sm-3 control-label">提单号:<br>Bill of lading number:</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" name="tdh">
+
+							</div>
+						</div>
+						
+						<div class="form-group form-group-sm col-sm-5">
+							<label class="col-sm-4 control-label">结束时间:<br>End Time:</label>
+							<div class="col-sm-8">
+								<input type="date" class="form-control" name="jssj">
+							</div>
+						</div>
+						<div class="form-group form-group-sm col-sm-1">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="reset" class="btn btn-primary btn-sm" style="width: 70px;">Reset</button>
+							</div>
+						</div>
+					</div>
+
+				</form>
+			</div>
+			<div class="btn-group btn-group-sm" style="margin-top: 10px;">
+				<button type="button" class="btn btn-primary">当前订单</button>
+				
+
+			</div>
+			<div class="contson3">
+				<table class="table table-bordered tablecenter tablestrd tableding">
+					<thead>
+						<tr>
+							<th rowspan="2"><span>序号<br>Serial number</th>
+							<th class="text-center">订单编号<br>Order number</th>
+							<th class="text-center">航名<br>Name</th>
+							<th colspan="4" class="text-center">箱型箱量<br>Box box volume</th>
+							<th class="text-center">起运港<br>Port Of Loading</th>
+							<th class="text-center">中转港<br>Transit port</th>
+							<th rowspan="2" style="width: 270px;"><span>状态<br>status</span></th>
+							<th rowspan="2" class="text-center"><span>操作<br>operating</span></th>
+						</tr>
+						<tr>
+							<th class="text-center">提单号<br>Bill of lading number</th>
+							<th class="text-center">航次<br>Voyage</th>
+							<th class="text-center">20GP</th>
+							<th class="text-center">40GP</th>
+							<th class="text-center">40HQ</th>
+							<th class="text-center">45HC</th>
+							<th class="text-center">目的港<br>Final Destinatton</th>
+							<th class="text-center">航程<br>voyage</th>
+						</tr>
+					</thead>
+					<tbody>
+
+						
+
+					</tbody>
+				</table>
+				<div class='biaofooter clearfix'>
+					<div class=" pull-left footerulleft">
+						<div class="form-inline" role="form">
+							<div class="form-group form-group-sm">
+								每页显示:
+								<select class="form-control" name="yeshu">
+									<option>5</option>
+									<option>10</option>
+									<option>25</option>
+									<option>50</option>
+								</select>
+								条，总共 <span class="pagezong">100</span> 页
+							</div>
+
+						</div>
+
+					</div>
+					<div class="tcdPageCode pull-right" style="margin-top: -10px;"></div>
+					
+				</div>
+
+			</div>
+		</div>
+		</div>
+		</div>
+
+		<!-- 详细信息 -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog" style="width: 1000px;">
+				<div class="modal-content">
+					<div class="modal-header" style="background-color:#337ab7 ;color: white;">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title text-center" id="myModalLabel">详细信息</h4>
+					</div>
+					<div class="modal-body">
+						<div class='clearfix'>
+							<div class="col-sm-6">
+								<div class="biaodiv">
+									<table class="table table-striped table-hover tablecenter " id='keshitable' style="margin-bottom: 0;">
+
+										<thead>
+											<tr class="info">
+												<th class="text-center">状态灯</th>
+												<th class="text-center">状态名称</th>
+												<th class="text-center">时间</th>
+											</tr>
+										</thead>
+										<tbody>
+											
+										</tbody>
+									</table>
+								</div>
+
+							</div>
+							<div class="col-sm-6" >
+								<div class="xiangright" style="overflow: auto;max-height: 440px;">
+									<div style="padding-bottom: 10px;">
+										<span class='xzileft'></span>
+										<span class='xziright'></span>
+									</div>
+									<div id='tablediv' style="overflow: auto;">
+
+									</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer" style="text-align: center;">
+						<button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">关闭</button>
+
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+		
+		<!-- 警告 -->
+		<div class="modal fade" id="myModalxm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width: 350px;margin: 150px auto;">
+					
+					<div class="modal-body">
+						<div class="text-center"><i class="fa fa-exclamation-triangle" style="color: darkred;font-size: 35px;"></i></div>
+						<h2 class="text-center" style="color: orange;">确定修改密码吗？</h2>
+						<div class="text-center" style="margin-top: 30px;">
+							<button type="button" style="margin-right: 40px;" class="btn btn-default btn-sm" data-dismiss="modal">关闭</button>
+							<button type="button" class="btn btn-warning btn-sm" id='qxiuma'>确定</button>
+						</div>
+						
+
+					</div>
+					
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+
+		<script src="../../plugins/jquery-2.1.4/jquery.min.js"></script>
+		<script src='../../plugins/bootstrap/js/bootstrap.min.js'></script>
+		<script type="text/javascript" src="../../plugins/jquery.slimscroll.js"></script>
+		
+		
+		<script>
+			$('.scroll').slimScroll({
+				height: '90%',
+				
+			})
+		</script>
+		<script src='../../admin/js/main.js'></script>
+		
+		<script src='../../assets/js/mohucha.js'></script>
+		<!--用户信息-->
+		<script src="../../assets/js/user.js"></script>
+		<!--退出登录-->
+        <script src="../../assets/js/tuichu.js"></script>
+		<script src='../../fenye/js/jquery.page.js'></script>
+		<script>
+		
+			
+		
+			//创建 详细弹出层里表格
+			function creat(a) {
+				var zhuangtai = '';
+				if(a.isError) {
+					zhuangtai = 'keshideng';
+				}
+				$('#keshitable>tbody').append(
+					'<tr data-trcode=' + a.nodeCode + ' class=' + a.nodeCode + '><td class="dengtd"><div class="deng ' + zhuangtai + '"></div><td>' +
+					a.nodeName + '</td><td>' +
+					a.nodeTime + '</td></tr>'
+				)
+			}
+			//动态创建节点详细信息
+			function creatjx(a) {
+				$('.tablejx>tbody').append(
+					'<tr><td>' +
+					a.containerNo + '</td><td>' +
+					a.sealNo + '</td><td>' +
+					a.yard + '</td></tr>'
+				)
+			}
+
+			
+			var newarr=[]
+			
+			var ddxq=null;
+
+			var shuzhu = null;
+			var mynodes=null;
+
+			//根据订单号
+			function bydingdan(a) {
+				
+				var thisoder = $(this).data('dingdan')
+				//console.log(thisoder)
+				$('#tablediv').empty();
+				$('.deng').removeClass('succesdeng')
+				$('.deng').removeClass('errordeng')
+				
+				$('#keshitable>tbody').empty()
+				
+				
+				var g = new Date().getTime();
+				$.ajax({
+					type: "post",
+					url: "http://106.14.251.28:8085/bizCenter/logisticalInfoService/getNodesByOrder",
+					data: {
+						'accessToken': localStorage.getItem('accessToken'),
+						'msgId': g + '',
+						"orderCode": thisoder
+
+					},
+					async: true,
+					dataType: 'json',
+					success: function(data) {
+						
+				
+						console.log(data)
+						
+						ddxq=data.order;
+						console.log(ddxq)
+						
+						mynodes=data.nodes;
+						if(mynodes){
+							newarr=$.parseJSON(mynodes)
+							cszt()
+						}
+						
+						
+						//console.log(newarr)
+						var jieshu=data.visibleNodes
+						
+						for(var j=0;j<jieshu.length;j++){
+							$('#keshitable>tbody').append('<tr class='+jieshu[j].nodeCode+' data-trcode='+jieshu[j].nodeCode+'><td class="dengtd"><div class="deng"></div></td><td class="text-center">'+
+							jieshu[j].nodeName+'</td><td class="text-center"></td></tr>')
+						}
+						
+						
+						if(data.nodes){
+						var a = $.parseJSON(data.nodes)
+							//console.log(a)
+						shuzhu = a;
+						//console.log(data)
+						for(var i = 0; i < a.length; i++) {
+							// creat(a[i])
+							$('.' + a[i].nodeCode + ' .deng').addClass('succesdeng');
+							if(a[i].isError) {
+								$('.' + a[i].nodeCode + ' .deng').addClass('errordeng')
+							}
+							$('.' + a[i].nodeCode).children().eq(2).text(a[i].nodeTime)
+								//console.log(a[i].nodeTime)
+
+							$('.xzileft').text(a[i].nodeName)
+							$('.xziright').text(a[i].nodeTime)
+							var mingzi = $.trim(a[i].nodeCode)
+							
+						}
+						}else{
+							shuzhu=null;
+						}
+					},
+					error: function() {
+						console.log(2)
+					}
+				})
+			}
+			//bydingdan()
+
+			//点击详细
+			$(document).on('click', '.tablexiang', bydingdan)
+
+		
+		
+		
+		//默认 取最后一个节点信息
+			
+			function cszt(){
+							//console.log(newarr[newarr.length-1])
+						var mingzi= newarr[newarr.length-1].nodeCode
+				
+								switch(mingzi) {
+									case 'TKX':
+										tkxl();
+										$('.xzileft').text($('#keshitable .TKX').children().eq(1).text())
+										$('.xziright').text($('#keshitable .TKX').children().eq(2).text())
+										break;
+									case 'ZXJG':
+										zxjgl();
+										$('.xzileft').text($('#keshitable .ZXJG').children().eq(1).text())
+										$('.xziright').text($('#keshitable .ZXJG').children().eq(2).text())
+										break;
+									case 'YPCD':
+										ypcdl();
+										$('.xzileft').text($('#keshitable .YPCD').children().eq(1).text())
+										$('.xziright').text($('#keshitable .YPCD').children().eq(2).text())
+										break;
+									case 'HGCY':
+										hcjyl();
+										$('.xzileft').text($('#keshitable .HGCY').children().eq(1).text())
+										$('.xziright').text($('#keshitable .HGCY').children().eq(2).text())
+										break;
+									case 'HGFX':
+										hgfxl();
+										$('.xzileft').text($('#keshitable .HGFX').children().eq(1).text())
+										$('.xziright').text($('#keshitable .HGFX').children().eq(2).text())
+										break;
+									case 'ZXZC':
+										zxzgl();
+										$('.xzileft').text($('#keshitable .ZXZC').children().eq(1).text())
+										$('.xziright').text($('#keshitable .ZXZC').children().eq(2).text())
+										break;
+									default:
+										//alert('请添加其他数据');
+										break;
+								}
+		
+			}
+			
+		
+		
+		
+			//点击状态栏
+			$('#keshitable').on('click', 'tbody>tr', function() {
+				var thiscode = $(this).data('trcode');
+				$('.xzileft').text($(this).children().eq(1).text())
+				$('.xziright').text($(this).children().eq(2).text())
+				$('#tablediv').empty();
+				
+				
+				switch(thiscode) {
+							case 'TKX':
+								tkxl();
+								
+								break;
+							case 'ZXJG':
+								zxjgl();
+							
+								break;
+							case 'YPCD':
+								ypcdl();
+							
+								break;
+							case 'HGCY':
+								hcjyl();
+								
+								break;
+							case 'HGFX':
+								hgfxl();
+								
+								break;
+							case 'ZXZC':
+								zxzgl()
+								
+								break;
+							default:
+								//alert('请添加其他数据');
+								break;
+						}
+				
+			})
+			
+			
+			
+			
+			
+			//获取提箱堆场
+			var dui=[]
+			
+			var gx = new Date().getTime();
+				$.ajax({
+					type: "post",
+					url: "http://106.14.251.28:8085/bizCenter/simpleDataService/getMblYards",
+					data: {
+						'accessToken': localStorage.getItem('accessToken'),
+						'msgId': gx + '',
+					},
+					async: true,
+					dataType: 'json',
+					success: function(data) {
+					
+						 dui=$.parseJSON(data.yards)
+						
+						if(data.retCode==0){
+							
+						}else{
+							alert('没获取提箱堆场')
+						}
+					}
+			})
+		
+			$(document).on('click','.txdc',function(){
+				var thistxdc=$(this);
+				thistxdc.next().empty();
+				for (var i=0;i<dui.length;i++) {	
+							thistxdc.next().append('<li>'+dui[i].yard+'</li>')
+						}	
+			})
+			
+			$(document).on('click','.txul>li',function(){
+				$(this).parent().prev().val($(this).text())
+			})
+			
+			
+			//录入节点信息
+			
+			
+			
+			//提空箱
+			
+			function tkxl(){
+				if(mynodes){
+					var nodejie=$.parseJSON(mynodes);
+				}else{
+					var nodejie=[];
+				}
+				
+				var  xiangshu=[]
+				for (var i=0;i<nodejie.length;i++) {
+					if(nodejie[i].nodeCode=='TKX'){
+						xiangshu= $.parseJSON(nodejie[i].nodeValue).infos
+						
+					}
+				}
+				
+			
+				
+				
+				var gp20=ddxq.gp20
+				var gp40=ddxq.gp40
+				var hq40=ddxq.hq40
+				var hc45=ddxq.hc45
+				if(!gp20){gp20=0}
+				if(!gp40){gp40=0}
+				if(!hq40){hq40=0}
+				if(!hc45){hc45=0}
+				var liang=gp20+gp40+hq40+hc45
+				$('#tablediv').append(
+					'<table id="tkxl" class="table table-bordered tablecenter tablejx"><thead><tr style="background-color: #4cae4c;color:white;"><th>箱号</th><th>封号</th><th >提箱堆场</th></tr></thead>' +
+					'<tbody></tbody></table>'
+				);
+				
+				if(xiangshu.length>0){
+					
+					for (var i=0;i<xiangshu.length;i++) {
+						$('#tkxl>tbody').append('<tr><td><input style="width:100px"  value='+xiangshu[i].containerNo+'></td><td><input style="width:100px"   value='+xiangshu[i].sealNo
+						+'></td><td><div class="dropdown"><input style="width:100px"  value='+xiangshu[i].yard+' class="txdc"  data-toggle="dropdown">'
+						+'<ul class="dropdown-menu txul" role="menu" ></ul></div></td></tr>')
+					}
+				}else{
+					
+					for (var j=0;j<liang;j++) {
+						$('#tkxl>tbody').append('<tr><td><input style="width:100px" ></td><td><input style="width:100px" ></td><td><div class="dropdown"><input style="width:100px"  class="txdc"  data-toggle="dropdown">'
+						+'<ul class="dropdown-menu txul" role="menu" ></ul></div></td></tr>')
+					}
+				}
+				
+				
+				
+				$('#tablediv').append('<br /><br /><br /><label  style="margin-left: 100px;margin-right: 100px;"> <input type="radio" name="two" value=0 /> 正常 </label><label> <input type="radio" value=1  name="two"/> 异常 </label>'
+				+ '<br><br><button type="button" data-nodenum="TKX" style="margin-left: 100px;margin-right: 100px;" class="btn btn-primary btn-sm tkxwltj">添加</button><button data-nodenum="TKX" type="button" class="btn btn-info btn-sm tkxwlbj">编辑</button>')
+				
+			}
+			
+			
+			//重箱进港
+			function zxjgl() {
+				var didan=[]
+				if(ddxq.containers){
+					var didan=$.parseJSON(ddxq.containers)
+				}
+				
+				 
+				if(mynodes){
+					var nodejie=$.parseJSON(mynodes);
+				}else{
+					var nodejie=[];
+				}
+				
+				//console.log(nodejie)
+				var  xiangshu=[]
+				
+				var mtou=''
+				
+				var tkx=''
+				
+				for (var i=0;i<nodejie.length;i++) {
+					if(nodejie[i].nodeCode=='ZXJG'){
+						xiangshu= $.parseJSON(nodejie[i].nodeValue).infos
+						mtou=nodejie[i].wharfName
+					}
+					if(nodejie[i].nodeCode=='TKX'){
+						tkx= $.parseJSON(nodejie[i].nodeValue).infos
+						
+					}
+				}
+				
+				console.log(xiangshu)
+				
+				var gp20=ddxq.gp20
+				var gp40=ddxq.gp40
+				var hq40=ddxq.hq40
+				var hc45=ddxq.hc45
+				if(!gp20){gp20=0}
+				if(!gp40){gp40=0}
+				if(!hq40){hq40=0}
+				if(!hc45){hc45=0}
+				var tdh=ddxq.mbl;
+				if(!tdh){
+					tdh=''
+				}
+				
+				var liang=gp20+gp40+hq40+hc45
+				$('#tablediv').empty();
+				$('#tablediv').append(
+					'<table id="zxjgl" class="table table-bordered tablecenter tablejx">' +
+					'<caption><label class="jgmt">进港码头:</label><input class="matou" placeholder="请填写码头" value='+mtou+'></caption>' +
+					'<thead><tr style="background-color: #4cae4c;color:white;"><th rowspan="2"><span>提单号</span></th><th>箱号</th><th rowspan="2"><span>进港时间</span></th></tr><tr style="background-color: #4cae4c;color:white;"><th>封号</th></tr></thead>' +
+					'<tbody></tbody></table>'
+				);
+				if(xiangshu.length>0){
+					for(var j = 0; j < xiangshu.length; j++) {
+						var ds='';
+						
+						if(xiangshu[j]){ds=xiangshu[j].arrivalTime}
+						$('#zxjgl>tbody').append(
+							'<tr><td rowspan="2"><input style="width:100px"  value='+xiangshu[j].mbl+'></td><td> <input style="width:100px" readonly value='+xiangshu[j].containerNo+'></td><td rowspan="2">'+ds+'</td></tr><tr><td><input style="width:100px" readonly  value='+xiangshu[j].sealNo+'></td></tr>'
+						)
+					}
+				}else{
+					for(var j = 0; j < liang; j++) {
+						$('#zxjgl>tbody').append(
+							'<tr><td rowspan="2"><input style="width:100px"  value='+tdh+'></td><td> <input style="width:100px" value='+tkx[j].containerNo+' readonly ></td><td rowspan="2"><input style="width:100px"  ></td></tr><tr><td><input style="width:100px" readonly  value='+tkx[j].sealNo+'></td></tr>'
+						)
+					}
+				}
+				$('#tablediv').append('<br /><br /><br /><label  style="margin-left: 100px;margin-right: 100px;"> <input type="radio" name="two" value=0 /> 正常 </label><label> <input type="radio" value=1  name="two"/> 异常 </label>'
+				+ '<br><br><button type="button" data-nodenum="ZXJG" style="margin-left: 100px;margin-right: 100px;" class="btn btn-primary btn-sm zxjgwltj">添加</button><button data-nodenum="ZXJG" type="button" class="btn btn-info btn-sm zxjgwlbj">编辑</button>')
+				
+
+			}
+			
+			
+			//预配舱单
+			function ypcdl() {
+				var nodexin=[];
+				if(ddxq.containers){
+					nodexin=$.parseJSON(ddxq.containers);
+				}
+				
+				if(mynodes){
+					var nodejie=$.parseJSON(mynodes);
+				}else{
+					var nodejie=[];
+				}
+				
+				
+				var mytime='';
+				var mytai='';
+				var mycm='';
+				var mycc='';
+				var chmi='';
+				var chci='';
+				var tdh=ddxq.mbl;
+				if(!tdh){
+					tdh=''
+				}
+				
+				for (var i=0;i<nodejie.length;i++) {
+					if(nodejie[i].nodeCode=='YPCD'){
+						mytime=$.parseJSON(nodejie[i].nodeValue).operateTime
+						mytai=$.parseJSON(nodejie[i].nodeValue).blStatus
+						chmi=$.parseJSON(nodejie[i].nodeValue).vessel
+						chci=$.parseJSON(nodejie[i].nodeValue).voyage
+						
+					}
+					if(nodejie[i].nodeCode=='ZXJG'){
+						tdh=$.parseJSON(nodejie[i].nodeValue).infos[0].mbl
+						
+						
+					}
+				}
+				//console.log(nodejie)
+				$('#tablediv').append(
+					'<table id="ypcdl" class="table table-bordered tablecenter tablejx">' +
+					'<caption><label class="chuanming">船名:</label><input class="ypcm" value=' + chmi + '><label class="hangci">航次:</label><input class="yphc" value=' + chci + '></caption>' +
+					'<thead><tr style="background-color: #4cae4c;color:white;"><th>提单号</th><th>状态</th><th>操作时间</th></tr></thead>'
+					+'<tbody><tr><td class="yptd">' +
+					tdh + '</td><td><input style="width:100px"  class="ypzt text-center" value='+mytai+'></td><td>' +
+					mytime + '</td></tr></tbody></table>'
+				);
+				$('#tablediv').append('<br /><br /><br /><label  style="margin-left: 100px;margin-right: 100px;"> <input type="radio" name="two" value=0 /> 正常 </label><label> <input type="radio" value=1  name="two"/> 异常 </label>'
+				+ '<br><br><button type="button" data-nodenum="YPCD" style="margin-left: 100px;margin-right: 100px;" class="btn btn-primary btn-sm ypcdwltj">添加</button><button data-nodenum="YPCD" type="button" class="btn btn-info btn-sm ypcdwlbj">编辑</button>')
+				
+			}
+			
+			
+			//海关查验
+			function hcjyl() {
+				
+				
+				if(mynodes){
+					var nodejie=$.parseJSON(mynodes);
+				}else{
+					var nodejie=[];
+				}
+				
+				//console.log(nodejie)
+				var  xiangshu=[]
+				
+				var mtou=''
+				
+				var tkx=[]
+				
+				for (var i=0;i<nodejie.length;i++) {
+					if(nodejie[i].nodeCode=='HGCY'){
+						xiangshu= $.parseJSON(nodejie[i].nodeValue).infos
+						
+					}
+					if(nodejie[i].nodeCode=='TKX'){
+				    	tkx=$.parseJSON(nodejie[i].nodeValue).infos	
+						
+					}
+				}
+				console.log(xiangshu)
+				
+				var gp20=ddxq.gp20
+				var gp40=ddxq.gp40
+				var hq40=ddxq.hq40
+				var hc45=ddxq.hc45
+				if(!gp20){gp20=0}
+				if(!gp40){gp40=0}
+				if(!hq40){hq40=0}
+				if(!hc45){hc45=0}
+				var liang=gp20+gp40+hq40+hc45
+				$('#tablediv').append(
+					'<table id="hcjyl" class="table table-bordered tablecenter tablejx">' +
+					'<thead><tr style="background-color: #4cae4c;color:white;"><th>箱号</th><th>状态</th></tr></thead>' +
+					'<tbody></tbody></table>'
+				);
+				if(xiangshu.length>0){
+					for (var i=0;i<xiangshu.length;i++) {
+						
+						var wt=''
+						
+						if(xiangshu[i]){
+							wt=xiangshu[i].checkStatus
+						}
+						
+						$('#hcjyl>tbody').append('<tr><td><input class="hgxh" readonly value='+xiangshu[i].containerNo+'></td><td><input class="hgzt" value='+wt+'></td></tr>')
+					}
+				}else{
+					for (var i=0;i<liang;i++) {
+						$('#hcjyl>tbody').append('<tr><td><input class="hgxh" value='+tkx[i].containerNo+'></td><td><input class="hgzt"></td></tr>')
+					}
+				}
+				$('#tablediv').append('<br /><br /><br /><label  style="margin-left: 100px;margin-right: 100px;"> <input type="radio" name="two" value=0 /> 正常 </label><label> <input type="radio" value=1  name="two"/> 异常 </label>'
+				+ '<br><br><button type="button" data-nodenum="HGCY" style="margin-left: 100px;margin-right: 100px;" class="btn btn-primary btn-sm hgcywltj">添加</button><button data-nodenum="HGCY" type="button" class="btn btn-info btn-sm hgcywlbj">编辑</button>')
+				
+			}
+			
+			
+			
+			//海关放行
+			function hgfxl() {
+				
+				if(mynodes){
+					var nodejie=$.parseJSON(mynodes);
+				}else{
+					var nodejie=[];
+				}
+				
+				//console.log(nodejie)
+				var  xiangshu=[]
+				
+				var mtou=''
+				
+				var svg=''
+				var vog=''
+				
+				var tdh=[];
+				
+				for (var i=0;i<nodejie.length;i++) {
+					if(nodejie[i].nodeCode=='HGFX'){
+						xiangshu= $.parseJSON(nodejie[i].nodeValue).infos
+						console.log(xiangshu)
+					}
+					
+					if(nodejie[i].nodeCode=='YPCD'){
+					  
+						svg=$.parseJSON(nodejie[i].nodeValue).vessel
+						vog=$.parseJSON(nodejie[i].nodeValue).voyage
+					}
+					
+					if(nodejie[i].nodeCode=='ZXJG'){
+						tdh=$.parseJSON(nodejie[i].nodeValue).infos
+						
+					}
+					
+				}
+				//console.log(xiangshu)
+				
+				var gp20=ddxq.gp20
+				var gp40=ddxq.gp40
+				var hq40=ddxq.hq40
+				var hc45=ddxq.hc45
+				if(!gp20){gp20=0}
+				if(!gp40){gp40=0}
+				if(!hq40){hq40=0}
+				if(!hc45){hc45=0}
+				var liang=gp20+gp40+hq40+hc45
+				
+				
+				
+				$('#tablediv').append(
+					'<table id="hgfxl" class="table table-bordered tablecenter tablejx">' +
+					'<caption><label class="chuanming">船名:</label><span class="hfcm">' + svg + '</span><label class="hangci">航次:</label><span class="hfhc">' +vog + '</span></caption>' +
+					'<thead><tr style="background-color: #4cae4c;color:white;"><th>报关单号</th><th>提单号</th><th>放行时间</th></tr></thead>' +
+					'<tbody></tbody></table>'
+				);
+				if(xiangshu.length>0){
+					for(var j = 0; j < xiangshu.length; j++) {
+						
+						$('#hgfxl>tbody').append(
+							'<tr><td><input style="width:100px"  class="hfbd" value=' +
+							xiangshu[j].declaratNo + '></td><td class="hftd">' +
+							tdh[j].mbl + '</td><td>' +
+							xiangshu[j].releaseTime + '</td></tr>'
+						)
+					}
+				}else{
+					for(var j = 0; j < liang; j++) {
+						
+						$('#hgfxl>tbody').append(
+							'<tr><td><input style="width:100px"  class="hfbd" ></td><td class="hftd">' +
+							tdh[j].mbl+ '</td><td></td></tr>'
+						)
+					}
+				}
+				$('#tablediv').append('<br /><br /><br /><label  style="margin-left: 100px;margin-right: 100px;"> <input type="radio" name="two" value=0 /> 正常 </label><label> <input type="radio" value=1  name="two"/> 异常 </label>'
+				+ '<br><br><button type="button" data-nodenum="HGFX" style="margin-left: 100px;margin-right: 100px;" class="btn btn-primary btn-sm hgfxwltj">添加</button><button data-nodenum="HGFX" type="button" class="btn btn-info btn-sm hgfxwlbj">编辑</button>')
+				
+			}
+			
+			
+			
+			//重箱装船
+			function zxzgl() {
+				
+			//	var didan=$.parseJSON(ddxq.containers)
+				
+				if(mynodes){
+					var nodejie=$.parseJSON(mynodes);
+				}else{
+					var nodejie=[];
+				}
+				
+			//	console.log(nodejie)
+				var  xiangshu=[]
+				
+				var mtou=''
+				
+				var tkx=[]
+				
+				for (var i=0;i<nodejie.length;i++) {
+					if(nodejie[i].nodeCode=='ZXZC'){
+						xiangshu= $.parseJSON(nodejie[i].nodeValue).infos
+						
+					}
+					if(nodejie[i].nodeCode=='TKX'){
+						tkx= $.parseJSON(nodejie[i].nodeValue).infos
+						
+						
+					}
+					
+				}
+				//console.log(xiangshu)
+				var gp20=ddxq.gp20
+				var gp40=ddxq.gp40
+				var hq40=ddxq.hq40
+				var hc45=ddxq.hc45
+				if(!gp20){gp20=0}
+				if(!gp40){gp40=0}
+				if(!hq40){hq40=0}
+				if(!hc45){hc45=0}
+				var liang=gp20+gp40+hq40+hc45
+				$('#tablediv').append(
+					'<table id="zxzgl" class="table table-bordered tablecenter tablejx">' +
+					'<thead><tr style="background-color: #4cae4c;color:white;"><th>箱号</th><th>封号</th><th>装港时间</th></tr></thead>' +
+					'<tbody></tbody></table>'
+				);
+				if(xiangshu.length>0){
+					for(var j = 0; j < xiangshu.length; j++) {
+						var st=''
+						if(xiangshu[j]){
+							st=xiangshu[j].shipmentTime 
+						}
+						
+						$('#zxzgl>tbody').append(
+							'<tr><td><input style="width:100px" readonly  class="zxxh" value=' +
+							xiangshu[j].containerNo + '></td><td><input readonly style="width:100px"  class="zxfh" value=' +
+							xiangshu[j].sealNo + '></td><td>' +
+							st+ '</td></tr>'
+						)
+					}
+				}else{
+					for(var j = 0; j < liang; j++) {
+						$('#zxzgl>tbody').append(
+							'<tr><td><input style="width:100px" readonly  class="zxxh" value=' +
+							tkx[j].containerNo + '></td><td><input readonly style="width:100px" value=' +
+							tkx[j].sealNo + ' class="zxfh"></td><td></td></tr>'
+						)
+					}
+				}
+				
+				$('#tablediv').append('<br /><br /><br /><label  style="margin-left: 100px;margin-right: 100px;"> <input type="radio" name="two" value=0 /> 正常 </label><label> <input type="radio" value=1  name="two"/> 异常 </label>'
+				+ '<br><br><button type="button" data-nodenum="ZXZC" style="margin-left: 100px;margin-right: 100px;" class="btn btn-primary btn-sm zxzcwltj">添加</button><button data-nodenum="ZXZC" type="button" class="btn btn-info btn-sm zxzcwlbj">编辑</button>')
+				
+			}
+			
+			
+			
+			
+			
+			//添加提空箱
+			$(document).on('click','.tkxwltj',function(){
+				//$('#tkxl')
+				
+				var newarr=[];
+				for (var i=0;i<$('#tkxl>tbody>tr').length;i++) {
+					newarr.push({
+						'containerNo':$('#tkxl>tbody>tr').eq(i).find('input').eq(0).val(),
+						'sealNo':$('#tkxl>tbody>tr').eq(i).find('input').eq(1).val(),
+						'yard':$('#tkxl>tbody>tr').eq(i).find('input').eq(2).val(),
+					})
+				}
+				
+				console.log(newarr)
+				var obj={'infos':newarr}
+				var thisnode=$(this).data('nodenum');
+				var data = new Date();
+				var gt=data.getTime();
+				var year=data.getFullYear();
+				var month=data.getMonth()+1;
+				var day=data.getDate();
+				var hours=data.getHours();
+				var min=data.getMinutes();
+				var s=data.getSeconds();
+				function toDou(s){
+					return s>=10? s+'': '0'+s;
+				}
+				var str=year+'-'+toDou(month)+'-'+toDou(day)+' '+toDou(hours)+':'+toDou(min)+':'+toDou(s);
+				console.log(str)
+				$.ajax({
+					type: "post",
+					url: "http://106.14.251.28:8085/bizCenter/logisticalInfoService/addNodeInfo",
+					data: {
+						'accessToken': localStorage.getItem('accessToken'),
+						'msgId': gt + '',
+						'nodeCode':"TKX",
+						'nodeTime':str,
+						'isError':$('[type="radio"]:checked').val(),
+						'nodeValue':JSON.stringify(obj),
+						'mbl':ddxq.mbl,
+						'orderCode':ddxq.orderCode
+					},
+					async: true,
+					dataType: 'json',
+					success: function(data) {
+						console.log(data)
+						if(data.retCode=='0000'){
+							alert('添加成功')
+							location='pc_haiweihu.html'
+						}
+					}
+				})
+				
+			})
+			
+			//编辑提空箱
+			
+			$(document).on('click','.tkxwlbj',function(){
+				//$('#tkxl')
+				
+				var newarr=[];
+				for (var i=0;i<$('#tkxl>tbody>tr').length;i++) {
+					newarr.push({
+						'containerNo':$('#tkxl>tbody>tr').eq(i).find('input').eq(0).val(),
+						'sealNo':$('#tkxl>tbody>tr').eq(i).find('input').eq(1).val(),
+						'yard':$('#tkxl>tbody>tr').eq(i).find('input').eq(2).val(),
+					})
+				}
+				
+				console.log(newarr)
+				var obj={'infos':newarr}
+				
+				var thisnode=$(this).data('nodenum');
+				var data = new Date();
+				var gt=data.getTime();
+				var year=data.getFullYear();
+				var month=data.getMonth()+1;
+				var day=data.getDate();
+				var hours=data.getHours();
+				var min=data.getMinutes();
+				var s=data.getSeconds();
+				function toDou(s){
+					return s>=10? s+'': '0'+s;
+				}
+				var str=year+'-'+toDou(month)+'-'+toDou(day)+' '+toDou(hours)+':'+toDou(min)+':'+toDou(s);
+				//console.log(str)
+				
+				$.ajax({
+					type: "post",
+					url: "http://106.14.251.28:8085/bizCenter/logisticalInfoService/updateNodeInfo",
+					data: {
+						'accessToken': localStorage.getItem('accessToken'),
+						'msgId': gt + '',
+						'nodeCode':"TKX",
+						'nodeTime':str,
+						'isError':$('[type="radio"]:checked').val(),
+						'nodeValue':JSON.stringify(obj),
+						'mbl':ddxq.mbl,
+						'orderCode':ddxq.orderCode
+					},
+					async: true,
+					dataType: 'json',
+					success: function(data) {
+						console.log(data)
+						if(data.retCode=='0000'){
+							alert('编辑成功')
+							location='pc_haiweihu.html'
+						}
+					}
+				})
+				
+			})
+			
+			
+			
+			
+			//添加重箱进港
+			
+			$(document).on('click','.zxjgwltj',function(){
+				//$('#tkxl')
+				var str=mytime()
+				var newarr=[];
+				for (var i=0;i<$('#zxjgl>tbody>tr').length;i=i+2) {
+					newarr.push({
+						
+						
+						'mbl':$('#zxjgl>tbody>tr').eq(i).find('input').eq(0).val(),
+						'containerNo':$('#zxjgl>tbody>tr').eq(i).find('input').eq(1).val(),
+						'sealNo':$('#zxjgl>tbody>tr').eq(i).next().find('input').eq(0).val(),
+						'arrivalTime':str
+
+					})
+				}
+				
+				console.log(newarr)
+				var obj={'infos':newarr,'wharfName':$('.matou').val(),}
+				
+				var gt = new Date().getTime();
+				$.ajax({
+					type: "post",
+					url: "http://106.14.251.28:8085/bizCenter/logisticalInfoService/addNodeInfo",
+					data: {
+						'accessToken': localStorage.getItem('accessToken'),
+						'msgId': gt + '',
+						'nodeCode':"ZXJG",
+						'nodeTime':str,
+						'isError':$('[type="radio"]:checked').val(),
+						'nodeValue':JSON.stringify(obj),
+						'mbl':ddxq.mbl,
+						'orderCode':ddxq.orderCode
+					},
+					async: true,
+					dataType: 'json',
+					success: function(data) {
+						console.log(data)
+						if(data.retCode=='0000'){
+							alert('添加成功')
+							location='pc_haiweihu.html'
+						}
+					}
+				})
+				
+			})
+			
+			//编辑重箱进港 
+			
+			$(document).on('click','.zxjgwlbj',function(){
+				
+				var str=mytime()
+				var newarr=[];
+				for (var i=0;i<$('#zxjgl>tbody>tr').length;i=i+2) {
+					newarr.push({
+						
+						
+						'mbl':$('#zxjgl>tbody>tr').eq(i).find('input').eq(0).val(),
+						'containerNo':$('#zxjgl>tbody>tr').eq(i).find('input').eq(1).val(),
+						'sealNo':$('#zxjgl>tbody>tr').eq(i).next().find('input').eq(0).val(),
+						'arrivalTime':str
+
+					})
+				}
+				
+				console.log(newarr)
+				var obj={'infos':newarr,'wharfName':$('.matou').val(),}
+				
+				var gt = new Date().getTime();
+				$.ajax({
+					type: "post",
+					url: "http://106.14.251.28:8085/bizCenter/logisticalInfoService/updateNodeInfo",
+					data: {
+						'accessToken': localStorage.getItem('accessToken'),
+						'msgId': gt + '',
+						'nodeCode':"ZXJG",
+						'nodeTime':str,
+						'isError':$('[type="radio"]:checked').val(),
+						'nodeValue':JSON.stringify(obj),
+						//'mbl':ddxq.mbl,
+						'orderCode':ddxq.orderCode
+					},
+					async: true,
+					dataType: 'json',
+					success: function(data) {
+						console.log(data)
+						if(data.retCode=='0000'){
+							alert('编辑成功')
+							location='pc_haiweihu.html'
+						}
+					}
+				})
+				
+			})
+			
+			
+			
+			//添加预配舱单
+			
+			$(document).on('click','.ypcdwltj',function(){
+				var str=mytime();
+				var gt = new Date().getTime();
+				$.ajax({
+					type: "post",
+					url: "http://106.14.251.28:8085/bizCenter/logisticalInfoService/addNodeInfo",
+					data: {
+						'accessToken': localStorage.getItem('accessToken'),
+						'msgId': gt + '',
+						'nodeCode':"YPCD",
+						'orderCode':ddxq.orderCode,
+						'mbl':$('.yptd').text(),
+						'nodeTime':str,
+						'isError':$('[type="radio"]:checked').val(),
+						'nodeValue':JSON.stringify({
+							"operateTime":str,
+							'mbl':$('.yptd').text(),
+							"vessel":$('.ypcm').val(),//船名
+							"voyage":$('.yphc').val(),//航次
+							"blStatus":$('.ypzt').val()
+						})
+					},
+					
+
+					async: true,
+					dataType: 'json',
+					success: function(data) {
+						console.log(data)
+						if(data.retCode=='0000'){
+							alert('添加成功')
+							location='pc_haiweihu.html'
+						}
+					}
+				})
+			})
+			
+			
+			//编辑预配舱单
+			
+			$(document).on('click','.ypcdwlbj',function(){
+				var str=mytime();
+				var gt = new Date().getTime();
+				$.ajax({
+					type: "post",
+					url: "http://106.14.251.28:8085/bizCenter/logisticalInfoService/updateNodeInfo",
+					data: {
+						'accessToken': localStorage.getItem('accessToken'),
+						'msgId': gt + '',
+						'nodeCode':"YPCD",
+						'orderCode':ddxq.orderCode,
+						'mbl':$('.yptd').text(),
+						'nodeTime':str,
+						'isError':$('[type="radio"]:checked').val(),
+						'nodeValue':JSON.stringify({
+							"operateTime":str,
+							'mbl':$('.yptd').text(),
+							"vessel":$('.ypcm').val(),//船名
+							"voyage":$('.yphc').val(),//航次
+							"blStatus":$('.ypzt').val()
+						})
+					},
+					
+
+					async: true,
+					dataType: 'json',
+					success: function(data) {
+						console.log(data)
+						if(data.retCode=='0000'){
+							alert('编辑成功')
+							location='pc_haiweihu.html'
+						}
+					}
+				})
+			})
+			
+			
+			
+			
+			
+			//添加海关查验
+			
+			$(document).on('click','.hgcywltj',function(){
+				
+				var newarr=[];
+				for (var i=0;i<$('#hcjyl>tbody>tr').length;i++) {
+					newarr.push({
+						'containerNo':$('#hcjyl>tbody>tr').eq(i).find('.hgxh').val(),
+						'checkStatus':$('#hcjyl>tbody>tr').eq(i).find('.hgzt').val(),
+					})
+				}
+				
+				console.log(newarr)
+				var obj={'infos':newarr}
+				
+				var str=mytime();
+				var gt = new Date().getTime();
+				$.ajax({
+					type: "post",
+					url: "http://106.14.251.28:8085/bizCenter/logisticalInfoService/addNodeInfo",
+					data: {
+						'accessToken': localStorage.getItem('accessToken'),
+						'msgId': gt + '',
+						'nodeCode':"HGCY",
+						'orderCode':ddxq.orderCode,
+						'mbl':ddxq.mbl,
+						'nodeTime':str,
+						'isError':$('[type="radio"]:checked').val(),
+						'nodeValue':JSON.stringify(obj)
+					},
+					
+
+					async: true,
+					dataType: 'json',
+					success: function(data) {
+						console.log(data)
+						if(data.retCode=='0000'){
+							alert('添加成功')
+							location='pc_haiweihu.html'
+						}
+					}
+				})
+			})
+			
+			//编辑海关查验
+			
+			$(document).on('click','.hgcywlbj',function(){
+				
+				var newarr=[];
+				for (var i=0;i<$('#hcjyl>tbody>tr').length;i++) {
+					newarr.push({
+						'containerNo':$('#hcjyl>tbody>tr').eq(i).find('.hgxh').val(),
+						'checkStatus':$('#hcjyl>tbody>tr').eq(i).find('.hgzt').val(),
+					})
+				}
+				
+				console.log(newarr)
+				var obj={'infos':newarr}
+				
+				var str=mytime();
+				var gt = new Date().getTime();
+				$.ajax({
+					type: "post",
+					url: "http://106.14.251.28:8085/bizCenter/logisticalInfoService/updateNodeInfo",
+					data: {
+						'accessToken': localStorage.getItem('accessToken'),
+						'msgId': gt + '',
+						'nodeCode':"HGCY",
+						'orderCode':ddxq.orderCode,
+						'mbl':ddxq.mbl,
+						'nodeTime':str,
+						'isError':$('[type="radio"]:checked').val(),
+						'nodeValue':JSON.stringify(obj)
+					},
+					
+
+					async: true,
+					dataType: 'json',
+					success: function(data) {
+						console.log(data)
+						if(data.retCode=='0000'){
+							alert('编辑成功')
+							location='pc_haiweihu.html'
+						}
+					}
+				})
+			})
+			
+			//添加海关放向
+			$(document).on('click','.hgfxwltj',function(){
+				var str=mytime();
+				var newarr=[];
+				for (var i=0;i<$('#hgfxl>tbody>tr').length;i++) {
+					newarr.push({
+						'declaratNo':$('#hgfxl>tbody>tr').eq(i).find('.hfbd').val(),
+						'releaseTime':str,
+					})
+				}
+				
+				console.log(newarr)
+				var obj={'infos':newarr,
+						'mbl':ddxq.mbl,
+						'vessel':$('.hfcm').text(),
+						'voyage':$('.hfhc').text()
+							}
+				
+				
+				var gt = new Date().getTime();
+				$.ajax({
+					type: "post",
+					url: "http://106.14.251.28:8085/bizCenter/logisticalInfoService/addNodeInfo",
+					data: {
+						'accessToken': localStorage.getItem('accessToken'),
+						'msgId': gt + '',
+						'nodeCode':"HGFX",
+						'orderCode':ddxq.orderCode,
+						'mbl':$('.hftd').eq(0).text(),
+						'nodeTime':str,
+						'isError':$('[type="radio"]:checked').val(),
+						'nodeValue':JSON.stringify(obj)
+					},
+					
+
+					async: true,
+					dataType: 'json',
+					success: function(data) {
+						console.log(data)
+						if(data.retCode=='0000'){
+							alert('添加成功')
+							location='pc_haiweihu.html'
+						}
+					}
+				})
+			})
+			
+			//编辑海关放向
+			$(document).on('click','.hgfxwlbj',function(){
+				var str=mytime();
+				var newarr=[];
+				for (var i=0;i<$('#hgfxl>tbody>tr').length;i++) {
+					newarr.push({
+						'declaratNo':$('#hgfxl>tbody>tr').eq(i).find('.hfbd').val(),
+						'releaseTime':str,
+					})
+				}
+				
+				console.log(newarr)
+				var obj={'infos':newarr,
+						'mbl':ddxq.mbl,
+						'vessel':$('.hfcm').text(),
+						'voyage':$('.hfhc').text()
+							}
+				
+				
+				var gt = new Date().getTime();
+				$.ajax({
+					type: "post",
+					url: "http://106.14.251.28:8085/bizCenter/logisticalInfoService/updateNodeInfo",
+					data: {
+						'accessToken': localStorage.getItem('accessToken'),
+						'msgId': gt + '',
+						'nodeCode':"HGFX",
+						'orderCode':ddxq.orderCode,
+						'mbl':$('.hftd').eq(0).text(),
+						'nodeTime':str,
+						'isError':$('[type="radio"]:checked').val(),
+						'nodeValue':JSON.stringify(obj)
+					},
+					
+
+					async: true,
+					dataType: 'json',
+					success: function(data) {
+						console.log(data)
+						if(data.retCode=='0000'){
+							alert('编辑成功')
+							location='pc_haiweihu.html'
+						}
+					}
+				})
+			})
+			
+			
+			
+			//添加重箱装船
+			$(document).on('click','.zxzcwltj',function(){
+				var str=mytime();
+				var newarr=[];
+				for (var i=0;i<$('#zxzgl>tbody>tr').length;i++) {
+					newarr.push({
+						'containerNo':$('#zxzgl>tbody>tr').eq(i).find('.zxxh').val(),
+						'sealNo':$('#zxzgl>tbody>tr').eq(i).find('.zxfh').val(),
+						'shipmentTime':str,
+					})
+				}
+				
+				console.log(newarr)
+				var obj={'infos':newarr}
+				
+				
+				var gt = new Date().getTime();
+				$.ajax({
+					type: "post",
+					url: "http://106.14.251.28:8085/bizCenter/logisticalInfoService/addNodeInfo",
+					data: {
+						'accessToken': localStorage.getItem('accessToken'),
+						'msgId': gt + '',
+						'nodeCode':"ZXZC",
+						'orderCode':ddxq.orderCode,
+						'mbl':ddxq.mbl,
+						'nodeTime':str,
+						'isError':$('[type="radio"]:checked').val(),
+						'nodeValue':JSON.stringify(obj)
+					},
+					
+
+					async: true,
+					dataType: 'json',
+					success: function(data) {
+						console.log(data)
+						if(data.retCode=='0000'){
+							alert('添加成功')
+							location='pc_haiweihu.html'
+						}
+						
+					}
+				})
+			})
+			
+			//重箱装船
+			$(document).on('click','.zxzcwlbj',function(){
+				var str=mytime();
+				var newarr=[];
+				for (var i=0;i<$('#zxzgl>tbody>tr').length;i++) {
+					newarr.push({
+						'containerNo':$('#zxzgl>tbody>tr').eq(i).find('.zxxh').val(),
+						'sealNo':$('#zxzgl>tbody>tr').eq(i).find('.zxfh').val(),
+						'shipmentTime':str,
+					})
+				}
+				
+				console.log(newarr)
+				var obj={'infos':newarr}
+				
+				
+				var gt = new Date().getTime();
+				$.ajax({
+					type: "post",
+					url: "http://106.14.251.28:8085/bizCenter/logisticalInfoService/updateNodeInfo",
+					data: {
+						'accessToken': localStorage.getItem('accessToken'),
+						'msgId': gt + '',
+						'nodeCode':"ZXZC",
+						'orderCode':ddxq.orderCode,
+						'mbl':ddxq.mbl,
+						'nodeTime':str,
+						'isError':$('[type="radio"]:checked').val(),
+						'nodeValue':JSON.stringify(obj)
+					},
+					
+
+					async: true,
+					dataType: 'json',
+					success: function(data) {
+						console.log(data)
+						if(data.retCode=='0000'){
+							alert('编辑成功')
+							location='pc_haiweihu.html'
+						}
+					}
+				})
+			})
+			
+			//时间函数
+			function mytime(){
+				var data = new Date();
+				var gt=data.getTime();
+				var year=data.getFullYear();
+				var month=data.getMonth()+1;
+				var day=data.getDate();
+				var hours=data.getHours();
+				var min=data.getMinutes();
+				var s=data.getSeconds();
+				function toDou(s){
+					return s>=10? s+'': '0'+s;
+				}
+				return year+'-'+toDou(month)+'-'+toDou(day)+' '+toDou(hours)+':'+toDou(min)+':'+toDou(s);
+			}
+
+			
+			
+			//动态创建订单表格
+
+			function cretable(a, i) {
+				var ztname = null;
+				var zttime = null;
+				var gp20 = null;
+				var gp40 = null;
+				var hq40 = null;
+				var hc45 = null;
+				gp20 = a.gp20;
+				gp40 = a.gp40;
+				hq40 = a.hq40;
+				hc45 = a.hc45;
+				var zhungtai='';
+				if(a.node){
+					if(!a.node.isError){
+						 zhungtai='<ul class="zhtai" ><li><div class="lideng"></div></li><li>' + a.node.nodeName + '</li><li>' + a.node.nodeTime + '</li></ul>' 
+					}else{
+						zhungtai='<ul class="zhtai" ><li><div class="lideng errordeng"></div></li><li>' + a.node.nodeName + '</li><li>' + a.node.nodeTime + '</li></ul>' 
+					}
+				}
+				
+				if(!gp20) {
+					gp20 = '--'
+				}
+				if(!gp40) {
+					gp40 = '--'
+				}
+				if(!hq40) {
+					hq40 = '--'
+				}
+				if(!hc45) {
+					hc45 = '--'
+				}
+				
+				var mbl=a.mbl 
+				if(!mbl){
+					mbl=''
+				}
+				var zzg=a.potName
+				if(!zzg){
+					zzg=''
+				}
+					
+				$('table.tableding>tbody').append(
+					'<tr><td rowspan="2">' +
+					i + '</td><td>' +
+					a.orderCode + '</td><td>' +
+					a.vessel + '</td><td rowspan="2">' +
+					gp20 + '</td><td rowspan="2">' +
+					gp40 + '</td><td rowspan="2">' +
+					hq40 + '</td><td rowspan="2">' +
+					hc45 + '</td><td>' +
+					a.polName + '</td><td>' +
+					 zzg+ '</td><td rowspan="2" style="padding-top: 25px !important;">' +
+					zhungtai+'</td><td rowspan="2"><span data-dingdan=' + a.orderCode + ' class="tablexiang" data-toggle="modal" data-target="#myModal">详细</span></td></tr><tr><td>' +
+					mbl + '</td><td>' +
+					a.voyage + '</td><td>' +
+					a.podName + '</td><td>' +
+					a.sailingDay + '</td></tr>'
+				)
+
+			}
+			
+
+			var pagenum = 0;
+
+			function creatfenye(pagezong, pagedang) {
+				var yeshu = Math.ceil(pagenum / $('[name="yeshu"]').val())
+				$(".tcdPageCode").createPage({
+					pageCount: yeshu,
+					current: 1,
+					backFn: function(p) {
+						//console.log(p);
+					}
+				});
+			}
+			
+			function getdidan(a,b){
+				$('table.tableding>tbody').empty()
+				var l = new Date().getTime();
+				$.ajax({
+						type: "post",
+						url: "http://106.14.251.28:8085/bizCenter/order/findByOrder?accessToken=" + localStorage.getItem('accessToken'),
+						data: JSON.stringify({
+							"orderCode":$('[name="ddh"]').val(), //订单号
+							"mbl":$('[name="tdh"]').val(), //提单号
+							"createTimeBegin": $('[name="kssj"]').val(), //开始时间
+							"createTimeEnd": $('[name="jssj"]').val(), //结束时间
+							"currentPage": a, //当前页
+							"pageSize": b //当前页条数
+						}),
+						async: true,
+						dataType: 'json',
+						contentType: "application/json; charset=utf-8",
+						success: function(json) {
+							console.log(json)
+							var a = json.data
+							
+							var num = json.data[0].num;
+							if(!num){num=0};
+							$('.pagezong').text(num)
+							if(+num != pagenum) {
+								pagenum = num;
+								$('.pagezong').text(pagenum)
+								creatfenye() //分页函数
+							}
+							$('.zongshu').text(num)
+							for(var i = 0; i < a.length; i++) {
+								cretable(a[i], i + 1)
+									//console.log(i)
+							}
+
+						},
+						error: function(data) {
+							console.log('错误')
+
+						}
+					})
+					//获取最新的物流状态
+			}
+			
+			
+			
+			
+			
+			
+		getdidan(0,$('[name="yeshu"]').val())
+			
+			function change(){
+				
+				getdidan(0,$('[name="yeshu"]').val())
+				creatfenye()
+			}
+			
+			$('[name="yeshu"]').on('change',change)
+			
+			//分页
+		function dangqian(){
+			
+			var dang=($(this).text()-1)*$('[name="yeshu"]').val();
+			var tiao=$('[name="yeshu"]').val()
+			getdidan(dang,tiao)
+			
+		}
+		function prevPage(){
+			var dang=($('.current').text()-1)*$('[name="yeshu"]').val()
+			var tiao=$('[name="yeshu"]').val()
+			getdidan(dang,tiao)
+		}
+		
+		function nextPage(){
+			var dang=($('.current').text()-1)*$('[name="yeshu"]').val()
+			var tiao=$('[name="yeshu"]').val()
+			getdidan(dang,tiao)
+		}
+		
+		
+		//默认状态
+		$(document).on('click','.tcdNumber',dangqian)
+		$(document).on('click','.prevPage',prevPage)
+		$(document).on('click','.nextPage',nextPage)
+		
+		//搜索
+		$('.sousuo').on('click', function(e) {
+				e.preventDefault();
+				$('table.tableding>tbody').empty()
+				$('.tcdPageCode').remove();
+				getdidan(0,$('[name="yeshu"]').val())
+			
+		})
+		
+		
+		
+		
+		
+		
+		
+		
+		</script>
+	</body>
+
+</html>

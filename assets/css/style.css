@@ -1,0 +1,588 @@
+body {
+	font-size: 12px;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+.contzong {
+	
+	min-height: 400px;
+	margin: 0 auto;
+	border: 1px solid #CCCCCC;
+	padding: 10px 15px;
+	background-color: white;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
+}
+
+.contson1 {
+	width: 100%;
+	padding-top:10px;
+	border: 1px solid gray;
+}
+
+.contson2 {
+	margin-top: 10px;
+	border: 1px solid #CCCCCC;
+	border-bottom: none;
+	padding: 10px 15px;
+}
+
+.contson2>a {
+	color: red;
+}
+
+.inpline>.form-group label {
+	padding: 0;
+	padding-top: 6px !important;
+	text-align: center;
+}
+
+.inpline>.form-group div {
+	padding: 0;
+	padding-left: 5px !important;
+}
+
+.feican {
+	width: 100%;
+	padding-top: 10px;
+	background-color: whitesmoke;
+}
+
+.feicanzuo {
+	font-size: 15px;
+	line-height: 90px;
+}
+
+.feicanyou li>span:first-child {
+	display: inline-block;
+	width: 40%;
+	text-align: right;
+}
+
+.myquxiao{
+				width: 100%;
+				height:100%;
+				background-color: black;
+				opacity: 0.5;
+				z-index: 4000;
+				position: fixed;
+				display: none;
+				
+			}
+			.qxqd{
+				background-color: white;
+				width: 300px;
+				height: 150px;
+				z-index: 5000;
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				border-radius: 5px;
+				display: none;
+			}
+			.qxqdson{
+				color: red;
+				font-size: 20px;
+				text-align: center;
+				margin-top: 20px;
+				margin-bottom: 30px;
+			}
+
+.feicanyou li>span:last-child {
+	display: inline-block;
+	width: 60%;
+	text-align: right;
+	color: red;
+}
+
+.feicanyou li {
+	margin-bottom: 5px;
+}
+
+.feicanyou li:last-child {
+	text-align: right;
+	padding-right: 5px;
+}
+
+.mingxiang {
+	background-color: whitesmoke;
+	padding: 5px;
+}
+
+.xiangxing {
+	position: relative;
+	padding-left: 13px;
+	border-bottom: 1px solid black;
+	padding-bottom: 2px;
+}
+
+.xiangxing::before {
+	content: "";
+	width: 4px;
+	height: 4px;
+	border-radius: 50%;
+	position: absolute;
+	background-color: red;
+	left: 3px;
+	top: 7px;
+}
+
+.sonshu1 {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.chakan,
+.quxiao,
+.ludan ,.shanchu{
+	color: red;
+	cursor: pointer;
+}
+
+.bianji,
+.jinyong,
+.qiyong,
+.zhibao {
+	color: red;
+	cursor: pointer;
+}
+
+.bianji:hover,
+.qiyong:hover,
+.jinyong:hover,
+.zhibao:hover {
+	text-decoration: underline;
+}
+
+.chakan:hover,
+.quxiao:hover,
+.ludan:hover ,.shanchu:hover{
+	text-decoration: underline;
+}
+
+.biaodiv {
+	border: 1px solid #CCCCCC;
+}
+
+.dengtd {
+	position: relative;
+}
+
+.deng {
+	width: 15px;
+	height: 15px;
+	background-color: gray;
+	border-radius: 50%;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.xiangright {
+	width: 100%;
+	min-height: 100px;
+	border: 1px solid #ccc;
+	padding: 10px;
+	min-height: 440px;
+}
+
+.xzileft {
+	font-size: 17px;
+	font-weight: 600;
+	margin-left: 40px;
+}
+
+.xziright {
+	font-size: 13px;
+	font-weight: 500;
+	margin-left: 100px;
+}
+
+.tablecenter td,
+.tablecenter th {
+	text-align: center;
+}
+
+.tablexiang {
+	color: red;
+	cursor: pointer;
+}
+
+.tablexiang:hover {
+	text-decoration: underline;
+}
+
+.tablecenter {
+	margin-bottom: 0;
+}
+
+th[rowspan='2']>span {
+	margin-top: -33px;
+	display: block
+}
+
+td[rowspan='2'] {
+	padding-top: 25px !important;
+}
+
+.biaofooter {
+	width: 100%;
+	height: 65px;
+	border: 1px solid #ddd;
+	box-sizing: border-box;
+	padding-top: 17px;
+	box-sizing: border-box;
+	margin-bottom: 5px;
+	border-top-width: 0;
+}
+
+.footerulleft {
+	margin-left: 15px;
+	height: 31px;
+}
+
+.footerulleft>li {
+	height: 100%;
+	box-sizing: border-box;
+	width: 25px;
+	float: left;
+	text-align: center;
+	line-height: 31px;
+}
+
+.tablestrd tbody>tr:nth-child(4n+3) {
+	background-color: whitesmoke;
+}
+
+.tablestrd tbody>tr:nth-child(4n+3)+tr {
+	background-color: whitesmoke;
+}
+
+.tablestrd>thead>tr {
+	background-color: #337ab7;
+	color: white;
+}
+
+.heardcolor {
+	background-color: #d9edf7;
+}
+
+.tablestrd>thead>tr>th {
+	border-bottom-width: 1px;
+}
+
+.mylable .control-label {
+	padding-right: 0;
+	padding-left: 0;
+}
+
+.mylable .form-group {
+	margin-right: 0;
+	margin-left: 0;
+	padding-left: 0;
+}
+
+.quanxuan {
+	display: block;
+	width: 20px;
+	height: 20px;
+	border: 1px solid blue;
+	cursor: pointer;
+	float: left;
+	margin-right: 10px;
+	margin-top: 5px;
+	position: relative;
+	border-radius: 3px;
+}
+
+.xuanzi{
+	display: block;
+	width: 40px;
+	height: 20px;
+	
+	float: left;
+	margin-top: 7px;
+}
+.quangou::before{
+	width: 5px;
+	height: 2px;
+	background-color: red;
+	position: absolute;
+	content: '';
+	transform: rotate(45deg);
+	left: 3px;
+	top: 12px;
+}
+.quangou::after{
+	width: 15px;
+	height: 2px;
+	background-color: red;
+	position: absolute;
+	content: '';
+	transform: rotate(-55deg);
+	left: 4px;
+	top: 8px;
+}
+.mychecked {
+	width: 15px;
+	height: 15px;
+	border: 1px solid blue;
+	cursor: pointer;
+	margin-left: 8px;
+	position: relative;
+}
+
+
+/*复选框*/
+
+.gou {}
+
+.gou::before {
+	width: 5px;
+	height: 2px;
+	background-color: red;
+	position: absolute;
+	content: '';
+	transform: rotate(45deg);
+	left: 1px;
+	top: 9px;
+}
+
+.gou::after {
+	width: 13px;
+	height: 2px;
+	background-color: red;
+	position: absolute;
+	content: '';
+	transform: rotate(-55deg);
+	left: 2px;
+	top: 5px;
+}
+
+
+
+
+/*订单信息*/
+
+.myform>.form-group {
+	margin-bottom: 0;
+}
+
+/*物流信息*/
+.keshitable>tbody>tr{
+	cursor: pointer;
+}
+
+.errordeng{
+	background-color: red !important;
+}
+
+.succesdeng{
+	background-color: green;
+}
+
+
+
+.mydrop{
+			margin-left: 35px;
+			
+		}
+			.xiasou {
+				position: absolute;
+				margin-top: 30px;
+				z-index: 1000;
+			}
+			.ligang{
+				cursor: pointer;
+			
+				padding-left: 5px;
+				padding-right: 25px;
+				padding-top: 3px;
+				padding-bottom: 3px;
+			}
+			.ligang:nth-child(2n+1){
+				background-color: whitesmoke;
+			}
+			.ligang:hover{
+				
+				background-color: #1b1b6b;
+				color: white;
+			}
+			.gactive{
+				background-color: #1b1b6b !important;
+				color: white;
+			}
+			.gcname{
+				margin-left: 15px;
+			}
+			.mycreat{
+					
+					position: absolute;
+					right: 25px;
+					top: 13px;
+					
+			}
+			.souinput,.souchuaninput{
+				width: 94%;
+				margin-left: 3%;	
+			}
+			.ulgang{
+				margin-top: 3px;
+			}
+
+
+		/*.gangkou {
+				width: 1000px;
+			}
+			
+			.gangkou>li {
+				padding: 5px 15px;
+			}
+			
+			.hangxian {
+				width: 13%;
+				cursor: pointer;
+				float: left;
+			}
+			
+			.hanggang {
+				width: 87%;
+				float: left;
+			}
+			
+			.hanggang>ul>li {
+				display: inline-block;
+				cursor: pointer;
+				margin-left: 5px;
+			}
+			
+			.hanggang>ul>li:hover {
+				text-decoration: underline;
+				color: red;
+			}*/
+			
+			
+			
+		/*热门港口	*/
+			#tabgangli{
+				width: 800px;
+				
+				border: 1px solid #ccc;
+				position: absolute;
+				top: 30px;
+				background-color: whitesmoke;
+				border-radius: 3px;
+				display: none;
+				padding-left: 5px;
+				padding-right: 5px;
+				padding-top: 10px;
+				padding-bottom: 10px;
+			}
+			.showtab{
+				display: block !important;
+			}
+			li.hx{
+				padding: 8px;
+				
+				cursor: pointer;
+				
+				border-radius: 1px;
+				
+				font-weight: 500;
+			}
+			
+			
+			.liactive{
+				
+				background-color:#337ab7;
+				color: white;
+			}
+			.gangdiv{
+				width: 680px;
+				min-height: 100px;
+				border: 1px solid darkgray;
+				padding: 5px;
+			}
+			.xianul{
+				width: 100px;
+			}
+			.myreg{
+				display: inline-block;
+				cursor: pointer;
+			}
+			.myreg:hover{
+				color: red;
+				text-decoration: underline;
+			}
+			
+			
+		.tcdPageCode{
+				margin-top: -10px;
+			}	
+			
+input[readonly]{
+				background-color: #eee;
+			}
+			
+
+.totmoney{
+				margin-left: 60px;
+				font-size: 20px;
+			}
+			
+.myreg{
+	margin-right: 20px;
+}
+
+
+.clickuse,.clickupdate{
+				cursor: pointer;
+				padding-left: 10px;
+				padding-right: 10px;
+				
+			}
+			.clickuse:hover,.clickupdate:hover{
+				background-color: #286090;
+			}
+			#usexin{
+				min-width: 300px;
+				color:black;
+				padding-top: 0;
+				background-color: whitesmoke;
+			}
+			#usexin .geuse>li{
+				float: left;
+				line-height: 30px;
+			}
+			#usexin .geuse>li.useleft{
+				width: 80px;
+				padding-left: 15px;
+			}
+			#usexin .geuse>li.useright{
+				margin-left: 15px;
+			}
+			.clickupdate{
+				color: white;
+				line-height: 63px;
+				margin-left: 40px;
+			}
+			.clickul{
+				margin-left: 40px;
+			}
+			.clickuse{
+				 color: white;
+				 line-height: 63px;
+				 margin-left: 40px;
+			}

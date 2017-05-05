@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<style>
+		div{
+			border: 1px solid black;
+			width: 400px;
+			height: 240px;
+			background-image: url(../../img/background.jpg);
+			background-position: -250px -355px;
+		}
+	</style>
+	</head>
+	<body>
+		
+		<div></div>
+		<input type="radio" value="1" name="one"/>
+		<input type="radio" value="0" name="one"/>
+		<button>tijiao</button>
+		<script src="../../LingYu/js/jquery-1.10.1.min.js"></script>
+		<script>
+			$('button').on('click',function(){
+				console.log($('[type="radio"]:checked').val())
+			})
+		</script>
+	</body>
+</html>
